@@ -15,10 +15,25 @@ import { useHistory } from 'react-router-dom'
 import { Card } from '../components/Card'
 import DividerWithText from '../components/DividerWithText'
 import { Layout } from '../components/Layout'
-
+import { useAuth } from '../Context/AuthContext'
+import useMounted from '../hooks/useMounted'
+import  axios  from 'axios'
 export default function Registerpage() {
   const history = useHistory()
-
+  const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
+  const [password, setPassword] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const toast =  useToast()
+  const mounted = useMounted()
+  const {register,signInWithGoogle} = useAuth()
+  const {currentUSer} = useAuth()
+  const initialvalue = {
+    Uid:"",
+    Name:"",
+    Email:"",
+    Number:""
+  }
   return (
     <Layout>
       <Heading textAlign='center' my={12}>
@@ -29,23 +44,72 @@ export default function Registerpage() {
           onSubmit={async e => {
             e.preventDefault()
             // your register logic here
+           // console.log(email , password);
+           if(!email || !password){
+             toast({
+               description: "Credentials not valid",
+               status:'error',
+               duration: 5000,
+               isClosable: true
+             })
+           }
+
+           setIsSubmitting(true)
+           register(email , password)
+           .then((response) => {console.log(response);
+          
+          initialvalue.Uid=response.user.uid;
+          initialvalue.Name = name;
+          initialvalue.Email = email;
+          initialvalue.Number="";
+          axios.post("http://localhost:3001/profile",initialvalue).then((response) => {
+            console.log(response.data);
+      
+    });
+          })
+           .catch((error) => {
+             console.log(error.message)
+           toast({
+               description: error.message,
+               status:'error',
+               duration: 5000,
+               isClosable: true
+             })}
+          
+             ).finally(() => {
+               mounted.current &&setIsSubmitting(false);
+               //let obj = JSON.stringify(currentUSer , null , 2);
+              
+              
+              //initialvalue.Uid=JSON.stringify(currentUSer.email);
+              console.log(initialvalue);
+            
+            })
+           
+
           }}
         >
           <Stack spacing='6'>
+            <FormControl id='name'>
+              <FormLabel>Enter Name</FormLabel>
+              <Input value={name} onChange={(e) => setName(e.target.value)} name='name' type='name' autoComplete='name' required />
+            </FormControl>
             <FormControl id='email'>
               <FormLabel>Email address</FormLabel>
-              <Input name='email' type='email' autoComplete='email' required />
+              <Input value={email} onChange={(e) => setEmail(e.target.value)} name='email' type='email' autoComplete='email' required />
             </FormControl>
             <FormControl id='password'>
               <FormLabel>Password</FormLabel>
               <Input
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 name='password'
                 type='password'
                 autoComplete='password'
                 required
               />
             </FormControl>
-            <Button type='submit' colorScheme='primary' size='lg' fontSize='md'>
+            <Button isLoading={isSubmitting} type='submit' colorScheme='primary' size='lg' fontSize='md'>
               Sign up
             </Button>
           </Stack>
@@ -61,7 +125,7 @@ export default function Registerpage() {
           isFullWidth
           colorScheme='red'
           leftIcon={<FaGoogle />}
-          onClick={() => alert('sign in with google')}
+          onClick={() => signInWithGoogle().then(user => console.log(user)).catch(error => console.log(error))}
         >
           Sign in with Google
         </Button>
