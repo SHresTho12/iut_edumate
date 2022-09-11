@@ -14,9 +14,14 @@ import { useHistory } from 'react-router-dom'
 import { Card } from '../components/Card'
 import DividerWithText from '../components/DividerWithText'
 import { Layout } from '../components/Layout'
+import { useAuth } from '../Context/AuthContext'  
 
 export default function ForgotPasswordPage() {
   const history = useHistory()
+  const { forgotPassword } = useAuth()
+  const toast = useToast()
+
+  const [email, setEmail] = useState('')
 
   return (
     <Layout>
@@ -27,15 +32,39 @@ export default function ForgotPasswordPage() {
         <chakra.form
           onSubmit={async e => {
             e.preventDefault()
-            // your forgot password logic here
+            // your login logic here
+            try {
+              await forgotPassword(email)
+              toast({
+                description: `An email is sent to ${email} for password reset instructions.`,
+                status: 'success',
+                duration: 9000,
+                isClosable: true,
+              })
+            } catch (error) {
+              console.log(error.message)
+              toast({
+                description: error.message,
+                status: 'error',
+                duration: 9000,
+                isClosable: true,
+              })
+            }
           }}
         >
           <Stack spacing='6'>
             <FormControl id='email'>
               <FormLabel>Email address</FormLabel>
-              <Input name='email' type='email' autoComplete='email' required />
+              <Input
+                name='email'
+                type='email'
+                autoComplete='email'
+                required
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+              />
             </FormControl>
-            <Button type='submit' colorScheme='primary' size='lg' fontSize='md'>
+            <Button type='submit' colorScheme='pink' size='lg' fontSize='md'>
               Submit
             </Button>
           </Stack>
@@ -49,4 +78,4 @@ export default function ForgotPasswordPage() {
       </Card>
     </Layout>
   )
-}
+        }
