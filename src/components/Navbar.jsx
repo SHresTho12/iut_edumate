@@ -29,7 +29,7 @@ export function Navbar() {
         mx='auto'
         spacing={4}
       >
-        <Navlink to='/' name='Firbase Authentication' size='lg' />
+        <Navlink to='/' name='IUT EDUMATE' size='lg' />
         <Spacer />
         {!currentUSer && <Navlink to='/login' name='Login' />}
         {!currentUSer && <Navlink to='/register' name='Register' />}

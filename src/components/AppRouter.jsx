@@ -5,9 +5,9 @@ import { useAuth } from '../Context/AuthContext'
 
 import Homepage from '../pages/Homepage'
 import Loginpage from '../pages/Loginpage'
-
+import ForgotPasswordPage from '../pages/ForgotPasswordPage'
 import Profilepage from '../pages/Profilepage'
-
+import ResetPasswordPage from '../pages/ResetPasswordPage'
 import Registerpage from '../pages/Registerpage'
 
 export default function AppRouter(props) {
@@ -26,7 +26,16 @@ export default function AppRouter(props) {
           <ProtectedRoute exact path='/login' component={Loginpage} />
           <ProtectedRoute exact path='/register' component={Registerpage} />
           <ProtectedRoute exact path='/profile' component={Profilepage} />
-        
+          <ProtectedRoute
+            exact
+            path='/forgot-password'
+            component={ForgotPasswordPage}
+          />
+          <ProtectedRoute
+            exact
+            path='/reset-password'
+            component={ResetPasswordPage}
+          />
       
 
 
