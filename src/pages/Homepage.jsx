@@ -1,5 +1,5 @@
 import {
-  Stack,Badge,chakra,Code,Heading,List,ListItem,OrderedList,Tag,Text,Box,HStack,IconButton,Spacer,useColorMode,useColorModeValue,Grid, GridItem,Button,ButtonGroup
+ VStack, Stack,Badge,chakra,Code,Heading,List,ListItem,OrderedList,Tag,Text,Box,HStack,IconButton,Spacer,useColorMode,useColorModeValue,Grid, GridItem,Button,ButtonGroup
 } from '@chakra-ui/react'
 
 import React from 'react'
@@ -9,9 +9,20 @@ import { MdBuild , MdCall } from "react-icons/md"
 
 
 export default function Homepage() {
+
+    const myStyle={
+        backgroundImage: 
+ "url('https://media.geeksforgeeks.org/wp-content/uploads/rk.png')",
+        height:'100vh',
+        marginTop:'-70px',
+        fontSize:'50px',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+    };
   return (
-    <Layout>
-      <Heading>Home page</Heading>
+    <Layout >
+    <VStack spacing={8}>
+      <Heading >Home Page</Heading>
       {/* <Grid
   templateAreas={`"header header"
                   "nav main"
@@ -38,7 +49,8 @@ export default function Homepage() {
 </Grid> */}
 
 
-<Stack direction='row' spacing={4}>
+<Stack direction='row' gap ={7} spacing={6}>
+
 <Button colorScheme='purple'   size="md"
   height="80px"
   width="225px"
@@ -70,6 +82,7 @@ export default function Homepage() {
   
 
 </Stack>
+</VStack>
       
     </Layout>
   
