@@ -8,7 +8,11 @@ import {
   Input,
   Stack,
   useToast,
+  ChakraProvider
 } from '@chakra-ui/react'
+import '@fontsource/josefin-sans/700.css'
+import '@fontsource/teko/700.css'
+import theme from './theme'
 import React, { useEffect, useRef, useState } from 'react'
 import { FaGoogle } from 'react-icons/fa'
 import { useHistory } from 'react-router-dom'
@@ -35,11 +39,12 @@ export default function Registerpage() {
     Number:""
   }
   return (
-    <Layout>
-      <Heading textAlign='center' my={12}>
+    <ChakraProvider theme={theme}>
+    <Layout >
+      <Heading textAlign='center' my={12} color="green.400">
         Register
       </Heading>
-      <Card maxW='md' mx='auto' mt={4}>
+      <Card maxW='md' mx='auto' mt={4} color="gray.600">
         <chakra.form
           onSubmit={async e => {
             e.preventDefault()
@@ -123,7 +128,7 @@ export default function Registerpage() {
         <Button
           variant='outline'
           isFullWidth
-          colorScheme='red'
+          colorScheme='purple'
           leftIcon={<FaGoogle />}
           onClick={() => signInWithGoogle().then(user => console.log(user)).catch(error => console.log(error))}
         >
@@ -131,5 +136,6 @@ export default function Registerpage() {
         </Button>
       </Card>
     </Layout>
+    </ChakraProvider>
   )
 }

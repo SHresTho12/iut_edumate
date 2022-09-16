@@ -8,7 +8,11 @@ import {
   Input,
   Stack,
   useToast,
+  ChakraProvider
 } from '@chakra-ui/react'
+import '@fontsource/josefin-sans/700.css'
+import '@fontsource/teko/700.css'
+import theme from './theme'
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Card } from '../components/Card'
@@ -24,6 +28,7 @@ export default function ForgotPasswordPage() {
   const [email, setEmail] = useState('')
 
   return (
+    <ChakraProvider theme={theme}>
     <Layout>
       <Heading textAlign='center' my={12}>
         Forgot password
@@ -77,5 +82,6 @@ export default function ForgotPasswordPage() {
         </Center>
       </Card>
     </Layout>
+    </ChakraProvider>
   )
         }

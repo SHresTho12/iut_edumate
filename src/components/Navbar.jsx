@@ -20,7 +20,7 @@ export function Navbar() {
 
   return (
     <Box 
-      borderBottom='2px'
+      borderBottom='9px'
       borderBottomColor={useColorModeValue('gray.100', 'gray.700')}
       mb={4}
       py={4}

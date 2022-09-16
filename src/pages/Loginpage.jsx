@@ -8,7 +8,11 @@ import {
   Input,
   Stack,
   useToast,
+  ChakraProvider
 } from '@chakra-ui/react'
+import theme from './theme'
+import '@fontsource/josefin-sans/700.css'
+import '@fontsource/teko/700.css'
 import React, { useState } from 'react'
 import { FaGoogle } from 'react-icons/fa'
 import { Link, useHistory, useLocation } from 'react-router-dom'
@@ -48,11 +52,12 @@ export default function Loginpage() {
   }
 
   return (
+    <ChakraProvider theme={theme}>
     <Layout>
-      <Heading textAlign='center' my={12}>
+      <Heading textAlign='center' my={12} color="green.500">
         Login
       </Heading>
-      <Card maxW='md' mx='auto' mt={4}>
+      <Card maxW='md' mx='auto' mt={4} color="gray.600">
         <chakra.form
           onSubmit={async e => {
             e.preventDefault()
@@ -115,7 +120,7 @@ export default function Loginpage() {
             {/* <PasswordField /> */}
             <Button
               type='submit'
-              colorScheme='pink'
+              colorScheme='green'
               size='lg'
               fontSize='md'
               isLoading={isSubmitting}
@@ -136,7 +141,8 @@ export default function Loginpage() {
         <Button
           variant='outline'
           isFullWidth
-          colorScheme='red'
+          
+          colorScheme='purple'
           leftIcon={<FaGoogle />}
           onClick={() =>
             signInWithGoogle()
@@ -151,5 +157,6 @@ export default function Loginpage() {
         </Button>
       </Card>
     </Layout>
+    </ChakraProvider>
   )
 }
