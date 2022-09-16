@@ -1,52 +1,35 @@
 import {
- VStack, Stack,Badge,chakra,Code,Heading,List,ListItem,OrderedList,Tag,Text,Box,HStack,IconButton,Spacer,useColorMode,useColorModeValue,Grid, GridItem,Button,ButtonGroup
+ VStack, Stack,Image,Badge,chakra,Code,ChakraProvider,Heading,List,ListItem,OrderedList,Tag,Text,Box,HStack,IconButton,Spacer,useColorMode,useColorModeValue,Grid, GridItem,Button,ButtonGroup
 } from '@chakra-ui/react'
 
 import React from 'react'
+import '@fontsource/raleway/400.css'
+import '@fontsource/open-sans/700.css'
+import '@fontsource/josefin-sans/700.css'
+import '@fontsource/teko/700.css'
+import theme from './theme'
+
+// import iut from './iut.PNG';
+
+
+
 import { Layout } from '../components/Layout'
 import { Link } from 'react-router-dom'
 import { MdBuild , MdCall } from "react-icons/md"
+var Blur = require('react-blur');
+
 
 
 export default function Homepage() {
 
-    const myStyle={
-        backgroundImage: 
- "url('https://media.geeksforgeeks.org/wp-content/uploads/rk.png')",
-        height:'100vh',
-        marginTop:'-70px',
-        fontSize:'50px',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-    };
+
   return (
-    <Layout >
-    <VStack spacing={8}>
-      <Heading >Home Page</Heading>
-      {/* <Grid
-  templateAreas={`"header header"
-                  "nav main"
-                  "nav footer"`}
-  gridTemplateRows={'75px 1fr 30px'}
-  gridTemplateColumns={'350px 8fr'}
-  h='200px'
-  gap='2'
-  color='blackAlpha.700'
-  fontWeight='bold'
->
-  <GridItem pl='2' bg='orange.300' area={'header'}>
-    Academic Resources
-  </GridItem>
-  <GridItem pl='2' bg='pink.300' area={'nav'}>
-    Project and Research
-  </GridItem>
-  <GridItem pl='2' bg='green.300' area={'main'}>
-  Query section
-  </GridItem>
-  <GridItem pl='2' bg='blue.300' area={'footer'}>
-    Co-Curricular Activities
-  </GridItem>
-</Grid> */}
+    <ChakraProvider theme={theme}>
+    
+    <Layout  >
+    <VStack spacing={6} color="green.500">
+      <Heading >Welcome to IUT Edumate!</Heading>
+ 
 
 
 <Stack direction='row' gap ={7} spacing={6}>
@@ -79,12 +62,18 @@ export default function Homepage() {
   borderColor="teal.500">
     Co-Curricular Activities
   </Button>
-  
+  {/* <Blur img='iut' blurRadius={5} enableStyles>
+  The content.
+</Blur> */}
 
 </Stack>
+<Image src="/images/iut.PNG" alt="s"  borderRadius="8" sx={{ filter: 'blur(0px)' }}/>
+
 </VStack>
       
     </Layout>
+    </ChakraProvider>
+   
   
   )
 }
