@@ -30,20 +30,20 @@ export default function Homepage() {
   return (
     <ChakraProvider theme={theme}>
     
-    <Layout  >
+    <Layout>
     <VStack spacing={6} color="green.500">
       <Heading >Welcome to IUT Edumate!</Heading>
  
 
 
-<Stack direction='row' gap ={7} spacing={6}>
+<Stack direction='row' gap ={0} spacing={6}>
 
 
 
-<Navlink to='/register' name='Academic Resources' colorScheme='white' _hover={{ bg: 'purple.400' }} bgColor='purple.300'  size="md" height="80px" width="225px" border="2px" borderColor="purple.300"/>
-<Navlink to='/register' name='Query section' colorScheme='white'  _hover={{ bg: 'green.500' }} bgColor='green.400'  size="md" height="80px" width="225px" border="2px" borderColor="green.400"/>
-<Navlink to='/register' name='Project and Research' colorScheme='white' _hover={{ bg: 'blue.500' }} bgColor='blue.400'  size="md" height="80px" width="225px" border="2px" borderColor="blue.400"/>
-<Navlink to='/register' name='Co-Curricular Activities' colorScheme='white'  _hover={{ bg: 'teal.500' }} bgColor='teal.400'  size="md" height="80px" width="225px" border="2px" borderColor="teal.400"/>
+<Navlink to='/register' name='Academic Resources' colorScheme='white' _hover={{ bg: 'purple.500' }} bgColor='purple.400'  size="md" height="70px" width="200px" border="2px" borderColor="purple.300"/>
+<Navlink to='/register' name='Query section' colorScheme='white'  _hover={{ bg: 'green.500' }} bgColor='green.400'  size="md" height="70px" width="200px" border="2px" borderColor="green.400"/>
+<Navlink to='/register' name='Project and Research' colorScheme='white' _hover={{ bg: 'blue.500' }} bgColor='blue.400'  size="md" height="70px" width="200px" border="2px" borderColor="blue.400"/>
+<Navlink to='/register' name='Co-Curricular Activities' colorScheme='white'  _hover={{ bg: 'teal.500' }} bgColor='teal.400'  size="md" height="70px" width="200px" border="2px" borderColor="teal.400"/>
 
 {/* <Navlink to='/register' colorScheme='purple'   size="md" onClick={() => console.log("button clicked")}
   height="80px"

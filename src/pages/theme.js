@@ -6,6 +6,7 @@ const theme = extendTheme({
   fonts: {
     heading: `'Teko', sans-serif`,
     body: `'Josefin Sans', sans-serif`,
+    
   },
   components: {
     Form: {

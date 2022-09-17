@@ -23,9 +23,9 @@ export function Navbar() {
       borderBottom='9px'
       borderBottomColor={useColorModeValue('gray.100', 'gray.700')}
       mb={4}
-      py={4}
+      py={3}
       bgColor='green.400'
-      height={78}
+      height={70}
     >
       <HStack 
       
@@ -34,17 +34,18 @@ export function Navbar() {
         mx='auto'
         spacing={4}
       >
-        <Navlink to='/' name='IUT EDUMATE' bgColor='white' colorScheme='green' size='lg' />
+        <Navlink to='/' name='IUT EDUMATE' bgColor='white' colorScheme='green' size='md'  />
         <Spacer />
-        {!currentUSer && <Navlink to='/login' name='Login' bgColor='white' colorScheme='green'/>}
+        {!currentUSer && <Navlink to='/login' name='Login' bgColor='white' colorScheme='green' />}
         {!currentUSer && <Navlink to='/register' name='Register' bgColor='white' colorScheme='green' />}
-        {currentUSer && <Navlink to='/profile' name='Profile' bgColor='white' colorScheme='green'/>}
+        {currentUSer && <Navlink to='/profile' name='Profile' bgColor='white' colorScheme='green' />}
         {currentUSer && (
           <Navlink
             to='/logout'
             name='Logout'
             bgColor='white'
             colorScheme='red'
+           
             onClick={async e => {
               e.preventDefault()
               await logout()
