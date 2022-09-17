@@ -58,11 +58,11 @@ export default function Loginpage() {
 
   return (
     <ChakraProvider theme={theme}>
-    <Layout>
+    <Layout >
       <Heading textAlign='center' my={12} color="green.500" >
         Login
       </Heading>
-      <Card maxW='md' mx='auto' mt={4} color="gray.600">
+      <Card maxW='md' mx='auto' mt={4} color="gray.600" bgColor=''>
         <chakra.form
           onSubmit={async e => {
             e.preventDefault()

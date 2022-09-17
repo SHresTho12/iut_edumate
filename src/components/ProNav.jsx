@@ -1,4 +1,6 @@
 import {
+  Link,
+  Tooltip,
   Box,
   HStack,
   IconButton,
@@ -6,9 +8,11 @@ import {
   useColorMode,
   useColorModeValue,
   Button, 
-  ButtonGroup 
+  ButtonGroup ,
+  Avatar
 } from '@chakra-ui/react'
 import React from 'react'
+import { Sidebar } from './SideBar'
 import { FaMoon, FaSun } from 'react-icons/fa'
 import { useAuth } from '../Context/AuthContext'
 import Navlink from './Navlink'
@@ -36,9 +40,12 @@ export function Navbar() {
       >
         <Navlink to='/' name='IUT EDUMATE' bgColor='white' colorScheme='green' size='md'  />
         <Spacer />
-        {!currentUSer && <Navlink to='/login' name='Login' bgColor='white' colorScheme='green' />}
-        {!currentUSer && <Navlink to='/register' name='Register' bgColor='white' colorScheme='green' />}
-        {currentUSer && <Navlink to='/profile' name='Profile' bgColor='white' colorScheme='green' />}
+        {currentUSer && <Link><Sidebar/></Link>}
+        
+        {/* {!currentUSer && <Navlink to='/login' name='Login' bgColor='white' colorScheme='green' />}
+        {!currentUSer && <Navlink to='/register' name='Register' bgColor='white' colorScheme='green' />} */}
+        {/* <Avatar name='Dan Abrahmov' src='https://bit.ly/dan-abramov' /> */}
+        {/* {currentUSer && <Navlink to='/profile' name='Profile' bgColor='white' colorScheme='green' />} */}
         {currentUSer && (
           <Navlink
             to='/logout'
