@@ -24,7 +24,7 @@ export function Navbar() {
       borderBottomColor={useColorModeValue('gray.100', 'gray.700')}
       mb={4}
       py={4}
-      bgColor='green.300'
+      bgColor='green.400'
       height={78}
     >
       <HStack 

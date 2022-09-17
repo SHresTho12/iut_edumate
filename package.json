@@ -17,6 +17,7 @@
     "axios": "^0.27.2",
     "dotenv": "^16.0.2",
     "firebase": "^9.1.0",
+    "float-input": "^0.0.2",
     "framer-motion": "^4.1.17",
     "react": "^17.0.2",
     "react-blur": "^1.1.1",

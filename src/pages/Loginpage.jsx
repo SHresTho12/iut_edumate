@@ -8,7 +8,8 @@ import {
   Input,
   Stack,
   useToast,
-  ChakraProvider
+  extendTheme,
+  ChakraProvider,InputRightElement,InputGroup
 } from '@chakra-ui/react'
 import theme from './theme'
 import '@fontsource/josefin-sans/700.css'
@@ -22,6 +23,7 @@ import { Layout } from '../components/Layout'
 import { useAuth } from '../Context/AuthContext'
 import useMounted from '../hooks/useMounted'
 
+
 export default function Loginpage() {
   const history = useHistory()
   const { signInWithGoogle, login } = useAuth()
@@ -31,6 +33,8 @@ export default function Loginpage() {
   const toast = useToast()
   // const mounted = useRef(false)
   const location = useLocation()
+  const [show, setShow] = React.useState(false)
+  const handleClick = () => setShow(!show)
 
   // useEffect(() => {
   //   mounted.current = true
@@ -40,6 +44,7 @@ export default function Loginpage() {
   // }, [])
 
   const mounted = useMounted()
+ 
 
   function handleRedirectToOrBack() {
     // console.log(location?.state)
@@ -54,7 +59,7 @@ export default function Loginpage() {
   return (
     <ChakraProvider theme={theme}>
     <Layout>
-      <Heading textAlign='center' my={12} color="green.500">
+      <Heading textAlign='center' my={12} color="green.500" >
         Login
       </Heading>
       <Card maxW='md' mx='auto' mt={4} color="gray.600">
@@ -94,28 +99,46 @@ export default function Loginpage() {
               })
           }}
         >
-          <Stack spacing='6'>
-            <FormControl id='email'>
-              <FormLabel>Email address</FormLabel>
+          <Stack spacing='8'>
+        
+            <FormControl id='email' variant="floating" >
+              
               <Input
+                h='3.2rem'
+                placeholder=' '
                 name='email'
                 type='email'
                 autoComplete='email'
                 required
                 value={email}
                 onChange={e => setEmail(e.target.value)}
+               
               />
+              <FormLabel  >Email address</FormLabel>
             </FormControl>
-            <FormControl id='password'>
-              <FormLabel>Password</FormLabel>
+           
+            <FormControl id='password' variant="floating" >
+             
+              <InputGroup size='md'>
               <Input
+              
+              h='3.2rem'
+              placeholder=' '
                 name='password'
                 type='password'
                 autoComplete='password'
                 value={password}
                 required
                 onChange={e => setPassword(e.target.value)}
-              />
+               /><FormLabel>Password</FormLabel>
+                <InputRightElement width='4.5rem'>
+        <Button h='1.75rem' size='sm' onClick={handleClick}>
+          {show ? 'Hide' : 'Show'}
+        </Button>
+      </InputRightElement>
+      </InputGroup>
+      
+              
             </FormControl>
             {/* <PasswordField /> */}
             <Button
@@ -127,6 +150,7 @@ export default function Loginpage() {
             >
               Sign in
             </Button>
+           
           </Stack>
         </chakra.form>
         <HStack justifyContent='space-between' my={4}>
