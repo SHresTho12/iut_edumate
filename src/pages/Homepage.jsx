@@ -80,7 +80,7 @@ export default function Homepage() {
 
 
 </Stack>
-<Image src="/images/iut.PNG" alt="s"  borderRadius="8" sx={{ filter: 'blur(0px)' }}/>
+<Image src="/images/iut7.jpg" alt="s"  borderRadius="10" sx={{ filter: 'blur(0px)' }}/>
 
 </VStack>
       

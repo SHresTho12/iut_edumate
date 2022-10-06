@@ -5,6 +5,7 @@ import {
   Spacer,
   useColorMode,
   useColorModeValue,
+  Image,
   Button, 
   ButtonGroup 
 } from '@chakra-ui/react'
@@ -24,8 +25,8 @@ export function Navbar() {
       borderBottomColor={useColorModeValue('gray.100', 'gray.700')}
       mb={4}
       py={3}
-      bgColor='green.500'
-      height={70}
+      bgColor='green.400'
+      height={75}
     >
       <HStack 
       
@@ -34,6 +35,7 @@ export function Navbar() {
         mx='auto'
         spacing={4}
       >
+      <Image src="/images/iutlogo.png" alt="s" height='14' width='8' borderRadius="8" sx={{ filter: 'blur(0px)' }}/>
         <Navlink to='/' name='IUT EDUMATE' bgColor='white' colorScheme='green' size='md'  />
         <Spacer />
         {!currentUSer && <Navlink to='/login' name='Login' bgColor='white' colorScheme='green' />}
@@ -50,6 +52,7 @@ export function Navbar() {
               e.preventDefault()
               await logout()
             }}
+            
           />
         )}
         <IconButton
@@ -58,6 +61,7 @@ export function Navbar() {
           onClick={toggleColorMode}
           aria-label='toggle-dark-mode'
         />
+        <Image src="/images/oic.png" alt="s" height='10' width='10' borderRadius="8" sx={{ filter: 'blur(0px)' }}/>
       </HStack>
     </Box>
   )

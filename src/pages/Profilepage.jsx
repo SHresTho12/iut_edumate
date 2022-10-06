@@ -13,7 +13,7 @@ export default function Profilepage() {
     <Layout>
    
     <Stack direction={['column', 'row']} spacing='24px'>
-    <Box w='200px' h='520px' borderRadius='8' bg='#ADDDD0'>
+    <Box w='270px' h='520px' borderRadius='8' bg='#ADDDD0'>
     
     </Box>
   <Box w='500px' h='520px' borderRadius='8' bg='#B1E1FF'>
