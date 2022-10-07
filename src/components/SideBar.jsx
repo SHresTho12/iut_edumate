@@ -35,18 +35,19 @@ export function Sidebar() {
            placement='right'
            onClose={onClose}
            finalFocusRef={btnRef}
+           
          >
            <DrawerOverlay />
-           <DrawerContent>
+           <DrawerContent bgColor='#A6D1E6'>
              <DrawerCloseButton />
-             <DrawerHeader>User Info</DrawerHeader>
+             <DrawerHeader>Update Profile</DrawerHeader>
    
              <DrawerBody>
                <Input placeholder='Type here...' />
              </DrawerBody>
    
              <DrawerFooter>
-               <Button variant='outline' mr={3} onClick={onClose}>
+               <Button variant='outline' mr={3} onClick={onClose} >
                  Cancel
                </Button>
                <Button colorScheme='blue'>Save</Button>

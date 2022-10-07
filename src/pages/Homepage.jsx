@@ -39,9 +39,9 @@ export default function Homepage() {
 <Stack direction='row' gap ={0} spacing={6}>
 
 
-
+{/* {currentUSer && <Navlink to='/profile' name='Profile' bgColor='white' colorScheme='green' />} */}
 <Navlink to='/register' name='Academic Resources' colorScheme='white' _hover={{ bg: 'purple.500' }} bgColor='purple.400'  size="md" height="70px" width="200px" border="2px" borderColor="purple.300"/>
-<Navlink to='/register' name='Query section' colorScheme='white'  _hover={{ bg: 'green.500' }} bgColor='green.400'  size="md" height="70px" width="200px" border="2px" borderColor="green.400"/>
+{currentUSer && <Navlink to='/query' name='Query section' colorScheme='white'  _hover={{ bg: 'green.500' }} bgColor='green.400'  size="md" height="70px" width="200px" border="2px" borderColor="green.400"/>}
 <Navlink to='/register' name='Project and Research' colorScheme='white' _hover={{ bg: 'blue.500' }} bgColor='blue.400'  size="md" height="70px" width="200px" border="2px" borderColor="blue.400"/>
 <Navlink to='/register' name='Co-Curricular Activities' colorScheme='white'  _hover={{ bg: 'teal.500' }} bgColor='teal.400'  size="md" height="70px" width="200px" border="2px" borderColor="teal.400"/>
 

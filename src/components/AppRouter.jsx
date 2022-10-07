@@ -7,6 +7,7 @@ import Homepage from '../pages/Homepage'
 import Loginpage from '../pages/Loginpage'
 import ForgotPasswordPage from '../pages/ForgotPasswordPage'
 import Profilepage from '../pages/Profilepage'
+import Query from '../pages/QueryPage'
 import ResetPasswordPage from '../pages/ResetPasswordPage'
 import Registerpage from '../pages/Registerpage'
 
@@ -16,8 +17,9 @@ export default function AppRouter(props) {
       <Router>
         <Switch>
           <Route exact path='/' component={Homepage} />
+          <Route exact path='/query' component={Query} />
         
-        
+          
           
 
 
@@ -26,6 +28,8 @@ export default function AppRouter(props) {
           <ProtectedRoute exact path='/login' component={Loginpage} />
           <ProtectedRoute exact path='/register' component={Registerpage} />
           <ProtectedRoute exact path='/profile' component={Profilepage} />
+          <ProtectedRoute exact path='/query' component={Query} />
+        
           <ProtectedRoute
             exact
             path='/forgot-password'
@@ -60,6 +64,7 @@ function ProtectedRoute(props) {
     path === '/register' ||
     path === '/forgot-password' ||
     path === '/reset-password'
+    
   ) {
     return currentUSer ? (
       <Redirect to={location.state?.from ?? '/profile'} />

@@ -13,18 +13,11 @@ export default function Profilepage() {
     <Layout>
    
     <Stack direction={['column', 'row']} spacing='24px'>
-    <Box w='270px' h='520px' borderRadius='8' bg='#ADDDD0'>
-    <chakra.pre p={4} >
-          {/* {currentUSer && <pre> {JSON.stringify(currentUSer, null, 2)}</pre>} */}
-          <p >{currentUSer.displayName}</p>
-          <p>{currentUSer.email}</p>
-         
-          </chakra.pre>
-    </Box>
+ 
   <Box w='500px' h='520px' borderRadius='8' bg='#B1E1FF'>
-    
+  
   </Box>
-  <Box w='500px'  h='520px' borderRadius='8'  bg='#B1E1FF'>
+  <Box w='600px'  h='520px' borderRadius='8'  bg='#B1E1FF'>
     
     </Box>
   
