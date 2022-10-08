@@ -8,7 +8,12 @@ import {
   Input,
   Stack,
   useToast,
+  ChakraProvider,
+  Box
 } from '@chakra-ui/react'
+import '@fontsource/josefin-sans/700.css'
+import '@fontsource/teko/700.css'
+import theme from './theme'
 import React, { useEffect, useRef, useState } from 'react'
 import { FaGoogle } from 'react-icons/fa'
 import { useHistory } from 'react-router-dom'
@@ -35,11 +40,13 @@ export default function Registerpage() {
     Number:""
   }
   return (
-    <Layout>
-      <Heading textAlign='center' my={12}>
+    <ChakraProvider theme={theme}>
+    <Layout  >
+      <Heading textAlign='center' my={12} color="green.400">
         Register
       </Heading>
-      <Card maxW='md' mx='auto' mt={4}>
+      <Box  >
+      <Card maxW='md' mx='auto' mt={4}  color="gray.500">
         <chakra.form
           onSubmit={async e => {
             e.preventDefault()
@@ -90,17 +97,23 @@ export default function Registerpage() {
           }}
         >
           <Stack spacing='6'>
-            <FormControl id='name'>
-              <FormLabel>Enter Name</FormLabel>
-              <Input value={name} onChange={(e) => setName(e.target.value)} name='name' type='name' autoComplete='name' required />
-            </FormControl>
-            <FormControl id='email'>
-              <FormLabel>Email address</FormLabel>
-              <Input value={email} onChange={(e) => setEmail(e.target.value)} name='email' type='email' autoComplete='email' required />
-            </FormControl>
-            <FormControl id='password'>
-              <FormLabel>Password</FormLabel>
+            <FormControl id='name' variant="floating" >
+              
+              
               <Input
+                h='3.2rem' placeholder=' ' value={name} onChange={(e) => setName(e.target.value)} name='name' type='name' autoComplete='name' required />
+           <FormLabel>Enter Name</FormLabel>
+            </FormControl>
+            <FormControl id='email' variant="floating" >
+              
+              <Input h='3.2rem' placeholder=' ' value={email} onChange={(e) => setEmail(e.target.value)} name='email' type='email' autoComplete='email' required />
+              <FormLabel>Email address</FormLabel>
+            </FormControl>
+            <FormControl id='password' variant="floating" >
+              
+              <Input
+              h='3.2rem'
+              placeholder=' '
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 name='password'
@@ -108,14 +121,15 @@ export default function Registerpage() {
                 autoComplete='password'
                 required
               />
+              <FormLabel>Password</FormLabel>
             </FormControl>
-            <Button isLoading={isSubmitting} type='submit' colorScheme='primary' size='lg' fontSize='md'>
+            <Button isLoading={isSubmitting} type='submit' colorScheme='green' size='lg' fontSize='md'>
               Sign up
             </Button>
           </Stack>
         </chakra.form>
         <Center my={4}>
-          <Button variant='link' onClick={() => history.push('/login')}>
+          <Button variant='link' colorScheme='green' fontSize='lg' onClick={() => history.push('/login')}>
             Login
           </Button>
         </Center>
@@ -123,13 +137,15 @@ export default function Registerpage() {
         <Button
           variant='outline'
           isFullWidth
-          colorScheme='red'
+          colorScheme='purple'
           leftIcon={<FaGoogle />}
           onClick={() => signInWithGoogle().then(user => console.log(user)).catch(error => console.log(error))}
         >
           Sign in with Google
         </Button>
       </Card>
+      </Box>
     </Layout>
+    </ChakraProvider>
   )
 }

@@ -8,7 +8,12 @@ import {
   Input,
   Stack,
   useToast,
+  extendTheme,
+  ChakraProvider,InputRightElement,InputGroup
 } from '@chakra-ui/react'
+import theme from './theme'
+import '@fontsource/josefin-sans/700.css'
+import '@fontsource/teko/700.css'
 import React, { useState } from 'react'
 import { FaGoogle } from 'react-icons/fa'
 import { Link, useHistory, useLocation } from 'react-router-dom'
@@ -17,6 +22,7 @@ import DividerWithText from '../components/DividerWithText'
 import { Layout } from '../components/Layout'
 import { useAuth } from '../Context/AuthContext'
 import useMounted from '../hooks/useMounted'
+
 
 export default function Loginpage() {
   const history = useHistory()
@@ -27,6 +33,8 @@ export default function Loginpage() {
   const toast = useToast()
   // const mounted = useRef(false)
   const location = useLocation()
+  const [show, setShow] = React.useState(false)
+  const handleClick = () => setShow(!show)
 
   // useEffect(() => {
   //   mounted.current = true
@@ -36,6 +44,7 @@ export default function Loginpage() {
   // }, [])
 
   const mounted = useMounted()
+ 
 
   function handleRedirectToOrBack() {
     // console.log(location?.state)
@@ -48,11 +57,12 @@ export default function Loginpage() {
   }
 
   return (
-    <Layout>
-      <Heading textAlign='center' my={12}>
+    <ChakraProvider theme={theme}>
+    <Layout >
+      <Heading textAlign='center' my={12} color="green.500" >
         Login
       </Heading>
-      <Card maxW='md' mx='auto' mt={4}>
+      <Card maxW='md' mx='auto' mt={4} color="gray.600" bgColor=''>
         <chakra.form
           onSubmit={async e => {
             e.preventDefault()
@@ -89,39 +99,58 @@ export default function Loginpage() {
               })
           }}
         >
-          <Stack spacing='6'>
-            <FormControl id='email'>
-              <FormLabel>Email address</FormLabel>
+          <Stack spacing='8'>
+        
+            <FormControl id='email' variant="floating" >
+              
               <Input
+                h='3.2rem'
+                placeholder=' '
                 name='email'
                 type='email'
                 autoComplete='email'
                 required
                 value={email}
                 onChange={e => setEmail(e.target.value)}
+               
               />
+              <FormLabel  >Email address</FormLabel>
             </FormControl>
-            <FormControl id='password'>
-              <FormLabel>Password</FormLabel>
+           
+            <FormControl id='password' variant="floating" >
+             
+              <InputGroup size='md'>
               <Input
+              
+              h='3.2rem'
+              placeholder=' '
                 name='password'
                 type='password'
                 autoComplete='password'
                 value={password}
                 required
                 onChange={e => setPassword(e.target.value)}
-              />
+               /><FormLabel>Password</FormLabel>
+                <InputRightElement width='4.5rem'>
+        <Button h='1.75rem' size='sm' onClick={handleClick}>
+          {show ? 'Hide' : 'Show'}
+        </Button>
+      </InputRightElement>
+      </InputGroup>
+      
+              
             </FormControl>
             {/* <PasswordField /> */}
             <Button
               type='submit'
-              colorScheme='pink'
+              colorScheme='green'
               size='lg'
               fontSize='md'
               isLoading={isSubmitting}
             >
               Sign in
             </Button>
+           
           </Stack>
         </chakra.form>
         <HStack justifyContent='space-between' my={4}>
@@ -136,7 +165,8 @@ export default function Loginpage() {
         <Button
           variant='outline'
           isFullWidth
-          colorScheme='red'
+          
+          colorScheme='purple'
           leftIcon={<FaGoogle />}
           onClick={() =>
             signInWithGoogle()
@@ -151,5 +181,6 @@ export default function Loginpage() {
         </Button>
       </Card>
     </Layout>
+    </ChakraProvider>
   )
 }
