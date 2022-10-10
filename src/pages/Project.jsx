@@ -11,7 +11,7 @@ import theme from './theme'
 
 function Feature({ title, desc, ...rest }) {
      return (
-       <Box p={4}  shadow='md' borderWidth='1px' {...rest}>
+       <Box p={4}  shadow='lg' borderWidth='2px' borderColor='#9CC094' {...rest} maxHeight='160%'>
          <Heading fontSize='xl'>{title}</Heading>
          <Text mt={4}>{desc}</Text>
        </Box>
@@ -29,17 +29,23 @@ export default function Project() {
  Explore your interests here!
 </Center>
 
-<Stack spacing={8} direction='row'>
+<Stack spacing={8} direction='row' >
       <Feature 
         
         title='Uploaded Project Ideas'
        
+           desc='1. What’s your idea? Get in touch. Always available for
+            team project if the right project comes along.'
+            
+          
 
       />
+      
        
       <Feature
         title='Uploaded Research Paper'
-  
+        desc='1. What’s your idea? Get in touch. Always available for
+            team project if the right project comes along.'
        
       />
 

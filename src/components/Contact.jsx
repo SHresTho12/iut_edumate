@@ -1,25 +1,13 @@
 import {
   Input,
-  Avatar,
-  Drawer,
-  DrawerOverlay,
-  DrawerFooter,
-  DrawerBody,
-  DrawerHeader,
-  useDisclosure,
-  DrawerContent,
-  DrawerCloseButton,
   Box,
-  HStack,
-  IconButton,
-  Spacer,
-  useColorMode,
-  useColorModeValue,
+
   Button, 
   ButtonGroup ,
   FormControl,
   FormLabel,
-  Stack
+  Stack,
+  Heading
 } from '@chakra-ui/react'
 import "./contact.css";
 import Phone from "../img/phone.png";
@@ -28,6 +16,7 @@ import Address from "../img/address.png";
 import { useContext, useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import { ThemeContext } from "../context";
+import { FilePondComponent } from "./filepond";
 
 const Contact = () => {
   // const formRef = useRef();
@@ -60,7 +49,7 @@ const Contact = () => {
       <div className="c-bg"></div>
       <div className="c-wrapper">
         <div className="c-left">
-          <h1 className="c-title">Let's discuss your project</h1>
+          <h1 className="c-title">Contact Info</h1>
           <div className="c-info">
             <div className="c-info-item">
               <img src={Phone} alt="" className="c-icon" />
@@ -78,36 +67,114 @@ const Contact = () => {
         </div>
         <div className="c-right">
           <p className="c-desc">
-            <b>What’s your idea?</b> Get in touch. Always available for
-            team project if the right project comes along.
+            What’s your idea?Let's discuss your project.
+            <div className="c-bg1"></div>
           </p>
-          <form  >
+          
+          <form >
           <FormControl id='name' variant="floating" >
               
-               <Input
-               style={{backgroundColor:  ""}} type="text" placeholder=' ' name="name" autoComplete='name' required />
-           <FormLabel color='#7895B2'>Name</FormLabel>
+              
+              <Input marginBottom='8px'
+                h='3.2rem' placeholder=' '   name='name' type='name' autoComplete='name' required />
+           <FormLabel>Project Name</FormLabel>
             </FormControl>
-            
+
             <FormControl id='name' variant="floating" >
               
-              <Input
-              style={{backgroundColor:  ""}} type="text" placeholder=' ' name="subject" autoComplete='subject' required />
-          <FormLabel color='#7895B2'>Subject</FormLabel>
-           </FormControl>
-           <FormControl id='name' variant="floating" >
               
-              <Input
-              style={{backgroundColor:  ""}} type="email" placeholder=' ' name="mail" autoComplete='name' required />
-          <FormLabel color='#7895B2'>Email</FormLabel>
-           </FormControl>
-            <textarea style={{backgroundColor: ""}} rows="5" placeholder="Message" name="message" />
-            <button>Submit</button>
+              <Input marginBottom='8px'
+                h='3.2rem' placeholder=' '   name='subject' type='text' autoComplete='subject' required />
+           <FormLabel>Subject</FormLabel>
+            </FormControl>
+
+            <FormControl id='name' variant="floating" >
+              
+              
+              <Input marginBottom='8px'
+                h='3.2rem' placeholder=' '   name='email' type='email' autoComplete='email' required />
+           <FormLabel>Email</FormLabel>
+            </FormControl>
+
+            <FormControl id='name' variant="floating" >
+              
+              
+              <textarea className='textarea'
+                h='3.2rem' placeholder=' '  rows={'5'} name='message' type='text' autoComplete='message' required />
+           <FormLabel>Project Idea</FormLabel>
+            </FormControl>
+        
+            <Button name='btn' type='submit' colorScheme='green' size='lg' fontSize='md' marginBottom='8px'>
+              Submit
+            </Button>
+          
+
+         
          
           </form>
+
+
+
+         
         </div>
+
+        
       </div>
+      <Heading marginLeft='50px' fontSize='2xl' >
+            <b marginLeft='50px'>Upload your Research Papers here.</b> 
+            <div className="c-bg2"></div>
+          </Heading>
+          
+          <form >
+          <FormControl id='name' variant="floating" marginLeft='50px' >
+              
+              
+              <Input marginBottom='8px'
+                h='3.2rem' placeholder=' ' width='80%'   name='name' type='name' autoComplete='name' required />
+           <FormLabel>Paper Title</FormLabel>
+            </FormControl>
+
+            <FormControl id='name' variant="floating" marginLeft='50px'>
+              
+              
+              <Input marginBottom='8px'
+                h='3.2rem' placeholder=' ' width='80%'   name='subject' type='text' autoComplete='subject' required />
+           <FormLabel>Author</FormLabel>
+            </FormControl>
+
+            <FormControl id='name' variant="floating" marginLeft='50px' >
+              
+              
+              <Input marginBottom='8px'
+                h='3.2rem' placeholder=' ' width='80%'  name='email' type='email' autoComplete='email' required />
+           <FormLabel>Email</FormLabel>
+            </FormControl>
+
+            <FormControl id='name' variant="floating" marginLeft='50px'>
+              
+              
+              <textarea className='txt'
+                h='3.2rem' placeholder=' ' width='10%'  rows={'5'} name='message' type='text' autoComplete='message' required />
+           <FormLabel>Abstract</FormLabel>
+            </FormControl>
+            <Box  marginLeft='50px' width='80%'>
+            
+            Upload your file here
+          <FilePondComponent  />
+        </Box>
+        
+            {/* <Button name='btn' type='submit' colorScheme='green' size='lg' fontSize='md' marginLeft='50px'>
+              Submit
+            </Button> */}
+          
+
+         
+         
+          </form>
+     
+      
     </div>
+    
   );
 };
 

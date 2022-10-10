@@ -125,7 +125,7 @@ export function Sidebar() {
              </DrawerBody>
    
              <DrawerFooter>
-               <Button variant='outline' mr={3} onClick={onClose} >
+               <Button variant='outline' colorScheme='red' mr={3} onClick={onClose} >
                  Cancel
                </Button>
                <Button colorScheme='blue'>Save</Button>
