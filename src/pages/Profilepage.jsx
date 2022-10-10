@@ -1,4 +1,4 @@
-import { chakra,Box,Stack, VStack,HStack, Avatar, AvatarBadge, AvatarGroup ,Container, Heading ,ChakraProvider} from '@chakra-ui/react'
+import { chakra,Box,Stack, VStack,HStack, Avatar, AvatarBadge, AvatarGroup ,Container, Heading ,ChakraProvider, Center} from '@chakra-ui/react'
 import React from 'react'
 
 import { Layout } from '../components/ProLayout'
@@ -13,21 +13,25 @@ export default function Profilepage() {
     <Layout>
    
     <Stack direction={['column', 'row']} spacing='24px'>
-    <Box w='25%' h='520px' borderRadius='5' bg='#ADDDD0'>
-    <chakra.pre p={4} >
+    <Box w='25%' height='100vh' borderRadius='5' bg='#ADDDD0'>
+    <Center margin='15px' fontSize='2xl' color='#425F57'>User Details</Center>
           {/* {currentUSer && <pre> {JSON.stringify(currentUSer, null, 2)}</pre>} */}
           <VStack><p>{currentUSer.displayName}</p>
           <p>{currentUSer.email}</p>
           </VStack>
-         
-          </chakra.pre>
+
     </Box>
-  <Box w='40%' h='520px' borderRadius='5' bg='#B1E1FF'>
-    
+  <Box w='40%'  borderRadius='5' bg='#B1E1FF'>
+    <Center margin='15px' fontSize='2xl' color='#293462'>Current Activities</Center>
   </Box>
-  <Box w='35%'  h='520px' borderRadius='5'  bg='#B1E1FF'>
-    
+  <VStack>
+  <Box w='80vh' height='25vh'  borderRadius='5'  bg='#DFD3C3'>
+  <Center margin='15px' fontSize='2xl' color='#665A48'>Reward Points</Center>
     </Box>
+    <Box w='80vh' height='75vh'  borderRadius='5'  bg='#D2DAFF'>
+  <Center margin='15px' fontSize='2xl' color='#645CAA'>Uploaded works</Center>
+    </Box>
+    </VStack>
   
 
 </Stack>

@@ -35,7 +35,7 @@ export function Navbar() {
         mx='auto'
         spacing={4}
       >
-      <Image src="/images/iutlogo.png" alt="s" height='14' width='8' borderRadius="8" sx={{ filter: 'blur(0px)' }}/>
+      <Image src="/images/iutlogo.png" alt="s" height='14' width='8' borderRadius="8"  sx={{ filter: 'blur(0px)' }}/>
         <Navlink to='/' name='IUT EDUMATE' bgColor='white' colorScheme='green' size='md'  />
         <Spacer />
         {!currentUSer && <Navlink to='/login' name='Login' bgColor='white' colorScheme='green' />}
