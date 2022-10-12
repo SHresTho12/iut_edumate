@@ -6,7 +6,7 @@ function Question() {
 <VStack alignItems='right' borderY='1px' m='2'>
 <Heading size='lg'>
     Why are there too much cats in iut?
-</Heading>
+</Heading>                      
 <Box>
     Because it is a cat haven.
 </Box>
