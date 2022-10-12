@@ -1,4 +1,4 @@
-import { Box, VStack, Heading, Input, Badge } from "@chakra-ui/react";
+import { Box, VStack, Heading, Input, Badge, Button } from "@chakra-ui/react";
 import React from "react";
 import { Layout } from "../ProLayout";
 import ReactQuill from "react-quill";
@@ -43,6 +43,9 @@ function AskQuestion() {
             </Heading>
             {/* //<ReactQuill className="react-quill" theme="snow" /> */}
             <Editor></Editor>
+            <Button bg="orange.200" m={2}>
+              Post Question
+            </Button>
           </Box>
           <Box>
             <Heading m={3} size="md" align="left">
