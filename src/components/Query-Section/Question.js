@@ -6,13 +6,14 @@ import {
   Button,
   HStack,
   Tag,
+  Link,
 } from "@chakra-ui/react";
 import React from "react";
 
 function Question() {
   return (
     <VStack alignItems="right" borderY="1px" m="2">
-      <Heading size="lg">Why are there too much cats in iut?</Heading>
+      <Link size="lg">Why are there too much cats in iut?</Link>
       <HStack>
         <Tag>CSE</Tag>
         <Tag>3-1</Tag>

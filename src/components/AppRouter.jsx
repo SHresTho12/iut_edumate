@@ -10,6 +10,7 @@ import Profilepage from '../pages/Profilepage'
 import Query from '../pages/QueryPage'
 import ResetPasswordPage from '../pages/ResetPasswordPage'
 import Registerpage from '../pages/Registerpage'
+import AskQuestion from './Query-Section/AskQuestion'
 
 export default function AppRouter(props) {
   return (
@@ -29,6 +30,7 @@ export default function AppRouter(props) {
           <ProtectedRoute exact path='/register' component={Registerpage} />
           <ProtectedRoute exact path='/profile' component={Profilepage} />
           <ProtectedRoute exact path='/query' component={Query} />
+           <ProtectedRoute exact path='/askquestion' component={AskQuestion} />
         
           <ProtectedRoute
             exact
