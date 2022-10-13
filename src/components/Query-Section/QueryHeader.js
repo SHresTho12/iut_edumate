@@ -32,7 +32,7 @@ function QueryHeader() {
 
       <Spacer />
 
-      <Input htmlSize={35} width="auto" placeholder="Search  Any Query"></Input>
+      <Input bgColor="#F2D7D9" htmlSize={35} width="auto" placeholder="Search  Any Query"></Input>
       <Button colorScheme="teal" size="md">
         Search
       </Button>

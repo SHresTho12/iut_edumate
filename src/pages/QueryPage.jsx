@@ -27,12 +27,18 @@ export default function Profilepage() {
   console.log(currentUSer);
   return (
     <Layout>
-      <QueryHeader></QueryHeader>
+      <Box h="100vh" p={2} bgColor='#F0EBE3'>
+        <QueryHeader></QueryHeader>
 
-      <Grid templateColumns="repeat(5, 1fr)" gap={4}>
-        <GridItem border="1px" colSpan={2} h='100%'><QuerNavSection></QuerNavSection></GridItem>
-       <GridItem colStart={3} colEnd={6}><QueryFeed ></QueryFeed></GridItem> 
-      </Grid>
+        <Grid templateColumns="repeat(5, 1fr)" gap={4}>
+          <GridItem border="1px" colSpan={2} h="100%">
+            <QuerNavSection></QuerNavSection>
+          </GridItem>
+          <GridItem colStart={3} colEnd={6}>
+            <QueryFeed></QueryFeed>
+          </GridItem>
+        </Grid>
+      </Box>
     </Layout>
   );
 }
