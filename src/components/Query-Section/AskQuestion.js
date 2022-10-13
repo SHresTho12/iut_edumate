@@ -18,7 +18,7 @@ function AskQuestion() {
         boxShadow="inner"
         bgColor="teal.50"
       >
-        <Heading align="center" m={2}>
+        <Heading align="center" m={2} color='#967E76'>
           Post a new question
         </Heading>
         <VStack align="left">
