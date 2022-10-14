@@ -1,60 +1,27 @@
 {
-  "name": "react-firebase-auth",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@chakra-ui/react": "^1.8.9",
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
-    "@fontsource/dosis": "^4.5.9",
-    "@fontsource/josefin-sans": "^4.5.10",
-    "@fontsource/open-sans": "^4.5.11",
-    "@fontsource/raleway": "^4.5.10",
-    "@fontsource/teko": "^4.5.9",
-    "@reduxjs/toolkit": "^1.8.6",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "axios": "^0.27.2",
-    "dotenv": "^16.0.2",
-    "firebase": "^9.1.0",
-    "float-input": "^0.0.2",
-    "framer-motion": "^4.1.17",
-    "html-react-parser": "^3.0.4",
-    "quill-image-resize-module-react": "^3.0.0",
-    "react": "^17.0.2",
-    "react-blur": "^1.1.1",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.2.0",
-    "react-quill": "^2.0.0",
-    "react-redux": "^8.0.4",
-    "react-router-dom": "^5.3.0",
-    "react-scripts": "4.0.3",
-    "react-tag-input-component": "^2.0.1",
-    "web-vitals": "^1.1.2"
-  },
+  "name": "iut_edumate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SHresTho12/iut_edumate.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SHresTho12/iut_edumate/issues"
+  },
+  "homepage": "https://github.com/SHresTho12/iut_edumate#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^6.6.5",
+    "nodemon": "^2.0.20"
   }
 }

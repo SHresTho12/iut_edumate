@@ -2,7 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-
+const path = require('path');
 const app = express();
 
 const port = process.env.PORT || 80;
@@ -13,7 +13,7 @@ mongoose.connect('mongodb://localhost:27017/your_database_name', { useNewUrlPars
 
 
 //middleware
-app.use(cors());
+
 app.use(bodyParser.json({limit: "50mb"}));
 app.use(bodyParser.urlencoded({limit: "50mb", extended: true}));
 app.use(express.json());
@@ -26,3 +26,36 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS');
     next();
     });
+
+
+    //api
+    app.use('/api/posts', require('./routes/api/posts'));
+    app.use('/api/users', require('./routes/api/users'));
+    app.use('/api/auth', require('./routes/api/auth'));
+    app.use('/api/profile', require('./routes/api/profile'));
+
+
+
+    //static resources
+    app.use(express.static('public'));
+    app.use('/upload',express.static(path.join(__dirname, '/../uploads')));
+    app.use(express.static(path.join(__dirname, '/../frontend/build')));
+    app.get('*', (req, res) => {
+        try{
+            res.sendFile(path.join(__dirname, '/../frontend/build/index.html'));
+        }
+        catch(err){
+            console.log(err);
+            res.send("Error");
+        }
+        
+    });
+    
+    //cors  
+    app.use(cors());
+
+    //server listening
+    app.listen(port, () => {
+        console.log(`Server is running on port: ${port}`)
+    }
+    );
