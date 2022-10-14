@@ -37,6 +37,7 @@ export default function Project() {
            desc='1. What’s your idea? Get in touch. Always available for
             team project if the right project comes along.'
             
+            
           
 
       />

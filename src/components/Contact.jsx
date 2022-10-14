@@ -53,7 +53,7 @@ const Contact = () => {
           </Heading>
           
           <form >
-          <FormControl id='name' variant="floating" marginLeft='50px' >
+          <FormControl id='name' variant="floating" marginLeft='50px'   >
               
               
               <Input marginBottom='8px'
