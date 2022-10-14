@@ -4,12 +4,11 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
-
+const db = require('./db');
 const port = process.env.PORT || 80;
 
 //connect with database
-// const mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost:27017/your_database_name', { useNewUrlParser: true, useUnifiedTopology: true });
+db.connect()
 
 
 //middleware
