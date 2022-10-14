@@ -78,7 +78,7 @@ export default function Homepage() {
               />
           
             <Navlink
-              to="/register"
+              to="/project"
               name="Project and Research"
               colorScheme="white"
               _hover={{ bg: "blue.500" }}

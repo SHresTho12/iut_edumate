@@ -10,8 +10,12 @@ import Profilepage from '../pages/Profilepage'
 import Query from '../pages/QueryPage'
 import ResetPasswordPage from '../pages/ResetPasswordPage'
 import Registerpage from '../pages/Registerpage'
+
 import AskQuestion from './Query-Section/AskQuestion'
 import Question from '../pages/DetailQuestion'
+
+import Project from '../pages/Project'
+
 
 export default function AppRouter(props) {
   return (
@@ -20,6 +24,7 @@ export default function AppRouter(props) {
         <Switch>
           <Route exact path='/' component={Homepage} />
           <Route exact path='/query' component={Query} />
+          <Route exact path='/project' component={Project} />
         
           
           
@@ -33,6 +38,9 @@ export default function AppRouter(props) {
           <ProtectedRoute exact path='/query' component={Query} />
            <ProtectedRoute exact path='/askquestion' component={AskQuestion} />
            <ProtectedRoute exact path='/question' component={Question} />
+
+          <ProtectedRoute exact path='/project' component={Project} />
+
         
           <ProtectedRoute
             exact
