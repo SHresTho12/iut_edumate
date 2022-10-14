@@ -24,7 +24,7 @@ export function Navbar() {
       borderBottom='9px'
       borderBottomColor={useColorModeValue('gray.100', 'gray.700')}
       mb={4}
-      py={3}
+      py={1}
       bgColor='green.400'
       height={75}
     >
@@ -33,7 +33,7 @@ export function Navbar() {
         justifyContent='flex-end'
         maxW='container.lg'
         mx='auto'
-        spacing={4}
+        spacing={5}
       >
       <Image src="/images/iutlogo.png" alt="s" height='14' width='8' borderRadius="8"  sx={{ filter: 'blur(0px)' }}/>
         <Navlink to='/' name='IUT EDUMATE' bgColor='white' colorScheme='green' size='md'  />
