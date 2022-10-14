@@ -5,14 +5,22 @@ import {
   MenuList,
   MenuButton,
   Button,
+  Center,
+  ChakraProvider,
+  
 } from "@chakra-ui/react";
 import React from "react";
+import theme from './theme'
 
 function Tags() {
   return (
-    <HStack>
-      <Menu m={4}>
-        <MenuButton m={4} as={Button}>
+    <ChakraProvider theme={theme}>
+    
+    <HStack  >
+    
+      <Menu m={4} >
+      
+        <MenuButton width='40vh' as={Button} bgColor='#9BA3EB'>
           Department
         </MenuButton>
         <MenuList>
@@ -25,7 +33,7 @@ function Tags() {
         </MenuList>
       </Menu>
       <Menu m={4}>
-        <MenuButton m={4} as={Button}>
+        <MenuButton  width='40vh' as={Button} bgColor='#80ED99'>
           Semester
         </MenuButton>
         <MenuList>
@@ -38,7 +46,7 @@ function Tags() {
         </MenuList>
       </Menu>
       <Menu m={4}>
-        <MenuButton m={4} as={Button}>
+        <MenuButton width='40vh' as={Button} bgColor='#90E0EF'>
           Course
         </MenuButton>
         <MenuList>
@@ -48,8 +56,11 @@ function Tags() {
           <MenuItem>Lab</MenuItem>
           <MenuItem>dummy</MenuItem>
         </MenuList>
+       
       </Menu>
     </HStack>
+    
+    </ChakraProvider>
   );
 }
 
