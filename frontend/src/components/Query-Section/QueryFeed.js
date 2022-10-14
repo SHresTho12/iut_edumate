@@ -4,7 +4,7 @@ import Question from './Question'
 
 function QueryFeed() {
   return (
-    <Box border="1px">
+    <Box border="">
 
 
        <Flex align="center" justify="center">

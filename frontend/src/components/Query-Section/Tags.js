@@ -20,7 +20,7 @@ function Tags() {
     
       <Menu m={4} >
       
-        <MenuButton width='40vh' as={Button} bgColor='#9BA3EB'>
+        <MenuButton width='40vh' as={Button} bgColor='#9BA3EB' _hover={{bg:'#8b92d3'}}>
           Department
         </MenuButton>
         <MenuList>
@@ -33,7 +33,7 @@ function Tags() {
         </MenuList>
       </Menu>
       <Menu m={4}>
-        <MenuButton  width='40vh' as={Button} bgColor='#80ED99'>
+        <MenuButton  width='40vh' as={Button} bgColor='#80ED99' _hover={{bg:'#73D589'}}>
           Semester
         </MenuButton>
         <MenuList>
@@ -46,7 +46,7 @@ function Tags() {
         </MenuList>
       </Menu>
       <Menu m={4}>
-        <MenuButton width='40vh' as={Button} bgColor='#90E0EF'>
+        <MenuButton width='40vh' as={Button} bgColor='#90E0EF' _hover={{bg:'#81C9D7'}}>
           Course
         </MenuButton>
         <MenuList>

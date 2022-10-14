@@ -7,6 +7,8 @@ import {
   Flex,
   Spacer,
   Heading,
+  Box,
+  Image
 } from "@chakra-ui/react";
 import React from "react";
 import { FaSearch } from "react-icons/fa";
@@ -24,7 +26,9 @@ function QueryHeader() {
           bgColor="teal"
           color="white"
         />
+        
       )}
+    
       <Spacer />
       <Heading as="h3" size="lg">
         Questions and Answers
@@ -32,10 +36,12 @@ function QueryHeader() {
 
       <Spacer />
 
-      <Input bgColor="#F2D7D9" htmlSize={35} width="auto" placeholder="Search  Any Query"></Input>
+<HStack>
+<FaSearch/> <Input bgColor="#C8FFD4" htmlSize={35} width="auto" placeholder="Search  Any Query"></Input> 
       <Button colorScheme="teal" size="md">
         Search
       </Button>
+      </HStack>
     </Flex>
   );
 }

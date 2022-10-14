@@ -57,7 +57,7 @@ function AskQuestion() {
             </Heading>
             <Center><Tags></Tags></Center>
           </Box>
-            <Button bg="#4A47A3" m={2} color='#EDF7FA' height='9vh' fontSize='large'>
+            <Button bg="#4A47A3" m={2} color='#EDF7FA' height='9vh' fontSize='large' _hover={{ bg: "#192965" }}>
               Post Question
             </Button>
           </Box>
