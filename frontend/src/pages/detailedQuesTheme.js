@@ -3,6 +3,7 @@ const activeLabelStyles = {
   transform: "scale(0.85) translateY(-24px)"
 };
 const detailedQuesTheme = extendTheme({
+     
   fonts: {
     heading: `'Secular One', serif`,
     body: `'Overpass', sans-serif`,

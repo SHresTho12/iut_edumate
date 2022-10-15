@@ -19,7 +19,7 @@ function Answer() {
        
         { answerState && <Editor></Editor>}
         <Center marginBlockStart='3vh'>
-        <Button m={2} bgColor="#083AA9" color='white' height='8vh' borderRadius='10px'>Post your answer</Button></Center>
+        <Button m={2} bgColor="#083AA9" color='white' height='8vh' borderRadius='10px' _hover={{bg:'#052c82'}}>Post your answer</Button></Center>
         
         
    </Box>

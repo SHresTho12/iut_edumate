@@ -7,7 +7,8 @@ import {
   HStack,
   Tag,
   Image,
-  ChakraProvider
+  ChakraProvider,
+  Stack
   
 } from "@chakra-ui/react";
 import React from 'react'
@@ -17,13 +18,14 @@ import DetailedQuestionSection from '../components/Query-Section/DetailedQuestio
 import detailedQuesTheme from './detailedQuesTheme'
 function DetailQuestion() {
   return (
+    <Stack bgColor='#e3f7ff'>
     
     <ChakraProvider theme={detailedQuesTheme} >
    
-    <Layout>
+    <Layout >
     <HStack >
     <Image
-            src="/images/Questions.gif"
+            src="/images/q.gif"
             alt="s"
             borderRadius="10"
             sx={{ filter: "blur(0px)" }}
@@ -37,6 +39,7 @@ function DetailQuestion() {
     </Layout>
     
     </ChakraProvider>
+    </Stack>
     
   )
 }
