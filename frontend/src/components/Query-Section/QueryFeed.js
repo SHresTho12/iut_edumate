@@ -1,8 +1,14 @@
 import { Box, Center, Flex, Heading } from '@chakra-ui/react'
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import Question from './Question'
+import axios from 'axios'
 
-function QueryFeed() {
+function QueryFeed({questions}) {
+
+
+
+
+
   return (
     <Box border="">
 
@@ -10,7 +16,12 @@ function QueryFeed() {
        <Flex align="center" justify="center">
         <Heading as='h2' size='lg'  color='#00454A'>Query Feed</Heading>
        </Flex>
-       <Question></Question>
+       {questions?.map((_q) => (
+           <Question data={_q} ></Question>
+          
+        
+          ))}
+       
     </Box>
   )
 }
