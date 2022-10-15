@@ -23,10 +23,10 @@ export function Navbar() {
     <Box 
       borderBottom='9px'
       borderBottomColor={useColorModeValue('gray.100', 'gray.700')}
-      mb={4}
+      mb={1}
       py={1}
       bgColor='green.400'
-      height={75}
+      height={65}
     >
       <HStack 
       

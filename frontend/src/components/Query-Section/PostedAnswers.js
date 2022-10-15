@@ -3,7 +3,7 @@ import React from 'react'
 
 function PostedAnswers() {
   return (
-    <Box p={2} bg="blue.200" borderRadius="10">
+    <Box p={2} bg="#b6e7fc" borderRadius="10">
         <Grid templateColumns="repeat(5, 1fr)" gap={0}>
         <GridItem colSpan={1} w="100%"  borderRight="1px solid" borderRadius="1">
           <Box >

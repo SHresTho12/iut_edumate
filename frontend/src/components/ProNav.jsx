@@ -25,20 +25,20 @@ export function Navbar() {
 
   return (
     <Box 
-      borderBottom='9px'
-      borderBottomColor={useColorModeValue('gray.100', 'gray.700')}
-      mb={4}
-      py={3}
-      bgColor='green.400'
-      height={75}
-    >
-      <HStack 
-      
-        justifyContent='flex-end'
-        maxW='container.lg'
-        mx='auto'
-        spacing={4}
-      > <Image src="/images/iutlogo.png" alt="s" height='14' width='8' borderRadius="8" sx={{ filter: 'blur(0px)' }}/>
+    borderBottom='9px'
+    borderBottomColor={useColorModeValue('gray.100', 'gray.700')}
+    mb={4}
+    py={1}
+    bgColor='green.400'
+    height={65}
+  >
+    <HStack 
+    
+      justifyContent='flex-end'
+      maxW='container.lg'
+      mx='auto'
+      spacing={5}
+    >      <Image src="/images/iutlogo.png" alt="s" height='14' width='8' borderRadius="8"  sx={{ filter: 'blur(0px)' }}/>
         <Navlink to='/' name='IUT EDUMATE' bgColor='white' colorScheme='green' size='md'  />
         <Spacer />
         {currentUSer && <Link><Sidebar/></Link>}

@@ -1,4 +1,5 @@
 import {
+  Image,
   Button,
   Center,
   chakra,
@@ -7,6 +8,7 @@ import {
   Heading,
   Input,
   Stack,
+  VStack,HStack,
   useToast,
   ChakraProvider
 } from '@chakra-ui/react'
@@ -30,10 +32,27 @@ export default function ForgotPasswordPage() {
   return (
     <ChakraProvider theme={theme}>
     <Layout>
-      <Heading textAlign='center' my={12}>
+    <HStack >
+    <Image
+            src="/images/pass.gif"
+            alt="s"
+           
+            sx={{ filter: "blur(0px)" }}
+            width='80vh'
+            border='8px' 
+            borderRightColor='#D44949'
+            borderLeftColor='white'
+            borderBottomColor='white'
+            borderBlockStartColor='white'
+            height='80vh'
+            
+          />
+    <VStack width='70vw'>
+      <Heading textAlign='center' my={5} color='#B73E3E'>
         Forgot password
       </Heading>
-      <Card maxW='md' mx='auto' mt={4}>
+      <Center bgColor='#FFDEDE'  >Enter Your Email Address to Reset Your Password</Center>
+      <Card width='40vw' mx='auto' mt={4}>
         <chakra.form
           onSubmit={async e => {
             e.preventDefault()
@@ -58,29 +77,38 @@ export default function ForgotPasswordPage() {
           }}
         >
           <Stack spacing='6'>
-            <FormControl id='email'>
-              <FormLabel>Email address</FormLabel>
+            <FormControl id='email' variant="floating">
+           
+             
+
               <Input
+                h='3.2rem'
+                placeholder=' '
                 name='email'
                 type='email'
                 autoComplete='email'
                 required
                 value={email}
                 onChange={e => setEmail(e.target.value)}
+               
               />
+              <FormLabel  >Email address</FormLabel>
+          
             </FormControl>
-            <Button type='submit' colorScheme='pink' size='lg' fontSize='md'>
+            <Button type='submit' bgColor='#DD4A48' color='white' size='lg' fontSize='xl' _hover={{bg:'#ba2f2d'}}>
               Submit
             </Button>
           </Stack>
         </chakra.form>
         <DividerWithText my={6}>OR</DividerWithText>
         <Center>
-          <Button variant='link' onClick={() => history.push('/login')}>
+          <Button variant='link' onClick={() => history.push('/login')} color='teal.700' fontSize='larger'>
             Login
           </Button>
         </Center>
       </Card>
+      </VStack>
+      </HStack>
     </Layout>
     </ChakraProvider>
   )
