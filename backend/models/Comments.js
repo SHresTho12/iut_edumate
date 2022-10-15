@@ -6,8 +6,7 @@ const CommentSchema = new mongoose.Schema({
     ref: "Questions",
   },
   comment: String,
-  like: { type: Number, default: 0 },
-  dislike:{ type: Number, default: 0 },
+ 
   created_at: {
     type: Date,
     default: Date.now(),
