@@ -4,12 +4,11 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
-
+const db = require('./db');
 const port = process.env.PORT || 80;
-
+const router = require('./routers');
 //connect with database
-// const mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost:27017/your_database_name', { useNewUrlParser: true, useUnifiedTopology: true });
+db.connect()
 
 
 //middleware
@@ -29,7 +28,7 @@ app.use((req, res, next) => {
 
 
     //api
-    // app.use('/api/posts', require('./routes/api/posts'));
+    app.use('/', router);
     // app.use('/api/users', require('./routes/api/users'));
     // app.use('/api/auth', require('./routes/api/auth'));
     // app.use('/api/profile', require('./routes/api/profile'));
