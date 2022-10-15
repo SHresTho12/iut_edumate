@@ -8,18 +8,20 @@ import {
   Grid,
   GridItem,
 } from "@chakra-ui/react";
+import theme from './theme'
 import React from "react";
 import Answer from "./Answer";
+
 
 function DetailedQuestionSection() {
   return (
     <VStack alignItems="left">
-      <Box border="1px" borderRadius="10" p={2} bgColor="teal.100">
-        <Heading>Why there are so many cats in the IUT?</Heading>
-        <Tag mY={1} variant="solid" colorScheme="teal">
+      <Box  borderRadius="10" p={2} bgColor="#b6e7fc">
+        <Heading fontSize='3xl' ml='2vh' mb='1vh'>Why there are so many cats in the IUT?</Heading>
+        <Tag mY={1} variant="solid" bgColor='#083AA9' marginRight='2vh' ml='2vh'>
           TimeStamp
         </Tag>
-        <Tag mY={1} variant="solid" colorScheme="teal">
+        <Tag mY={1} variant="solid" bgColor='#083AA9'>
           Answers{" "}
         </Tag>
       </Box>
@@ -30,16 +32,16 @@ function DetailedQuestionSection() {
   <GridItem w='100%' h='10' bg='blue.500' />
   <GridItem w='100%' h='10' bg='blue.500' /> */}
 
-        <GridItem colSpan={1} w="100%" bg="blue.100" border="1px solid" borderRadius="10">
+        <GridItem colSpan={1} w="100%" bg="#c2fff0"  borderRadius="10">
           <Box >
-            <Text>Stats of the question</Text>
+            <Text ml='2vh'>Stats of the question</Text>
           </Box>
         </GridItem>
-        <GridItem w="100%" colSpan={4} bg="blue.100" border="1px solid" borderRadius="10">
+        <GridItem w="100%" colSpan={4} bg="#c2fff0"  borderRadius="10">
           <Box m={2} >
-            <Heading as="h3">Description</Heading>
+            <Heading as="h3" ml='2vh'>Description</Heading>
 
-            <Text> Brief description of the question</Text>
+            <Text ml='2vh'> Brief description of the question</Text>
           </Box>
         </GridItem>
       </Grid>
