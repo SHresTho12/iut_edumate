@@ -5,7 +5,7 @@ function QuerNavSection() {
   return (
    <Box >
     <Flex align="center" justify="center">
-        <Heading as='h2' size='lg' color="#576F72">Filter your search </Heading>
+        <Heading as='h2' size='lg' marginBlockStart='1.5vh' color="#00454A">Filter your search </Heading>
        </Flex>
    <VStack m={5} >
 

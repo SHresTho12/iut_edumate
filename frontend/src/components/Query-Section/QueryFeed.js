@@ -8,7 +8,7 @@ function QueryFeed() {
 
 
        <Flex align="center" justify="center">
-        <Heading as='h2' size='lg' color="#576F72">Query Feed</Heading>
+        <Heading as='h2' size='lg'  color='#00454A'>Query Feed</Heading>
        </Flex>
        <Question></Question>
     </Box>
