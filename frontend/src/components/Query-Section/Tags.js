@@ -10,9 +10,14 @@ import {
   
 } from "@chakra-ui/react";
 import React from "react";
+import { useState } from "react";
 import theme from './theme'
 
-function Tags() {
+function Tags({handleTags}) {
+  const [tags,setTags] = useState([]);
+  function handleTagschild(tag){
+  handleTags(tag);
+  }
   return (
     <ChakraProvider theme={theme}>
     
@@ -24,12 +29,12 @@ function Tags() {
           Department
         </MenuButton>
         <MenuList>
-          <MenuItem>CSE</MenuItem>
-          <MenuItem>SWE</MenuItem>
-          <MenuItem>ME</MenuItem>
-          <MenuItem>EEE</MenuItem>
-          <MenuItem>CEE</MenuItem>
-          <MenuItem>BTM</MenuItem>
+          <MenuItem onClick={()=> handleTagschild(' CSE ')}>CSE</MenuItem>
+          <MenuItem onClick={() => handleTagschild('SWE ')}>SWE</MenuItem>
+          <MenuItem onClick={() => handleTagschild('ME ')}>ME</MenuItem>
+          <MenuItem onClick={() => handleTagschild('EEE ')}>EEE</MenuItem>
+          <MenuItem onClick={() => handleTagschild('CEE ')}>CEE</MenuItem>
+          <MenuItem onClick={() => handleTagschild('BTM ')}>BTM</MenuItem>
         </MenuList>
       </Menu>
       <Menu m={4}>
@@ -37,10 +42,10 @@ function Tags() {
           Semester
         </MenuButton>
         <MenuList>
-          <MenuItem>1-1</MenuItem>
-          <MenuItem>1-2</MenuItem>
-          <MenuItem>2-1</MenuItem>
-          <MenuItem>2-2</MenuItem>
+          <MenuItem onClick={()=> handleTagschild(' 1-1 ')}>1-1</MenuItem>
+          <MenuItem onClick={()=> handleTagschild(' 1-2 ')}>1-2</MenuItem>
+          <MenuItem onClick={()=> handleTagschild(' 2-1 ')}>2-1</MenuItem>
+          <MenuItem onClick={()=> handleTagschild(' 2-2 ')}>2-2</MenuItem>
           <MenuItem>3-1</MenuItem>
           <MenuItem>3-2</MenuItem>
         </MenuList>
@@ -50,10 +55,10 @@ function Tags() {
           Course
         </MenuButton>
         <MenuList>
-          <MenuItem>Software-Security</MenuItem>
-          <MenuItem>Server-Programming</MenuItem>
-          <MenuItem>DP</MenuItem>
-          <MenuItem>Lab</MenuItem>
+          <MenuItem onClick={()=> handleTagschild(' SS ')}>Software-Security</MenuItem>
+          <MenuItem onClick={()=> handleTagschild(' SP ')}>Server-Programming</MenuItem>
+          <MenuItem onClick={()=> handleTagschild(' DP ')}>DP</MenuItem>
+          <MenuItem onClick={()=> handleTagschild('LAB-SP ')}>Lab Server Program</MenuItem>
           <MenuItem>dummy</MenuItem>
         </MenuList>
        

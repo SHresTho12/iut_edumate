@@ -1,12 +1,57 @@
 import { Box, VStack,FormLabel,FormControl, Heading, Input, Badge, Button, Center } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { Layout } from "../ProLayout";
+import axios from "axios";
 import ReactQuill from "react-quill";
+import {useHistory} from 'react-router-dom'
 import "react-quill/dist/quill.snow.css";
 import Tags from "./Tags";
 import "../../Css/Query-Section-Css/addquestion.css";
 import Editor from "./Editor";
+import { useAuth } from "../../Context/AuthContext";
 function AskQuestion() {
+
+const { currentUSer, setLoading, setAlert } = useAuth()
+const [title,setTitle] = useState("")
+const [body,setBody] = useState("")
+const [tags,setTags] = useState([])
+
+const history = useHistory()
+const handleQuill = (value) => {
+  setBody(value);
+  console.log(body);
+};
+
+
+
+function handleTags(tag){
+  setTags([...tags,tag])
+  console.log(tags)
+}
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (title !== "" && body !== "") {
+    const bodyJSON = {
+      title: title,
+      body: body,
+      tag: JSON.stringify(tags),
+      user: currentUSer,
+    };
+    await axios
+      .post("/askquestion", bodyJSON)
+      .then((res) => {
+        // console.log(res.data);
+        alert("Question added successfully");
+        history.push("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+};
+
   return (
     <Layout>
       <Box
@@ -32,6 +77,8 @@ function AskQuestion() {
            
               
               <Input
+              value={title}
+              onChange={(e)=>setTitle(e.target.value)}
                 h='3.2rem'
                 placeholder=' Title of the Question'
               
@@ -50,14 +97,15 @@ function AskQuestion() {
               Description of the Question
             </Heading>
             {/* //<ReactQuill className="react-quill" theme="snow" /> */}
-            <Editor></Editor>
+            {/* <Editor></Editor> */}
+            <ReactQuill value={body} onChange={handleQuill} theme="snow"></ReactQuill>
             <Box marginBottom='3vh'>
             <Heading m={3} size="md" align="left">
-              <Center color='#001D6E'>Tags</Center>
+              <Center color='#001D6E'>Tags:{tags}</Center>
             </Heading>
-            <Center><Tags></Tags></Center>
+            <Center><Tags handleTags={handleTags}></Tags></Center>
           </Box>
-            <Button bg="#4A47A3" m={2} color='#EDF7FA' height='9vh' fontSize='large' _hover={{ bg: "#192965" }}>
+            <Button type='submit' onClick={handleSubmit} bg="#4A47A3" m={2} color='#EDF7FA' height='9vh' fontSize='large' _hover={{ bg: "#192965" }}>
               Post Question
             </Button>
           </Box>
