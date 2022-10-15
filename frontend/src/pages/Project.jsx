@@ -2,14 +2,14 @@ import { chakra,Input,Text,Box,Stack,List,
      ListItem,
      ListIcon,
      OrderedList,
-     UnorderedList,Flex,Center,Spacer, VStack,HStack, Avatar, AvatarBadge, AvatarGroup ,Container, Heading ,ChakraProvider, Button} from '@chakra-ui/react'
+     UnorderedList,Flex,Center,Image,Spacer, VStack,HStack, Avatar, AvatarBadge, AvatarGroup ,Container, Heading ,ChakraProvider, Button} from '@chakra-ui/react'
 import React from 'react'
 import Contact from "../components/Contact";
 import { Layout } from '../components/Layout'
 import { useAuth } from '../Context/AuthContext'
 import theme from './theme'
 
-function Feature({ title, desc, ...rest }) {
+function Feature({ title, desc, img,...rest }) {
      return (
        <Box p={4}  shadow='lg' borderWidth='2px' borderColor='#9CC094' {...rest} maxHeight='160%'>
          <Heading fontSize='xl'>{title}</Heading>
@@ -30,25 +30,41 @@ export default function Project() {
 </Center>
 
 <Stack spacing={8} direction='row' >
+<VStack>
+<Image
+            src="/images/idea.gif"
+            alt="s"
+            height='20%'
+            sx={{ filter: "blur(0px)" }}
+          />
       <Feature 
         
         title='Uploaded Project Ideas'
        
            desc='1. What’s your idea? Get in touch. Always available for
             team project if the right project comes along.'
+         
             
             
           
 
       />
+      </VStack>
+      <VStack>
       
-       
+      <Image
+            src="/images/Documents.gif"
+            alt="s"
+            height='20%'
+            sx={{ filter: "blur(0px)" }}
+          />
       <Feature
         title='Uploaded Research Paper'
         desc='1. What’s your idea? Get in touch. Always available for
             team project if the right project comes along.'
        
       />
+      </VStack>
 
       <Contact />
     </Stack>

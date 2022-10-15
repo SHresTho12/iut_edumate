@@ -7,9 +7,9 @@
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@fontsource/dosis": "^4.5.9",
-    "@fontsource/josefin-sans": "^4.5.10",
-    "@fontsource/open-sans": "^4.5.11",
-    "@fontsource/raleway": "^4.5.10",
+    "@fontsource/josefin-sans": "^4.5.11",
+    "@fontsource/open-sans": "^4.5.12",
+    "@fontsource/raleway": "^4.5.11",
     "@fontsource/teko": "^4.5.9",
     "@reduxjs/toolkit": "^1.8.6",
     "@testing-library/jest-dom": "^5.14.1",
@@ -17,6 +17,10 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.27.2",
     "dotenv": "^16.0.2",
+<<<<<<< HEAD
+    "filepond": "^4.30.4",
+=======
+>>>>>>> c95b42bb0c0fcf21ba47cb59a128ed63ed470875
     "filepond-plugin-file-encode": "^2.1.10",
     "filepond-plugin-file-validate-size": "^2.2.7",
     "filepond-plugin-file-validate-type": "^1.2.8",
@@ -34,7 +38,11 @@
     "react-blur": "^1.1.1",
     "react-dom": "^17.0.2",
     "react-filepond": "^7.1.2",
+<<<<<<< HEAD
+    "react-icons": "^4.6.0",
+=======
     "react-icons": "^4.2.0",
+>>>>>>> c95b42bb0c0fcf21ba47cb59a128ed63ed470875
     "react-quill": "^2.0.0",
     "react-redux": "^8.0.4",
     "react-router-dom": "^5.3.0",

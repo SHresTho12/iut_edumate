@@ -7,9 +7,11 @@ import {
   Flex,
   Spacer,
   Heading,
+  Box,
+  Image
 } from "@chakra-ui/react";
 import React from "react";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch,FaCommentsQuestion } from "react-icons/fa";
 import Navlink from "../Navlink";
 import { useAuth } from "../../Context/AuthContext";
 function QueryHeader() {
@@ -21,21 +23,26 @@ function QueryHeader() {
         <Navlink
           to="/askquestion"
           name="Ask Question"
-          bgColor="teal"
+          bgColor="#4AA96C"
           color="white"
+          _hover={{bg:'#3B8756'}}
         />
+        
       )}
+    
       <Spacer />
-      <Heading as="h3" size="lg">
+      <Heading as="h3" size="lg" color='#00454A'>
         Questions and Answers
       </Heading>
 
       <Spacer />
 
-      <Input bgColor="#F2D7D9" htmlSize={35} width="auto" placeholder="Search  Any Query"></Input>
-      <Button colorScheme="teal" size="md">
+<HStack>
+<FaSearch/> <Input bgColor="#FFFFFF" htmlSize={35} width="auto" placeholder="Search  Any Query"></Input> 
+      <Button bgColor='#90E0EF' size="md" color='#0F3460' _hover={{bg:'#73B3BF'}}>
         Search
       </Button>
+      </HStack>
     </Flex>
   );
 }
