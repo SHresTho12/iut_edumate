@@ -67,7 +67,7 @@ export default function Homepage() {
   return (
     <ChakraProvider theme={theme}>
       <Layout>
-        <VStack spacing={2} color="green.500">
+        <VStack spacing={2.5} color="green.500">
           <Heading>Welcome to IUT Edumate!</Heading>
 
           <Stack direction="row" gap={0} spacing={6}>

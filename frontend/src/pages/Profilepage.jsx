@@ -8,6 +8,8 @@ import { useState } from 'react';
 import { IconName } from "react-icons/fa";
 import { AiFillStar } from "react-icons/md"
 import {FaTrophy} from "react-icons/fa";
+import {BiUserCircle} from "react-icons/bi";
+
 import currentActivities from './profile-section/currentActivities';
 
 
@@ -36,11 +38,11 @@ export default function Profilepage() {
    
     <Stack direction={['column', 'row']} spacing='24px'>
     <Box w='25%' height='100vh' borderRadius='5' border='4px' borderColor='#ADDDD0' bg='#d4fcf2'>
-    <Center margin='15px' fontSize='2xl' color='#425F57' marginBottom='40px'>User Details</Center>
+    <Center margin='15px' fontSize='2xl' color='#425F57' marginBottom='40px'><BiUserCircle fontSize='30px'/> User Details </Center>
           {/* {currentUSer && <pre> {JSON.stringify(currentUSer, null, 2)}</pre>} */}
           
-          <VStack align='start' marginLeft='4vh'><p >Name : {currentUSer.displayName}</p>
-          <p >Email : {currentUSer.email}</p>
+          <VStack align='start' marginLeft='2vh' borderColor='#ADDDD0' marginRight='2vh'><p >Name : {currentUSer.displayName}</p>
+          <Box border='2px' >Email : {currentUSer.email}</Box>
           <p >Student ID : 190042118 </p>
           <p >Department : CSE</p>
           <p >Program : SWE</p>

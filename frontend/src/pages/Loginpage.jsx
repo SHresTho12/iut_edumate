@@ -9,6 +9,8 @@ import {
   Stack,
   useToast,
   extendTheme,
+  Image,
+  VStack,
   ChakraProvider,InputRightElement,InputGroup
 } from '@chakra-ui/react'
 import theme from './theme'
@@ -59,10 +61,25 @@ export default function Loginpage() {
   return (
     <ChakraProvider theme={theme}>
     <Layout >
+    <HStack >
+    <Image
+            src="/images/Account.gif"
+            alt="s"
+           
+            sx={{ filter: "blur(0px)" }}
+            width='50vw'
+            border='8px' 
+            borderRightColor='#5FF194'
+            borderLeftColor='white'
+            borderBottomColor='white'
+            borderBlockStartColor='white'
+            
+          />
+    <VStack width='70vw'>
       <Heading textAlign='center' my={12} color="green.500" >
         Login
       </Heading>
-      <Card maxW='md' mx='auto' mt={4} color="gray.600" bgColor=''>
+      <Card width='40vw' mx='auto' mt={4} color="gray.600" bgColor=''>
         <chakra.form
           onSubmit={async e => {
             e.preventDefault()
@@ -180,6 +197,8 @@ export default function Loginpage() {
           Sign in with Google
         </Button>
       </Card>
+      </VStack>
+      </HStack>
     </Layout>
     </ChakraProvider>
   )
