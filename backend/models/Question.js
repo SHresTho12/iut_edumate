@@ -10,8 +10,6 @@ const questionSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
-  like: integer,
-  dislike:integer,
   user: Object,
   comment_id: {
     type: mongoose.Schema.Types.ObjectId,
