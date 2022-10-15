@@ -14,7 +14,7 @@ import {
   GridItem,
   Image
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState,useEffect } from 'react'
 
 import { Layout } from "../components/ProLayout";
 import QuerNavSection from "../components/Query-Section/QuerNavSection";
@@ -22,13 +22,22 @@ import QueryFeed from "../components/Query-Section/QueryFeed";
 import QueryHeader from "../components/Query-Section/QueryHeader";
 import { useAuth } from "../Context/AuthContext";
 import theme from "./theme";
-
+import axios from 'axios'
 export default function Profilepage() {
   const { currentUSer } = useAuth();
-  console.log(currentUSer);
+  const [questions,setQuestions] = React.useState([])
+  useEffect(() => {
+  async function getQuestion() {
+    await axios.get("/askquestion").then((res) => {
+      setQuestions(res.data.reverse());
+      //console.log(res.data)
+    });
+  }
+  getQuestion();
+}, []);
   return (
     <Layout>
-      <Box h="100vh" p={2} bgColor='#E6FFE6'>
+      <Box p={2} bgColor='#E6FFE6'>
         <QueryHeader></QueryHeader>
      
 
@@ -40,16 +49,16 @@ export default function Profilepage() {
             sx={{ filter: "blur(0px)" }}
             marginBottom='3vh'
           />
-          <GridItem border="4px" borderColor='#4AA96C' width='45vh' colSpan={2} h="100%" borderRadius='8px'>
+          <GridItem bgColor='#E6FFE6' border="4px" borderColor='#4AA96C' width='45vh' colSpan={2} h="100%" borderRadius='8px'>
         
-            <QuerNavSection></QuerNavSection>
+            <QuerNavSection questions={questions}></QuerNavSection>
         
           </GridItem>
           
        
           </VStack>
-          <GridItem colStart={3} border="4px" borderColor='#4AA96C' width='155vh' colEnd={6} borderRadius='8px'>
-            <QueryFeed></QueryFeed>
+          <GridItem bgColor='#E6FFE6' colStart={3} border="4px" borderColor='#4AA96C' width='130vh' colEnd={6} borderRadius='8px'>
+            <QueryFeed questions={questions}></QueryFeed>
             
           </GridItem>
         </Grid>

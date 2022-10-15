@@ -11,11 +11,11 @@ import Editor from "./Editor";
 import { useAuth } from "../../Context/AuthContext";
 function AskQuestion() {
 
-const { currentUSer, setLoading, setAlert } = useAuth()
+const { currentUSer, setAlert } = useAuth()
 const [title,setTitle] = useState("")
 const [body,setBody] = useState("")
 const [tags,setTags] = useState([])
-
+const [loading,setLoading] = useState(false);
 const history = useHistory()
 const handleQuill = (value) => {
   setBody(value);
@@ -33,10 +33,11 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   if (title !== "" && body !== "") {
+    setLoading(true);
     const bodyJSON = {
       title: title,
       body: body,
-      tag: JSON.stringify(tags),
+      tags: JSON.stringify(tags),
       user: currentUSer,
     };
     await axios
@@ -44,7 +45,8 @@ const handleSubmit = async (e) => {
       .then((res) => {
         // console.log(res.data);
         alert("Question added successfully");
-        history.push("/");
+        setLoading(false);
+        history.push("/query");
       })
       .catch((err) => {
         console.log(err);
@@ -105,8 +107,8 @@ const handleSubmit = async (e) => {
             </Heading>
             <Center><Tags handleTags={handleTags}></Tags></Center>
           </Box>
-            <Button type='submit' onClick={handleSubmit} bg="#4A47A3" m={2} color='#EDF7FA' height='9vh' fontSize='large' _hover={{ bg: "#192965" }}>
-              Post Question
+            <Button disabled={loading} type='submit' onClick={handleSubmit} bg="#4A47A3" m={2} color='#EDF7FA' height='9vh' fontSize='large' _hover={{ bg: "#192965" }}>
+              {loading?'Adding Question .....' : 'Post Question '}
             </Button>
           </Box>
         

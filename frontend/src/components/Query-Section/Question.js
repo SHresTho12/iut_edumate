@@ -10,17 +10,19 @@ import {
   
 } from "@chakra-ui/react";
 import { FaThumbtack,FaTbZoomQuestion} from "react-icons/fa";
+
 import React from "react";
 import { Link } from "react-router-dom";
 import theme from './theme'
 
-function Question() {
+function Question({data}) {
+
   return (
     <ChakraProvider theme={theme} >
     <VStack alignItems="right" borderY="1px" m="2" color='#00454A' >
     <Box fontSize='x-large' >
     
-      <Link to="/question" >Why are there too much cats in iut?</Link>
+      <Link to="/question" >{data?.title}</Link>
 </Box>   
       <HStack>
         <Tag bgColor='#9BA3EB'>CSE</Tag>
@@ -35,9 +37,7 @@ function Question() {
       </Box>
       <Box>Because it is a cat haven.</Box>
       <ButtonGroup m="2">
-        <Button bgColor='#7FB5FF' _hover={{bg:'#72a2e5'}} size="md">
-          Comment
-        </Button>
+      
         <Button bgColor='#14C38E' _hover={{bg:'#10a377'}} size="md">
           Upvote
         </Button>
