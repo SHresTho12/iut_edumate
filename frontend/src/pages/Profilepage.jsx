@@ -41,12 +41,12 @@ export default function Profilepage() {
     <Center margin='15px' fontSize='2xl' color='#425F57' marginBottom='40px'><BiUserCircle fontSize='30px'/> User Details </Center>
           {/* {currentUSer && <pre> {JSON.stringify(currentUSer, null, 2)}</pre>} */}
           
-          <VStack align='start' marginLeft='2vh' borderColor='#ADDDD0' marginRight='2vh'><p >Name : {currentUSer.displayName}</p>
-          <Box border='2px' >Email : {currentUSer.email}</Box>
-          <p >Student ID : 190042118 </p>
-          <p >Department : CSE</p>
-          <p >Program : SWE</p>
-          <p >Mobile No : 017********</p>
+          <VStack align='start' marginLeft='2vh' borderColor='#ADDDD0' marginRight='2vh'><Box border='4px' borderColor='#95c7b9' width='22vw' height='6vh' >Name : {currentUSer.displayName}</Box>
+          <Box border='4px' borderColor='#95c7b9' width='22vw' height='6vh'>Email : {currentUSer.email}</Box>
+          <Box border='4px' borderColor='#95c7b9' width='22vw' height='6vh'>Student ID : 190042118 </Box>
+          <Box border='4px' borderColor='#95c7b9' width='22vw' height='6vh'>Department : CSE</Box>
+          <Box border='4px' borderColor='#95c7b9' width='22vw' height='6vh'>Program : SWE</Box>
+          <Box border='4px' borderColor='#95c7b9' width='22vw' height='6vh'>Mobile No : 017********</Box>
          
       
           </VStack>

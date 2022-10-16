@@ -111,7 +111,7 @@ export default function Homepage() {
               borderColor="blue.400"
             />
             <Navlink
-              to="/register"
+              to="/co"
               name="Co-Curricular Activities"
               colorScheme="white"
               _hover={{ bg: "teal.500" }}
