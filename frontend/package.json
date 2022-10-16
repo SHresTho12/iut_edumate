@@ -20,6 +20,7 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.27.2",
+    "chakra-paginator": "^0.7.3",
     "dotenv": "^16.0.2",
     "filepond": "^4.30.4",
     "filepond-plugin-file-encode": "^2.1.10",
@@ -44,6 +45,7 @@
     "react-redux": "^8.0.4",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "react-simple-dots-loader": "^1.0.1",
     "react-slick": "^0.29.0",
     "react-tag-input-component": "^2.0.1",
     "web-vitals": "^1.1.2"

@@ -37,7 +37,7 @@ export default function Profilepage() {
     <Layout>
    
     <Stack direction={['column', 'row']} spacing='24px'>
-    <Box w='25%' height='100vh' borderRadius='5' border='4px' borderColor='#ADDDD0' bg='#d4fcf2'>
+    <Box w='32%' height='100vh' borderRadius='5' border='4px' shadow='lg' borderColor='#ADDDD0' >
     <Center margin='15px' fontSize='2xl' color='#425F57' marginBottom='40px'><BiUserCircle fontSize='30px'/> User Details </Center>
           {/* {currentUSer && <pre> {JSON.stringify(currentUSer, null, 2)}</pre>} */}
           
@@ -52,22 +52,22 @@ export default function Profilepage() {
           </VStack>
 
     </Box>
-  <Box w='40%'  borderRadius='5' border='4px' borderColor='#B1E1FF' bg='#dbf1ff'>
+  <Box w='60%'  borderRadius='5' border='4px' borderColor='#B1E1FF' shadow='lg'>
     <Center margin='15px' fontSize='2xl' color='#293462'>Current Activities</Center>
     <Center ml='3.5vh'>What’s your idea? Get in touch. Always available for team project if the right project comes along.</Center>
 
   </Box>
 
   <VStack>
-  <Box w='80vh' height='20vh'  borderRadius='5' border='4px' borderColor='#f5dbb5' bg='#fcf0de'>
-  <Center margin='15px' fontSize='2xl' color='#544835' borderBottom='4px' borderColor='#8a6936'>Reward Points
+  <Box w='80vh' height='20vh'  borderRadius='5' border='4px' borderColor='#f5dbb5' shadow='lg'>
+  <Center margin='15px' fontSize='2xl' color='#544835' borderBottom='4px' borderColor='#8a6936' shadow='lg'>Reward Points
 
   </Center>
   
   <Center  fontSize='2xl' > <FaTrophy/> <p margin='10vh'> Score: 8</p></Center>
   
     </Box>
-    <Box w='80vh' height='80vh'  borderRadius='5' border='4px' borderColor='#D2DAFF' bg='#e8ecff'>
+    <Box w='80vh' height='80vh'  borderRadius='5' border='4px' borderColor='#D2DAFF' shadow='lg'>
   <Center margin='15px' fontSize='2xl' color='#423b80'>Uploaded works</Center>
     </Box>
     </VStack>

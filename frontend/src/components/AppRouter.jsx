@@ -16,6 +16,7 @@ import AskQuestion from './Query-Section/AskQuestion'
 import Question from '../pages/DetailQuestion'
 
 import Project from '../pages/Project'
+import art from './art'
 
 
 export default function AppRouter(props) {
@@ -27,6 +28,7 @@ export default function AppRouter(props) {
           <Route exact path='/query' component={Query} />
           <Route exact path='/project' component={Project} />
           <Route exact path='/co' component={co} />
+          <Route exact path='/art' component={art} />
         
           
           
@@ -43,6 +45,7 @@ export default function AppRouter(props) {
 
           <ProtectedRoute exact path='/project' component={Project} />
           <ProtectedRoute exact path='/co' component={co} />
+          <ProtectedRoute exact path='/art' component={art} />
 
         
           <ProtectedRoute

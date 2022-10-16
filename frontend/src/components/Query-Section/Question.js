@@ -11,18 +11,31 @@ import {
 } from "@chakra-ui/react";
 import { FaThumbtack,FaTbZoomQuestion} from "react-icons/fa";
 
-import React from "react";
+import React, { useState, useEffect,useMemo } from "react";
 import { Link } from "react-router-dom";
 import theme from './theme'
 
+
 function Question({data}) {
+  const itemLimit = 3;
+  const [pagesQuantity, setPagesQuantity] = useState(0);
+  const [curPage, setCurPage] = useState(0);
+  const handlePageChange = (page) => {
+    setCurPage(page);
+  };
+  
+  useEffect(() => {
+    const pagesTotal = Math.ceil(data.length / itemLimit);
+
+    setPagesQuantity(pagesTotal);
+  }, [data.length]);
 
   return (
     <ChakraProvider theme={theme} >
     <VStack alignItems="right" borderY="1px" m="2" color='#00454A' >
     <Box fontSize='x-large' >
     
-      <Link to="/question" >{data?.title}</Link>
+      <Link to="/question" >{data?.title} </Link>
 </Box>   
       <HStack>
         <Tag bgColor='#9BA3EB'>CSE</Tag>

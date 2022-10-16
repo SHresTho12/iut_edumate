@@ -37,14 +37,7 @@ export default function Project() {
             height='20%'
             sx={{ filter: "blur(0px)" }}
           />
-      {/* <Feature 
-        
-        title='Uploaded Project Ideas'
-       
-           desc='1. What’s your idea? Get in touch. Always available for
-            team project if the right project comes along.'
-         
-        /> */}
+   
 
       <Box p={4}  shadow='lg' borderWidth='2px' borderColor='#9CC094'  Height='160%'>
          <Heading fontSize='xl'>Uploaded Project Ideas</Heading>

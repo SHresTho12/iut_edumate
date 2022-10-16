@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useState,useEffect } from 'react'
 
-import { Layout } from "../components/ProLayout";
+import { Layout } from "../components/Layout";
 import QuerNavSection from "../components/Query-Section/QuerNavSection";
 import QueryFeed from "../components/Query-Section/QueryFeed";
 import QueryHeader from "../components/Query-Section/QueryHeader";
@@ -49,7 +49,7 @@ export default function Profilepage() {
             sx={{ filter: "blur(0px)" }}
             marginBottom='3vh'
           />
-          <GridItem bgColor='#E6FFE6' border="4px" borderColor='#4AA96C' width='45vh' colSpan={2} h="100%" borderRadius='8px'>
+          <GridItem bgColor='#E6FFE6' border="4px" borderColor='#4AA96C' width='45vh' colSpan={2} h="20%" borderRadius='8px'>
         
             <QuerNavSection questions={questions}></QuerNavSection>
         
@@ -57,7 +57,7 @@ export default function Profilepage() {
           
        
           </VStack>
-          <GridItem bgColor='#E6FFE6' colStart={3} border="4px" borderColor='#4AA96C' width='130vh' colEnd={6} borderRadius='8px'>
+          <GridItem bgColor='#E6FFE6' colStart={3} border="4px" borderColor='#4AA96C' width='160vh' colEnd={6} borderRadius='8px'>
             <QueryFeed questions={questions}></QueryFeed>
             
           </GridItem>
