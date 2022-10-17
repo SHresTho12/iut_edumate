@@ -1,13 +1,19 @@
 import { Box,HStack ,Grid,GridItem,Text,Heading} from '@chakra-ui/react'
 import React from 'react'
 
-function PostedAnswers() {
+function PostedAnswers(answer) {
+  console.log(answer)
   return (
-    <Box p={2} bg="#b6e7fc" borderRadius="10">
-        <Grid templateColumns="repeat(5, 1fr)" gap={0}>
+
+    <Box p={2} bg="blue.200" borderRadius="10">
+        {
+          answer.map((answer) => (
+
+            <Grid templateColumns="repeat(5, 1fr)" gap={0}>
+
         <GridItem colSpan={1} w="100%"  borderRight="1px solid" borderRadius="1">
           <Box >
-            <Text>Stats of the question</Text>
+            <Text>Info</Text>
           </Box>
         </GridItem>
         <GridItem w="100%" colSpan={4}  >
@@ -18,6 +24,10 @@ function PostedAnswers() {
           </Box>
         </GridItem>
       </Grid>
+          ))
+
+
+        }
     </Box>
   )
 }
