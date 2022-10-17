@@ -268,8 +268,7 @@ function DetailQuestion() {
 
     </Layout>
     
-    </ChakraProvider>
-    </Stack>
+   
     
   )
 }
