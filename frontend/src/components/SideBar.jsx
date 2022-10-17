@@ -24,12 +24,42 @@ import {
    import React from 'react'
    import { useState } from 'react'
    import { useAuth } from '../Context/AuthContext'
+   import {useHistory} from 'react-router-dom'
+   import axios from "axios";
 export function Sidebar() {
      const { isOpen, onOpen, onClose } = useDisclosure()
      const btnRef = React.useRef()
      const { logout, currentUSer } = useAuth()
      const [email, setEmail] = useState('')
      const [name, setName] = useState('')
+     const [password, setPassword] = useState('')
+     const history = useHistory()
+
+     const [loading,setLoading] = useState(false);
+
+     const handleSubmit = async (e) => {
+      e.preventDefault();
+    
+      if (currentUSer) {
+        setLoading(true);
+        const bodyJSON = {
+       name:name,
+       email:email,
+       password:password
+        };
+        await axios
+          .post("/user", bodyJSON)
+          .then((res) => {
+            // console.log(res.data);
+            alert("Updated");
+            setLoading(false);
+            history.push("/profile");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    };
    
      return (
        <>
@@ -83,8 +113,8 @@ export function Sidebar() {
                 type='number'
                 autoComplete='number'
                 required
-                // value={email}
-                // onChange={e => setEmail(e.target.value)}
+                value={email}
+                 onChange={e => setEmail(e.target.value)}
                
               />
               <FormLabel color='#7895B2'>Student ID</FormLabel>
@@ -114,7 +144,7 @@ export function Sidebar() {
                 type='deptname'
                 autoComplete='deptname'
                 required
-                // value={name}
+                //value={name}
                 // onChange={e => setEmail(e.target.value)}
                
               />
@@ -128,7 +158,7 @@ export function Sidebar() {
                <Button variant='outline' colorScheme='red' mr={3} onClick={onClose} >
                  Cancel
                </Button>
-               <Button colorScheme='blue'>Save</Button>
+               <Button colorScheme='blue' disabled={loading} type='submit' onClick={handleSubmit} >Save</Button>
              </DrawerFooter>
            </DrawerContent>
          </Drawer>

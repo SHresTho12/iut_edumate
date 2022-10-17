@@ -73,7 +73,7 @@ export default function Homepage() {
           <Stack direction="row" gap={0} spacing={6}>
             {/* {currentUSer && <Navlink to='/profile' name='Profile' bgColor='white' colorScheme='green' />} */}
             <Navlink
-              to="/register"
+              to="/academic"
               name="Academic Resources"
               colorScheme="white"
               _hover={{ bg: "purple.500" }}
