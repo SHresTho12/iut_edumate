@@ -15,7 +15,8 @@ import {
   Text,
   Grid,
   GridItem,
-  Button
+  Button,
+  Input,
 } from "@chakra-ui/react";
 import Comment from '../components/Query-Section/Comment'
 import PostedAnswers from '../components/Query-Section/PostedAnswers'
@@ -88,6 +89,22 @@ function DetailQuestion() {
   };
   
 
+
+  const handleComment = async () => {
+    if (comment !== "") {
+      const body = {
+        question_id: id,
+        comment: comment,
+        user: currentUSer,
+      };
+      await axios.post(`/comment/${id}`, body).then((res) => {
+        setComment("");
+        setShow(false);
+        getUpdatedAnswer();
+        // console.log(res.data);
+      });
+    }
+  }
   // async function getFunctionDetails() {
   //       console.log("I am being called")
   //       await axios
@@ -114,7 +131,7 @@ function DetailQuestion() {
       <Box  p={2} bgColor="teal.100">
         <Heading>Title :{questionData?.title}</Heading>
         <Tag mY={1} variant="solid" colorScheme="teal">
-         {questionData?.created_at}
+         {new Date(questionData?.created_at).toLocaleString()}
         </Tag>
         <Tag mY={1} variant="solid" colorScheme="teal">
           Answers count: {questionData?.answerDetails.length}
@@ -146,12 +163,70 @@ function DetailQuestion() {
       </Grid>
     </VStack>
    
-    <Comment></Comment>
+    <Box m={2}>
+    <Box>
+    <Heading as='h5'> Comments</Heading>
+    <Box p={2}  borderRadius="10">
+    <Grid templateColumns="repeat(5, 1fr)" gap={0}>
+    <GridItem p={2} colSpan={1} w="100%"  borderRight="1px solid" borderRadius="1">
+      <Box >
+        <Text>Stats of the question</Text>
+        <textarea
+                      style={{
+                        margin: "5px 0px",
+                        padding: "10px",
+                        border: "1px solid rgba(0, 0, 0, 0.2)",
+                        borderRadius: "3px",
+                        outline: "none",
+                      }}
+                      value={comment}
+                      onChange={(e) => setComment(e.target.value)}
+                      type="text"
+                      placeholder="Add your comment..."
+                      rows={5}
+                    />
+        <Button onClick={handleComment} m={2} bgColor="red.200">Comment</Button>
+      </Box>
+    </GridItem>
+    
+
+
+
+             
+    <GridItem p={2} w="100%" colSpan={4}  >
+
+
+      {
+        questionData?.comments &&
+        questionData?.comments.map((_qd) => (
+          <Box key={_qd?._id}>
+            {_qd.comment}{" "}
+            <br></br>
+            <span>
+              
+              - {_qd.user ? _qd.user.displayName : "Nate Eldredge"}
+            </span>{" "}
+            {"    "}
+            <small>
+              {new Date(_qd.created_at).toLocaleString()}
+            </small>
+          </Box> ))
+      }
+     
+    </GridItem>
+  </Grid>
+</Box>
+    </Box>
+    
+   
+    
+    
+</Box>
  
     <Box m={2}>
         <Box>
         <Heading as='h3'> Answers</Heading>
-        <Box p={2} bg="blue.200" borderRadius="10">
+        <Box p={2} bg="blue.300" borderRadius="10">
         {questionData?.answerDetails.map((_q,index) => (
 
             <Grid templateColumns="repeat(5, 1fr)" gap={0}>
@@ -159,6 +234,7 @@ function DetailQuestion() {
           <Box >
             <Text>Info</Text>
             <Text fontSize="sm">Posted by : {_q.user.displayName}</Text>
+           <small>{ new Date(_q.created_at).toLocaleString()}</small>
           </Box>
         </GridItem>
         <GridItem w="100%" colSpan={4}  >
