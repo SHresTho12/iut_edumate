@@ -34,7 +34,7 @@ export function Sidebar() {
      return (
        <>
          {/* <Button ref={btnRef} colorScheme='teal' onClick={onOpen}> */}
-         {currentUSer && <Avatar name={currentUSer.email}  size='md' bgColor='#2B4865' ref={btnRef} colorScheme='teal' onClick={onOpen} />}
+         {currentUSer && <Avatar as='Button' name={currentUSer.email}  size='md' bgColor='#2B4865' ref={btnRef} colorScheme='teal' onClick={onOpen} />}
          {/* </Button> */}
          <Drawer
            isOpen={isOpen}
@@ -56,7 +56,7 @@ export function Sidebar() {
               
               <Input
                 h='3.2rem' placeholder=' ' value={name} onChange={(e) => setName(e.target.value)} name='name' type='name' autoComplete='name' required />
-           <FormLabel color='#7895B2'>Update Name</FormLabel>
+           <FormLabel color='#7895B2'>Name</FormLabel>
             </FormControl>
         
             <FormControl id='email' variant="floating" >
@@ -72,7 +72,7 @@ export function Sidebar() {
                 onChange={e => setEmail(e.target.value)}
                
               />
-              <FormLabel color='#7895B2'>Update Email address</FormLabel>
+              <FormLabel color='#7895B2'>Email address</FormLabel>
             </FormControl>
             <FormControl id='email' variant="floating" >
               
@@ -87,7 +87,7 @@ export function Sidebar() {
                 // onChange={e => setEmail(e.target.value)}
                
               />
-              <FormLabel color='#7895B2'>Update Student ID</FormLabel>
+              <FormLabel color='#7895B2'>Student ID</FormLabel>
             </FormControl>
             <FormControl id='email' variant="floating" >
               
@@ -102,7 +102,7 @@ export function Sidebar() {
                 // onChange={e => setEmail(e.target.value)}
                
               />
-              <FormLabel color='#7895B2'>Update Department</FormLabel>
+              <FormLabel color='#7895B2'>Department</FormLabel>
             </FormControl>
 
             <FormControl id='email' variant="floating" >
@@ -118,7 +118,7 @@ export function Sidebar() {
                 // onChange={e => setEmail(e.target.value)}
                
               />
-              <FormLabel color='#7895B2'>Update Program</FormLabel>
+              <FormLabel color='#7895B2'>Program</FormLabel>
             </FormControl>
 
             </Stack>

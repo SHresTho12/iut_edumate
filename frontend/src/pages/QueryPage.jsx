@@ -37,7 +37,7 @@ export default function Profilepage() {
 }, []);
   return (
     <Layout>
-      <Box p={2} bgColor='#E6FFE6'>
+      <Box p={2} bgColor='#E6FFE6' >
         <QueryHeader></QueryHeader>
      
 
@@ -49,7 +49,7 @@ export default function Profilepage() {
             sx={{ filter: "blur(0px)" }}
             marginBottom='3vh'
           />
-          <GridItem bgColor='#E6FFE6' border="4px" borderColor='#4AA96C' width='45vh' colSpan={2} h="20%" borderRadius='8px'>
+          <GridItem bgColor='#E6FFE6' border="4px" shadow='2xl' borderColor='#4AA96C' width='45vh' colSpan={2} h="20%" borderRadius='8px'>
         
             <QuerNavSection questions={questions}></QuerNavSection>
         
@@ -57,7 +57,7 @@ export default function Profilepage() {
           
        
           </VStack>
-          <GridItem bgColor='#E6FFE6' colStart={3} border="4px" borderColor='#4AA96C' width='160vh' colEnd={6} borderRadius='8px'>
+          <GridItem bgColor='#E6FFE6' colStart={3} shadow='2xl' border="4px" borderColor='#4AA96C' width='155vh' colEnd={6} borderRadius='8px'>
             <QueryFeed questions={questions}></QueryFeed>
             
           </GridItem>

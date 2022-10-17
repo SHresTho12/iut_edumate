@@ -67,7 +67,7 @@ import {
                />
              
                  <Navlink
-                   to="/query"
+                   to="/tournaments"
                    name="Matches and Tournament"
                    colorScheme="white"
                    _hover={{ bg: "green.500" }}

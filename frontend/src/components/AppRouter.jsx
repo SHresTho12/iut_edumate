@@ -17,6 +17,7 @@ import Question from '../pages/DetailQuestion'
 
 import Project from '../pages/Project'
 import art from './art'
+import tournaments from './tournaments'
 
 
 export default function AppRouter(props) {
@@ -29,6 +30,7 @@ export default function AppRouter(props) {
           <Route exact path='/project' component={Project} />
           <Route exact path='/co' component={co} />
           <Route exact path='/art' component={art} />
+          <Route exact path='/tournaments' component={tournaments} />
         
           
           
@@ -46,6 +48,7 @@ export default function AppRouter(props) {
           <ProtectedRoute exact path='/project' component={Project} />
           <ProtectedRoute exact path='/co' component={co} />
           <ProtectedRoute exact path='/art' component={art} />
+          <ProtectedRoute exact path='/tournaments' component={tournaments} />
 
         
           <ProtectedRoute
