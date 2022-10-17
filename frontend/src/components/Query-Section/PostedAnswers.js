@@ -5,6 +5,7 @@ function PostedAnswers(answer) {
   console.log(answer)
   return (
 
+
     <Box p={2} bg="blue.200" borderRadius="10">
         {
           answer.map((answer) => (
@@ -12,6 +13,7 @@ function PostedAnswers(answer) {
             <Grid templateColumns="repeat(5, 1fr)" gap={0}>
 
         <GridItem colSpan={1} w="100%"  borderRight="1px solid" borderRadius="1">
+
           <Box >
             <Text>Info</Text>
           </Box>

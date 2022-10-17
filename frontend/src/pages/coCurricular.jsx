@@ -54,8 +54,8 @@ import {
              <Stack direction="row" gap={0} spacing={6} marginBlockStart='5vh'>
                {/* {currentUSer && <Navlink to='/profile' name='Profile' bgColor='white' colorScheme='green' />} */}
                <Navlink
-                 to="/register"
-                 name="Entertainment"
+                 to="/art"
+                 name="Cultural Activities"
                  colorScheme="white"
                  _hover={{ bg: "purple.500" }}
                  bgColor="purple.400"
@@ -67,7 +67,7 @@ import {
                />
              
                  <Navlink
-                   to="/query"
+                   to="/tournaments"
                    name="Matches and Tournament"
                    colorScheme="white"
                    _hover={{ bg: "green.500" }}

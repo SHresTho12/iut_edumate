@@ -15,8 +15,8 @@ import React from "react";
 
 function QuerNavSection({ questions }) {
   return (
-    <Box>
-      <Flex align="center" justify="center">
+    <Box  >
+      <Flex align="center" justify="center" >
         <Heading as="h2" size="lg" marginBlockStart="1.5vh" color="#00454A">
           Filter your search{" "}
         </Heading>

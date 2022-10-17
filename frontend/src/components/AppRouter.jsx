@@ -16,6 +16,9 @@ import AskQuestion from './Query-Section/AskQuestion'
 import Question from '../pages/DetailQuestion'
 
 import Project from '../pages/Project'
+import art from './art'
+import tournaments from './tournaments'
+import academic from './../pages/Academic'
 
 
 export default function AppRouter(props) {
@@ -27,6 +30,9 @@ export default function AppRouter(props) {
           <Route exact path='/query' component={Query} />
           <Route exact path='/project' component={Project} />
           <Route exact path='/co' component={co} />
+          <Route exact path='/art' component={art} />
+          <Route exact path='/tournaments' component={tournaments} />
+          <Route exact path='/tournaments' component={tournaments} />
         
           
           
@@ -43,6 +49,11 @@ export default function AppRouter(props) {
 
           <ProtectedRoute exact path='/project' component={Project} />
           <ProtectedRoute exact path='/co' component={co} />
+          <ProtectedRoute exact path='/art' component={art} />
+          <ProtectedRoute exact path='/tournaments' component={tournaments} />
+          <ProtectedRoute exact path='/academic' component={academic} />
+          
+
 
         
           <ProtectedRoute

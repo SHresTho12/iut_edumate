@@ -20,10 +20,12 @@ function DetailedQuestionSection({question}) {
   //console.log(body);
   return (
     <VStack alignItems="left">
+
       <Box border="1px" borderRadius="10" p={2} bgColor="teal.100">
         <Heading>Title : </Heading>
         <Tag mY={1} variant="solid" colorScheme="teal">
          {/* {question.created_at} */}
+
         </Tag>
         <Tag mY={1} variant="solid" colorScheme="teal">
           Answers count: 
@@ -39,6 +41,7 @@ function DetailedQuestionSection({question}) {
 
 
         <GridItem colSpan={1} w="100%" bg="blue.100" border="1px solid" borderRadius="5">
+
           <Box >
             <Text size="sm">Information</Text>
             <VStack>
@@ -48,7 +51,7 @@ function DetailedQuestionSection({question}) {
 
           </Box>
         </GridItem>
-        <GridItem w="100%" colSpan={4} bg="#c2fff0"  borderRadius="10">
+        <GridItem w="100%" colSpan={4} bg="#b0ffec"  borderRadius="10" shadow={'2xl'}>
           <Box m={2} >
             <Heading as="h3" ml='2vh'>Description</Heading>
 
