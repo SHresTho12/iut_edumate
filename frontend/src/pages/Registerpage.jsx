@@ -9,7 +9,10 @@ import {
   Stack,
   useToast,
   ChakraProvider,
-  Box
+  Box,
+  HStack,
+  VStack,
+  Image
 } from '@chakra-ui/react'
 import '@fontsource/josefin-sans/700.css'
 import '@fontsource/teko/700.css'
@@ -42,11 +45,26 @@ export default function Registerpage() {
   return (
     <ChakraProvider theme={theme}>
     <Layout  >
+    <HStack >
+    <Image
+            src="/images/sign.gif"
+            alt="s"
+           
+            sx={{ filter: "blur(0px)" }}
+            width='50vw'
+            border='8px' 
+            borderRightColor='#5FF194'
+            borderLeftColor='white'
+            borderBottomColor='white'
+            borderBlockStartColor='white'
+            
+          />
+    <VStack width='70vw'>
       <Heading textAlign='center' my={12} color="green.400">
         Register
       </Heading>
       <Box  >
-      <Card maxW='md' mx='auto' mt={4}  color="gray.500">
+      <Card width='40vw' mx='auto' mt={4}  color="gray.500">
         <chakra.form
           onSubmit={async e => {
             e.preventDefault()
@@ -145,6 +163,8 @@ export default function Registerpage() {
         </Button>
       </Card>
       </Box>
+      </VStack>
+      </HStack>
     </Layout>
     </ChakraProvider>
   )

@@ -1,3 +1,4 @@
+
 import React, { useState,useEffect} from 'react'
 import { Layout } from '../components/Layout'
 import Answer from '../components/Query-Section/Answer'
@@ -20,6 +21,7 @@ import {
 } from "@chakra-ui/react";
 import Comment from '../components/Query-Section/Comment'
 import PostedAnswers from '../components/Query-Section/PostedAnswers'
+
 function DetailQuestion() {
   const [questionData, setQuestionData] = useState();
   const { currentUSer } = useAuth()
@@ -124,6 +126,7 @@ function DetailQuestion() {
 
 
   return (
+
     
     <Layout>
       <Box bgColor="teal.100">
@@ -262,8 +265,12 @@ function DetailQuestion() {
  
        
       </Box>
-       
+
     </Layout>
+    
+    </ChakraProvider>
+    </Stack>
+    
   )
 }
 
