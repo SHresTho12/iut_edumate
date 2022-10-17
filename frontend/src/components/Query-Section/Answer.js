@@ -3,7 +3,7 @@ import React from 'react'
 import Editor from './Editor';
 import PostedAnswers from './PostedAnswers';
 
-function Answer() {
+function Answer({id}) {
     let answerState = true;
     function myFunction() {
       answerState = false;
@@ -13,7 +13,7 @@ function Answer() {
    <Box m={2}>
         <Box>
         <Heading as='h3'> Answers</Heading>
-        <PostedAnswers></PostedAnswers>
+        <PostedAnswers id={id}></PostedAnswers>
         </Box>
         <Text>Answer to the question</Text>
        
