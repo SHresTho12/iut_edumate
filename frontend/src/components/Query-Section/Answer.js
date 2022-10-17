@@ -3,7 +3,7 @@ import React from 'react'
 import Editor from './Editor';
 import PostedAnswers from './PostedAnswers';
 
-function Answer() {
+function Answer({id}) {
     let answerState = true;
     function myFunction() {
       answerState = false;
@@ -11,9 +11,11 @@ function Answer() {
     }
   return (
    <Box m={2}>
-        <Box >
-        <Heading as='h3' > Answers</Heading>
-        <PostedAnswers></PostedAnswers>
+
+        <Box>
+        <Heading as='h3'> Answers</Heading>
+        <PostedAnswers id={id}></PostedAnswers>
+
         </Box>
         <Text>Answer to the question</Text>
        
