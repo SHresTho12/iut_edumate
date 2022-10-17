@@ -7,17 +7,20 @@ import axios from 'axios'
 import parse from 'html-react-parser';
 import { useAuth } from '../Context/AuthContext'
 import ReactQuill from "react-quill";
+import theme from './theme'
 import {
   Heading,
   HStack,
   VStack,
   Box,
+  Stack,
   Tag,
   Text,
   Grid,
   GridItem,
   Button,
   Input,
+  ChakraProvider
 } from "@chakra-ui/react";
 import Comment from '../components/Query-Section/Comment'
 import PostedAnswers from '../components/Query-Section/PostedAnswers'
@@ -126,14 +129,16 @@ function DetailQuestion() {
 
 
   return (
+    <ChakraProvider theme={theme}>
 
     
     <Layout>
-      <Box bgColor="teal.100">
+  
+      <Box >
       <VStack alignItems="left">
-      <Box  p={2} bgColor="teal.100">
+      <Box  p={3} bgColor="#C8FFD4" borderRadius='10px'  marginBottom={'1.5vh'} marginBlockStart='3vh' shadow={'2xl'}>
         <Heading>Title :{questionData?.title}</Heading>
-        <Tag mY={1} variant="solid" colorScheme="teal">
+        <Tag mY={1} variant="solid" colorScheme="teal" marginRight={'1vw'}>
          {new Date(questionData?.created_at).toLocaleString()}
         </Tag>
         <Tag mY={1} variant="solid" colorScheme="teal">
@@ -147,18 +152,18 @@ function DetailQuestion() {
   <GridItem w='100%' h='10' bg='blue.500' />
   <GridItem w='100%' h='10' bg='blue.500' /> */}
 
-        <GridItem colSpan={1} w="100%" bg="blue.100" border="1px solid" borderRadius="5">
+        <GridItem colSpan={1} w="100%" bg="blue.100"  borderRadius="10px" shadow={'2xl'} >
           <Box >
-            <Text size="sm">Information</Text>
+            <Text size="sm" marginLeft='1vw' marginBlockStart={'1vh'}>Information</Text>
             <VStack>
               <Text fontSize="sm">Posted by : {questionData?.user.displayName}</Text>
 
             </VStack>
           </Box>
         </GridItem>
-        <GridItem w="100%" colSpan={4} bg="blue.100" border="1px solid" borderRadius="10">
+        <GridItem w="100%" colSpan={4} bg="blue.100" shadow={'2xl'}  borderRadius="10px">
           <Box m={2} >
-            <Heading as="h3">Description</Heading>
+            <Heading as="h3" fontSize={'30px'}>Description</Heading>
 
             <Text> {parse(`${questionData?.body}`)}</Text>
           </Box>
@@ -166,14 +171,14 @@ function DetailQuestion() {
       </Grid>
     </VStack>
    
-    <Box m={2}>
-    <Box>
-    <Heading as='h5'> Comments</Heading>
+    <Box m={2} bgColor='#D2DAFF' marginBlockStart={'1.5vw'} borderRadius='10px' boxShadow={'2xl'}>
+    <Box >
+    <Heading as='h2' marginLeft={'1vw'} fontSize={'30px'}> Comments</Heading>
     <Box p={2}  borderRadius="10">
     <Grid templateColumns="repeat(5, 1fr)" gap={0}>
     <GridItem p={2} colSpan={1} w="100%"  borderRight="1px solid" borderRadius="1">
       <Box >
-        <Text>Stats of the question</Text>
+        <Text >Stats of the question</Text>
         <textarea
                       style={{
                         margin: "5px 0px",
@@ -181,6 +186,7 @@ function DetailQuestion() {
                         border: "1px solid rgba(0, 0, 0, 0.2)",
                         borderRadius: "3px",
                         outline: "none",
+                        boxShadow:"2xl"
                       }}
                       value={comment}
                       onChange={(e) => setComment(e.target.value)}
@@ -188,7 +194,7 @@ function DetailQuestion() {
                       placeholder="Add your comment..."
                       rows={5}
                     />
-        <Button onClick={handleComment} m={2} bgColor="red.200">Comment</Button>
+        <Button onClick={handleComment} m={2} bgColor="#9c99ff" color={'white'} _hover={{bg:'#8e8bfc'}}>Comment</Button>
       </Box>
     </GridItem>
     
@@ -228,8 +234,8 @@ function DetailQuestion() {
  
     <Box m={2}>
         <Box>
-        <Heading as='h3'> Answers</Heading>
-        <Box p={2} bg="blue.300" borderRadius="10">
+        <Heading as='h3' marginBlockStart={'4vh'} marginLeft='1vw' fontSize={'30px'}> Answers</Heading>
+        <Box p={2} bg="#FAFCDB" borderRadius="10px" boxShadow={'2xl'}>
         {questionData?.answerDetails.map((_q,index) => (
 
             <Grid templateColumns="repeat(5, 1fr)" gap={0}>
@@ -254,11 +260,11 @@ function DetailQuestion() {
         }
     </Box>
         </Box>
-        <Text>Answer to the question</Text>
+        <Text marginBlockStart={'4vh'} fontFamily='heading' fontSize={'30px'}>Answer to the question</Text>
        
         <ReactQuill value={answer}
           onChange={handleQuill} theme="snow"></ReactQuill>
-        <Button onClick={handleSubmit} m={2} bgColor="red.200">Post a answer</Button>
+        <Button onClick={handleSubmit} m={2} bgColor="#5782BB" color={'white'}>Post your answer</Button>
         
         
    </Box>
@@ -267,6 +273,7 @@ function DetailQuestion() {
       </Box>
 
     </Layout>
+    </ChakraProvider>
     
    
     
