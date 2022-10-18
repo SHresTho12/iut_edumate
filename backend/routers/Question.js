@@ -28,6 +28,100 @@ router.post('/', async (req, res) => {
     });
 });
 
+
+//create a put req to increament the vote count
+router.put('/upvote/:id', async (req, res) => {
+    const id = req.params.id;
+    
+    const user = req.body.user;
+    const question = await QuestionDB.findById(id);
+    let upvote = question.upvote;
+    let downvote = question.downvote;
+    const upvotedBy = question.upvotedBy;
+    const downvotedBy = question.downvotedBy;
+    if (upvotedBy.includes(user)) {
+        res.status(400).send({
+            status: false,
+            message: 'You have already upvoted this question',
+        });
+    } else if (downvotedBy.includes(user)) {
+        const index = downvotedBy.indexOf(user);
+        downvotedBy.splice(index, 1);
+        downvote--;
+        upvote++;
+        upvotedBy.push(user);
+        await QuestionDB.findByIdAndUpdate(id, {
+            upvote: upvote,
+            downvote: downvote,
+            upvotedBy: upvotedBy,
+            downvotedBy: downvotedBy,
+        });
+        res.status(200).send({
+            status: true,
+            message: 'Upvote added successfully',
+        });
+    } else {
+        upvote++;
+        upvotedBy.push(user);
+        await QuestionDB.findByIdAndUpdate(id, {
+            upvote: upvote,
+            upvotedBy: upvotedBy,
+        });
+        res.status(200).send({
+            status: true,
+            message: 'Upvote added successfully',
+        });
+    }
+});
+
+//create a put req to decreament the vote count
+router.put('/downvote/:id', async (req, res) => {
+    const id = req.params.id;
+    const user = req.body.user;
+    const question = await QuestionDB.findById(id);
+    let upvote = question.upvote;
+    let downvote = question.downvote;
+    const upvotedBy = question.upvotedBy;
+    const downvotedBy = question.downvotedBy;
+    if (downvotedBy.includes(user)) {
+        res.status(400).send({
+            status: false,
+            message: 'You have already downvoted this question',
+        });
+    } else if (upvotedBy.includes(user)) {
+        const index = upvotedBy.indexOf(user);
+        upvotedBy.splice(index, 1);
+        upvote--;
+        downvote++;
+        downvotedBy.push(user);
+        await QuestionDB.findByIdAndUpdate(id, {
+            upvote: upvote,
+            downvote: downvote,
+            upvotedBy: upvotedBy,
+            downvotedBy: downvotedBy,
+
+        });
+        res.status(200).send({
+            status: true,
+            message: 'Downvote added successfully',
+        });
+    } else {
+        downvote++;
+        downvotedBy.push(user);
+        await QuestionDB.findByIdAndUpdate(id, {
+            downvote: downvote,
+            downvotedBy: downvotedBy,
+        });
+        res.status(200).send({
+            status: true,
+            message: 'Downvote added successfully',
+        });
+    }
+});
+
+
+
+
 router.get("/:id", async (req, res) => {
     try {
       

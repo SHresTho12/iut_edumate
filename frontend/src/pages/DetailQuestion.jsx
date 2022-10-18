@@ -153,11 +153,16 @@ function DetailQuestion() {
   <GridItem w='100%' h='10' bg='blue.500' /> */}
 
         <GridItem colSpan={1} w="100%" bg="blue.100"  borderRadius="10px" shadow={'2xl'} >
-          <Box >
+          <Box p={2} >
             <Text size="sm" marginLeft='1vw' marginBlockStart={'1vh'}>Information</Text>
             <VStack>
               <Text fontSize="sm">Posted by : {questionData?.user.displayName}</Text>
-
+              <Text fontSize="sm">Liked by : {questionData?.upvote}</Text>
+              <Text fontSize="sm">Disliked by : {questionData?.downvote}</Text>
+                <HStack m={2}> 
+                <Button bgColor="green">Up vote</Button>
+                <Button bgColor="red">Down vote</Button>
+                </HStack>
             </VStack>
           </Box>
         </GridItem>
