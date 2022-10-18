@@ -110,22 +110,56 @@ function DetailQuestion() {
       });
     }
   }
-  // async function getFunctionDetails() {
-  //       console.log("I am being called")
-  //       await axios
-  //         .get(`/askquestion/${id}`)
-  //         .then((res) => {
-            
-            
-  //           console.log(res.data[0]);
-  //           quesArray = res.data[0];
-       
-  //           //setQuestionData(res.data[0])})
-  //         })
-  //         .catch((err) => console.log("The error: " + err.message));
-  //     }
-  // getFunctionDetails();
-  //console.log("Hello " + quesArray);
+
+  // const handleUpvoote = async () => {
+  //   const user = currentUSer;
+  //   await axios.put(`/upvote/${id}`).then((res) => {
+  //     getUpdatedAnswer();
+  //   });
+  // };
+//axios put function to handle upvote for question
+  const handleUpvote = async () => {
+    const bodyJSON = {
+      
+      user: currentUSer.uid,
+    };
+    await axios.put(`/askquestion/upvote/${id}`,bodyJSON).then((res) => {
+      getUpdatedAnswer();
+    });
+  };
+
+  const handleDownvote = async () => {
+    const bodyJSON = {
+      
+      user: currentUSer.uid,
+    };
+    await axios.put(`/askquestion/downvote/${id}`,bodyJSON).then((res) => {
+      getUpdatedAnswer();
+    });
+  };
+
+//answer votes for
+const handleanswerUpvote = async (ansid) => {
+  
+  const bodyJSON = {
+    
+    user: currentUSer.uid,
+  };
+  await axios.put(`/answer/upvote/${ansid}`,bodyJSON).then((res) => {
+    getUpdatedAnswer();
+  });
+};
+
+const handleanswerDownvote = async (ansid) => {
+  const bodyJSON = {
+    
+    user: currentUSer.uid,
+  };
+  await axios.put(`/answer/downvote/${ansid}`,bodyJSON).then((res) => {
+    getUpdatedAnswer();
+  });
+};
+
 
 
   return (
@@ -153,11 +187,16 @@ function DetailQuestion() {
   <GridItem w='100%' h='10' bg='blue.500' /> */}
 
         <GridItem colSpan={1} w="100%" bg="blue.100"  borderRadius="10px" shadow={'2xl'} >
-          <Box >
+          <Box p={2} >
             <Text size="sm" marginLeft='1vw' marginBlockStart={'1vh'}>Information</Text>
             <VStack>
               <Text fontSize="sm">Posted by : {questionData?.user.displayName}</Text>
-
+              <Text fontSize="sm">Liked by : {questionData?.upvote}</Text>
+              <Text fontSize="sm">Disliked by : {questionData?.downvote}</Text>
+                <HStack m={2}> 
+                <Button onClick={handleUpvote} bgColor="green">Up vote</Button>
+                <Button onClick={handleDownvote} bgColor="red">Down vote</Button>
+                </HStack>
             </VStack>
           </Box>
         </GridItem>
@@ -237,13 +276,18 @@ function DetailQuestion() {
         <Heading as='h3' marginBlockStart={'4vh'} marginLeft='1vw' fontSize={'30px'}> Answers</Heading>
         <Box p={2} bg="#FAFCDB" borderRadius="10px" boxShadow={'2xl'}>
         {questionData?.answerDetails.map((_q,index) => (
-
+          console.log(_q),
             <Grid templateColumns="repeat(5, 1fr)" gap={0}>
         <GridItem colSpan={1} w="100%"  borderRight="1px solid" borderRadius="1">
           <Box >
             <Text>Info</Text>
             <Text fontSize="sm">Posted by : {_q.user.displayName}</Text>
            <small>{ new Date(_q.created_at).toLocaleString()}</small>
+           <Text fontSize="sm">Liked by : {_q.upvote}</Text>
+              <Text fontSize="sm">Disliked by : {_q.downvote}</Text>
+           <HStack  m={2}><Button size="sm" onClick={()=>handleanswerUpvote(_q._id)} bgColor="green">Up vote</Button>
+                <Button size="sm" onClick={()=>handleanswerDownvote(_q._id)} bgColor="red">Down vote</Button></HStack>
+           
           </Box>
         </GridItem>
         <GridItem w="100%" colSpan={4}  >

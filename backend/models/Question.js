@@ -8,6 +8,24 @@ const questionSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
+  upvote: {
+    type: Number,
+    default: 0,
+  },
+  downvote: {
+    type: Number,
+    default: 0,
+  },
+
+  //array of objects
+    upvotedBy: {
+        type: Array,
+        default: [],
+    },
+    downvotedBy: {
+        type: Array,
+        default: [],
+    },
   user: Object,
   comment_id: {
     type: mongoose.Schema.Types.ObjectId,
