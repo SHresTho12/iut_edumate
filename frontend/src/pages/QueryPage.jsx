@@ -50,7 +50,9 @@ export default function Profilepage() {
             sx={{ filter: "blur(0px)" }}
             marginBottom='3vh'
           />
-          <GridItem bgColor='#E6FFE6' border="4px" shadow='2xl' borderColor='#4AA96C' width='45vh' colSpan={2} height={'58vh'} borderRadius='8px'>
+
+          <GridItem bgColor='#E6FFE6' border="4px" shadow='2xl' borderColor='#4AA96C' width='45vh' colSpan={2}  borderRadius='8px'>
+
         
            <Center fontSize={'20px'} > <QuerNavSection  questions={questions}></QuerNavSection></Center>
         
