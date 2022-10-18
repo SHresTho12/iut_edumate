@@ -37,7 +37,7 @@ const tags = JSON.parse(data?.tags)
   return (
     <ChakraProvider theme={theme} >
     <VStack alignItems="right" borderY="1px" m="2" color='#00454A' >
-    <Box fontSize='x-large' marginLeft='1vw'>
+    <Box fontSize='x-large'  bgColor="#C8FFD4">
     
 
       <Link to={`/question?id=${data?._id}`} >{data?.title}</Link>
