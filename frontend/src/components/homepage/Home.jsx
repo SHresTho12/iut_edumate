@@ -22,7 +22,7 @@ function Home() {
               IUT{" "}
              
             </Text>{" "}
-              <Text font="Rubik" fontWeight="bold" fontSize="8xl" color="green">
+              <Text font="Rubik" fontWeight="bold" fontSize="8xl" color="green.200">
               {" "}
              EduMate
             </Text>
