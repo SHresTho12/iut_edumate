@@ -12,7 +12,8 @@ import {
   ChakraProvider,
   Grid,
   GridItem,
-  Image
+  Image,
+  Center
 } from "@chakra-ui/react";
 import React, { useState,useEffect } from 'react'
 
@@ -37,21 +38,23 @@ export default function Profilepage() {
 }, []);
   return (
     <Layout>
-      <Box p={2} bgColor='#E6FFE6' >
+      <Box p={2}  >
         <QueryHeader></QueryHeader>
      
 
         <Grid templateColumns="repeat(5, 1fr)" gap={4}>
         <VStack>  <Image
-            src="/images/ask1.gif"
+            src="/images/ask.gif"
             alt="s"
             borderRadius="10"
             sx={{ filter: "blur(0px)" }}
             marginBottom='3vh'
           />
+
           <GridItem bgColor='#E6FFE6' border="4px" shadow='2xl' borderColor='#4AA96C' width='45vh' colSpan={2}  borderRadius='8px'>
+
         
-            <QuerNavSection questions={questions}></QuerNavSection>
+           <Center fontSize={'20px'} > <QuerNavSection  questions={questions}></QuerNavSection></Center>
         
           </GridItem>
           

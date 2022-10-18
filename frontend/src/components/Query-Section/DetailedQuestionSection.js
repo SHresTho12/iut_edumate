@@ -8,7 +8,7 @@ import {
   Grid,
   GridItem,
 } from "@chakra-ui/react";
-import theme from './theme'
+
 import React from "react";
 import parse from 'html-react-parser';
 import Answer from "./Answer";
@@ -19,9 +19,10 @@ function DetailedQuestionSection({question}) {
   //const body = question.body;
   //console.log(body);
   return (
+    
     <VStack alignItems="left">
 
-      <Box border="1px" borderRadius="10" p={2} bgColor="teal.100">
+      <Box border="1px" borderRadius="10px" p={2} bgColor="#C8FFD4" marginBlockStart={'10vh'}>
         <Heading>Title : </Heading>
         <Tag mY={1} variant="solid" colorScheme="teal">
          {/* {question.created_at} */}
