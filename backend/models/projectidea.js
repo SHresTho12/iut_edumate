@@ -18,7 +18,7 @@ const ProjectSchema = new mongoose.Schema({
 
   project_idea: {
     type: String,
-    body: String,
+    
   },
   
  
