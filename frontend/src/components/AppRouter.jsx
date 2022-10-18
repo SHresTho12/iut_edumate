@@ -19,7 +19,7 @@ import Project from '../pages/Project'
 import art from './art'
 import tournaments from './tournaments'
 import academic from './../pages/Academic'
-
+import home from '../pages/home/Homepage'
 
 export default function AppRouter(props) {
   return (
@@ -27,6 +27,7 @@ export default function AppRouter(props) {
       <Router>
         <Switch>
           <Route exact path='/' component={Homepage} />
+          <Route exact path='/home' component={home} />
           <Route exact path='/query' component={Query} />
           <Route exact path='/project' component={Project} />
           <Route exact path='/co' component={co} />
