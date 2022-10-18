@@ -26,8 +26,8 @@ export default function AppRouter(props) {
     <>
       <Router>
         <Switch>
-          <Route exact path='/' component={Homepage} />
-          <Route exact path='/home' component={home} />
+          {/* <Route exact path='/' component={Homepage} /> */}
+          <Route exact path='/' component={home} />
           <Route exact path='/query' component={Query} />
           <Route exact path='/project' component={Project} />
           <Route exact path='/co' component={co} />

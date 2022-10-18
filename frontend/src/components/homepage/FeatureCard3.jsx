@@ -1,6 +1,6 @@
 import React from 'react'
 import { Center,  useColorModeValue, GridItem,Grid,Box, Image,Text,Stack,Heading } from '@chakra-ui/react'
-import course1 from '../../images/Svg/course-1.svg' 
+import course1 from '../../images/Svg/course-4.svg' 
 import Navlink from '../Navlink'
 function FeatureCard() {
   return (
@@ -47,22 +47,22 @@ function FeatureCard() {
         </Box>
         <Stack pt={10} align={'center'}>
           <Text color={'white'} fontSize={'sm'} textTransform={'uppercase'}>
-            Academics
+           Co Co-Curricular Activities
           </Text>
           <Heading color={"grey.900"} fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
-            Find All the resources
+            Games and Activities
           </Heading>
            <Navlink
-              to="/academic"
-              name="Academic Resources"
+              to="/co"
+              name="Co-Curricular Activities"
               colorScheme="white"
                _hover={{ bg: "grey" }}
               bgColor="white"
               size="md"
-              height="50px"
+              height="55px"
               width="200px"
               border="2px"
-              
+              borderColor="teal.400"
             />
            
         </Stack>

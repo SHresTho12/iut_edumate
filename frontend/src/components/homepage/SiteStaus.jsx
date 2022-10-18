@@ -15,7 +15,7 @@ function SiteStaus() {
          </HStack></Center>
       <Center  borderRadius={5} p={2} bgColor="#4b4b4b"><HStack>
          <Icon color="green" w={20} h={12} as={FaFileUpload}></Icon>
-         <Text  fontSize="2xl">100+ Rexources</Text>
+         <Text  fontSize="2xl">100+ Resources</Text>
          </HStack></Center>
      
    </Grid></Center>
