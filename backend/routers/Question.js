@@ -33,12 +33,13 @@ router.post('/', async (req, res) => {
 router.put('/upvote/:id', async (req, res) => {
     const id = req.params.id;
     
-    const user = req.body.user;
+    const user = req.body.user.uid;
     const question = await QuestionDB.findById(id);
     let upvote = question.upvote;
     let downvote = question.downvote;
     const upvotedBy = question.upvotedBy;
     const downvotedBy = question.downvotedBy;
+
     if (upvotedBy.includes(user)) {
         res.status(400).send({
             status: false,
@@ -77,7 +78,7 @@ router.put('/upvote/:id', async (req, res) => {
 //create a put req to decreament the vote count
 router.put('/downvote/:id', async (req, res) => {
     const id = req.params.id;
-    const user = req.body.user;
+    const user = req.body.user.uid;
     const question = await QuestionDB.findById(id);
     let upvote = question.upvote;
     let downvote = question.downvote;

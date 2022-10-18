@@ -110,23 +110,33 @@ function DetailQuestion() {
       });
     }
   }
-  // async function getFunctionDetails() {
-  //       console.log("I am being called")
-  //       await axios
-  //         .get(`/askquestion/${id}`)
-  //         .then((res) => {
-            
-            
-  //           console.log(res.data[0]);
-  //           quesArray = res.data[0];
-       
-  //           //setQuestionData(res.data[0])})
-  //         })
-  //         .catch((err) => console.log("The error: " + err.message));
-  //     }
-  // getFunctionDetails();
-  //console.log("Hello " + quesArray);
 
+  // const handleUpvoote = async () => {
+  //   const user = currentUSer;
+  //   await axios.put(`/upvote/${id}`).then((res) => {
+  //     getUpdatedAnswer();
+  //   });
+  // };
+//axios put function to handle upvote for question
+  const handleUpvote = async () => {
+    const bodyJSON = {
+      
+      user: currentUSer.uid,
+    };
+    await axios.put(`/askquestion/upvote/${id}`,bodyJSON).then((res) => {
+      getUpdatedAnswer();
+    });
+  };
+
+  const handleDownvote = async () => {
+    const bodyJSON = {
+      
+      user: currentUSer.uid,
+    };
+    await axios.put(`/askquestion/downvote/${id}`,bodyJSON).then((res) => {
+      getUpdatedAnswer();
+    });
+  };
 
   return (
     <ChakraProvider theme={theme}>
@@ -160,8 +170,8 @@ function DetailQuestion() {
               <Text fontSize="sm">Liked by : {questionData?.upvote}</Text>
               <Text fontSize="sm">Disliked by : {questionData?.downvote}</Text>
                 <HStack m={2}> 
-                <Button bgColor="green">Up vote</Button>
-                <Button bgColor="red">Down vote</Button>
+                <Button onClick={handleUpvote} bgColor="green">Up vote</Button>
+                <Button onClick={handleDownvote} bgColor="red">Down vote</Button>
                 </HStack>
             </VStack>
           </Box>
