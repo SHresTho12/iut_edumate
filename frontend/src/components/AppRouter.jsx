@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Redirect, useLocation } from 'react-router-dom/cjs/react-router-dom.min'
 import { useAuth } from '../Context/AuthContext'
 
-import Homepage from '../pages/Homepage'
+import Profile from '../pages/profile/Profile'
 import Loginpage from '../pages/Loginpage'
 import ForgotPasswordPage from '../pages/ForgotPasswordPage'
 import Profilepage from '../pages/Profilepage'
@@ -43,7 +43,8 @@ export default function AppRouter(props) {
 
           <ProtectedRoute exact path='/login' component={Loginpage} />
           <ProtectedRoute exact path='/register' component={Registerpage} />
-          <ProtectedRoute exact path='/profile' component={Profilepage} />
+          {/* <ProtectedRoute exact path='/profile' component={Profilepage} /> */}
+          <ProtectedRoute exact path='/profile' component={Profile} />
           <ProtectedRoute exact path='/query' component={Query} />
            <ProtectedRoute exact path='/askquestion' component={AskQuestion} />
            <ProtectedRoute exact path='/question' component={Question} />

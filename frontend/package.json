@@ -36,6 +36,7 @@
     "filepond-plugin-image-transform": "^3.8.7",
     "firebase": "^9.1.0",
     "float-input": "^0.0.2",
+    "framer": "^2.2.0",
     "framer-motion": "^4.1.17",
     "html-react-parser": "^3.0.4",
     "quill-image-resize-module-react": "^3.0.0",
