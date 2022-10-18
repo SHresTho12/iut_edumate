@@ -57,7 +57,7 @@ export default function Profilepage() {
           
        
           </VStack>
-          <GridItem bgColor='#E6FFE6' colStart={3} shadow='2xl' border="4px" borderColor='#4AA96C' width='155vh' colEnd={6} borderRadius='8px'>
+          <GridItem bgColor='#E6FFE6' colStart={3} shadow='2xl' border="4px" borderColor='#4AA96C' w='130vh' colEnd={6} borderRadius='8px'>
             <QueryFeed questions={questions}></QueryFeed>
             
           </GridItem>

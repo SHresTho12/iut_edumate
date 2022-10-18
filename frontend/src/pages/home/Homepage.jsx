@@ -8,8 +8,10 @@ import { Layout } from '../../components/Layout'
 
 //import '../../Css/home.css'
 import { Box } from '@chakra-ui/react'
+import { useAuth } from '../../Context/AuthContext'
 function Homepage() {
-
+  
+  const { currentUSer, setLoading, setAlert } = useAuth()
 
 
   return (
