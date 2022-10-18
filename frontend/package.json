@@ -52,6 +52,7 @@
     "react-scripts": "4.0.3",
     "react-simple-dots-loader": "^1.0.1",
     "react-slick": "^0.29.0",
+    "react-spinners": "^0.13.6",
     "react-tag-input-component": "^2.0.1",
     "react-ymd-date-select": "^0.2.0",
     "web-vitals": "^1.1.2"

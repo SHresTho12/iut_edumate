@@ -46,11 +46,11 @@ function FeatureCard() {
           />
         </Box>
         <Stack pt={10} align={'center'}>
-          <Text color={'white'} fontSize={'sm'} textTransform={'uppercase'}>
-           Pro and Research
+          <Text color={'white'} fontSize={'16px'} textTransform={'uppercase'}>
+           Project and Research
           </Text>
-          <Heading color={"grey.900"} fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
-            Find All Teammates
+          <Heading color={'#80ED99'} fontSize={'large'} fontFamily={'body'} fontWeight={500}>
+            Find Your Teammates
           </Heading>
           <Navlink
               to="/project"

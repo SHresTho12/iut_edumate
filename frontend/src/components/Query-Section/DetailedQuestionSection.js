@@ -8,17 +8,26 @@ import {
   Grid,
   GridItem,
 } from "@chakra-ui/react";
+import ClipLoader from 'react-spinners/ClipLoader';
 
-import React from "react";
+import React,{ useState, useEffect } from "react";
 import parse from 'html-react-parser';
 import Answer from "./Answer";
 
 
+
+
 function DetailedQuestionSection({question}) {
+  const [loadingInProgress, setLoading] = useState(false);
   //console.log(question);
   //const body = question.body;
   //console.log(body);
-  return (
+  return (   <div className="container">
+  {loadingInProgress ? (
+    <div className="loader-container">
+      <ClipLoader color={'#fff'} size={150} />
+    </div>
+  ) : (
     
     <VStack alignItems="left">
 
@@ -63,7 +72,11 @@ function DetailedQuestionSection({question}) {
         </GridItem>
       </Grid>
     </VStack>
-  );
+  
+  )
 }
+</div>
+  );
+};
 
 export default DetailedQuestionSection;

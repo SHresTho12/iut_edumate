@@ -17,7 +17,7 @@ function Homepage() {
   return (
     <Layout>
      
-    <Box   bgColor="#3d3d3d">
+    <Box   bgColor="#646464" marginBlockStart={'2vh'} borderRadius='10px'>
       <Home></Home>
     <SiteStaus></SiteStaus>
     <Description></Description>

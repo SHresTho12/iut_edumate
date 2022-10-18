@@ -1,12 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Box, Button, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Heading, Text ,ChakraProvider} from "@chakra-ui/react";
 import { useState } from "react";
 import Navlink from "../Navlink";
+import theme from '../../pages/theme'
 function ProjectCards() {
   const [isOpen, setIsOpen] = useState(false);
   return (
+    
     //farmer motion expandable card
+    <ChakraProvider theme={theme}>
+
     <Box
       border="2px solid green"
       _hover={{
@@ -32,10 +36,10 @@ function ProjectCards() {
               color: "black",
             }}
             size="lg"
-            color="green.200"
+            color="#57CC99"
           >
             {" "}
-            Project 😱
+            Project 💡 
           </Heading>
         </motion.h2>
         {isOpen && (
@@ -63,6 +67,7 @@ function ProjectCards() {
         )}
       </motion.div>
     </Box>
+     </ChakraProvider>
   );
 }
 

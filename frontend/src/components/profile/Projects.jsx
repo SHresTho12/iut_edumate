@@ -1,10 +1,12 @@
-import { Grid,VStack,Box,GridItem, Center, Heading } from '@chakra-ui/react'
+import { Grid,VStack,Box,GridItem, Center, Heading ,ChakraProvider} from '@chakra-ui/react'
 import React from 'react'
 import NewsFeed from './NewsFeed'
 import ProjectCards from './ProjectCards'
+import theme from '../../pages/theme'
 
 function Projects() {
   return (
+    <ChakraProvider theme={theme}>
    <Center  h="70vh" m={5} >
     <VStack>
     <Heading p={2} m={5} >Projects and Resources</Heading>
@@ -26,6 +28,7 @@ function Projects() {
     </VStack>
     
    </Center>
+   </ChakraProvider>
   )
 }
 

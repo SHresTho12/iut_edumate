@@ -7,22 +7,26 @@ import {
   Text,
   Center,
   VStack,
-  Button
+  Button,
+  ChakraProvider
 } from "@chakra-ui/react";
 import React from "react";
 import homeimg from "../../images/Svg/homg-img.svg";
+import theme from '../../pages/theme'
 function Home() {
   return (
+    <ChakraProvider theme={theme}>
+    
     <Box>
       <Grid p={10} h="70vh" templateColumns="repeat(2, 1fr)" gap="0">
         <Center w="110%" h="70%">
           {" "}
           <VStack>
-            <Text  fontWeight="bold" fontSize="7xl" color="white">
+            <Text  fontWeight="bold" fontSize="7xl" color="white" fontFamily={'initial'}>
               IUT{" "}
              
             </Text>{" "}
-              <Text font="Rubik" fontWeight="bold" fontSize="8xl" color="green">
+              <Text font="Rubik" fontWeight="bold" fontSize="8xl" color="#2db73e" fontFamily={'initial'}>
               {" "}
              EduMate
             </Text>
@@ -41,6 +45,7 @@ function Home() {
         </GridItem>
       </Grid>
     </Box>
+    </ChakraProvider>
 
     //     <section className="home" id="home">
 
@@ -58,6 +63,7 @@ function Home() {
     //    </div>
 
     // </section>
+   
   );
 }
 

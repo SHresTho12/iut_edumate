@@ -46,10 +46,10 @@ function FeatureCard() {
           />
         </Box>
         <Stack pt={10} align={'center'}>
-          <Text color={'white'} fontSize={'sm'} textTransform={'uppercase'}>
+          <Text color={'white'} fontSize={'16px'} textTransform={'uppercase'}>
            Query Section
           </Text>
-          <Heading color={"grey.900"} fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
+          <Heading color={'#80ED99'} fontSize={'large'} fontFamily={'body'} fontWeight={500}>
             Find All Questions
           </Heading>
            <Navlink

@@ -2,6 +2,7 @@ import React from 'react'
 import { Center,  useColorModeValue, GridItem,Grid,Box, Image,Text,Stack,Heading } from '@chakra-ui/react'
 import course1 from '../../images/Svg/course-1.svg' 
 import Navlink from '../Navlink'
+
 function FeatureCard() {
   return (
      <Center py={12}>
@@ -46,11 +47,11 @@ function FeatureCard() {
           />
         </Box>
         <Stack pt={10} align={'center'}>
-          <Text color={'white'} fontSize={'sm'} textTransform={'uppercase'}>
+          <Text color={'white'} fontSize={'16px'} textTransform={'uppercase'}>
             Academics
           </Text>
-          <Heading color={"grey.900"} fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
-            Find All the resources
+          <Heading color={'#80ED99'} fontSize={'large'} fontFamily={'body'} fontWeight={500}>
+            Find All the Resources
           </Heading>
            <Navlink
               to="/academic"

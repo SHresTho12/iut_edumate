@@ -9,10 +9,13 @@ import {
     Center,
     VStack,
     Button,
-    HStack
+    HStack,
+    ChakraProvider
   } from "@chakra-ui/react";
+  import theme from '../../pages/theme'
 function NewsFeed() {
   return (
+    <ChakraProvider theme={theme}>
    <Box >
         <VStack>
             <Heading size="lg" p={2}>Reponses</Heading>
@@ -25,6 +28,7 @@ function NewsFeed() {
             </Box>
         </VStack>
    </Box>
+   </ChakraProvider>
   )
 }
 

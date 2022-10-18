@@ -7,9 +7,11 @@ import {
     Text,
     Center,
     VStack,
-    Button
+    Button,
+    ChakraProvider
   } from "@chakra-ui/react";
   import React from "react";
+  import theme from '../../pages/theme'
 import { useAuth } from "../../Context/AuthContext";
   import homeimg from "../../images/Svg/user-svgrepo-com.svg";
 
@@ -19,6 +21,7 @@ import { useAuth } from "../../Context/AuthContext";
    
     console.log(currentUSer.photoURL);
     return (
+      <ChakraProvider theme={theme}>
       <Box >
         <Grid p={10} h="40vh" templateColumns="repeat(2, 1fr)" gap="0">
           <Center w="110%" h="70%">
@@ -49,6 +52,7 @@ import { useAuth } from "../../Context/AuthContext";
           </Center>
         </Grid>
       </Box>
+      </ChakraProvider>
   
       
     );

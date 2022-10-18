@@ -10,10 +10,10 @@ function QueryFeed({questions}) {
 
 
   return (
-    <Box border="" >
+    <Box border=""  >
 
 
-       <Flex align="center" justify="center">
+       <Flex align="center" justify="center" >
         <Heading as='h2' size='lg'  color='#00454A'>Query Feed</Heading>
        </Flex>
        {questions?.map((_q) => (

@@ -65,7 +65,7 @@ const tags = JSON.parse(data?.tags)
       </HStack>
       </Box>
 
-      <Heading size="sm" fontSize='small'>Answers Pasted :{data?.answerDetails?.length}</Heading>
+      <Heading size="sm" fontSize='small'>Answers Posted : {data?.answerDetails?.length}</Heading>
       <Box>Because it is a cat haven.</Box>
 
       <ButtonGroup m="2">
