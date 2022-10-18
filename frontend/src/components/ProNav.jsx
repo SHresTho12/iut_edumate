@@ -41,6 +41,14 @@ export function Navbar() {
     >      <Image src="/images/iutlogo.png" alt="s" height='14' width='8' borderRadius="8"  sx={{ filter: 'blur(0px)' }}/>
         <Navlink to='/' name='IUT EDUMATE' bgColor='white' colorScheme='green' size='md'  />
         <Spacer />
+        <Navlink to='/query' name='Queries' bgColor='white' colorScheme='green' />
+        <Navlink to='/academic' name='Resources' bgColor='white' colorScheme='green' />
+       {currentUSer &&  <Navlink
+              to="/project"
+              name="Team Up"
+              bgColor='white' colorScheme='green' 
+              
+            />}
         {currentUSer && <Link><Sidebar/></Link>}
         
         {/* {!currentUSer && <Navlink to='/login' name='Login' bgColor='white' colorScheme='green' />}
@@ -66,7 +74,7 @@ export function Navbar() {
           onClick={toggleColorMode}
           aria-label='toggle-dark-mode'
         />
-        <Image src="/images/oic.png" alt="s" height='10' width='10' borderRadius="8" sx={{ filter: 'blur(0px)' }}/>
+        
       </HStack>
     </Box>
   )

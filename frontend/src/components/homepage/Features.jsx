@@ -1,4 +1,4 @@
-import { Center, Grid, Heading,VStack } from '@chakra-ui/react'
+import { Center, Grid, Heading,VStack ,Container } from '@chakra-ui/react'
 import React from 'react'
 import course1 from '../../images/Svg/course-1.svg'
 import course2 from '../../images/Svg/course-2.svg'

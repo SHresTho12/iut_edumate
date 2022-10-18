@@ -21,15 +21,15 @@ export function Navbar() {
 
   return (
     <Box 
-      borderBottom='9px'
-      borderBottomColor={useColorModeValue('gray.100', 'gray.700')}
-      mb={1}
-      py={1}
-      bgColor='green.400'
-      height={65}
+    borderBottom='9px'
+    borderBottomColor={useColorModeValue('gray.100', 'gray.700')}
+    mb={1}
+    py={1}
+    bgColor='green.400'
+    height={65}
     >
       <HStack 
-      
+        w="100%"
         justifyContent='flex-end'
         maxW='container.lg'
         mx='auto'
@@ -38,6 +38,14 @@ export function Navbar() {
       <Image src="/images/iutlogo.png" alt="s" height='14' width='8' borderRadius="8"  sx={{ filter: 'blur(0px)' }}/>
         <Navlink to='/' name='IUT EDUMATE' bgColor='white' colorScheme='green' size='md'  />
         <Spacer />
+        <Navlink to='/query' name='Queries' bgColor='white' colorScheme='green' />
+        <Navlink to='/academic' name='Resources' bgColor='white' colorScheme='green' />
+       {currentUSer &&  <Navlink
+              to="/project"
+              name="Team Up"
+              bgColor='white' colorScheme='green' 
+              
+            />}
         {!currentUSer && <Navlink to='/login' name='Login' bgColor='white' colorScheme='green' />}
         {!currentUSer && <Navlink to='/register' name='Register' bgColor='white' colorScheme='green' />}
         {currentUSer && <Navlink to='/profile' name='Profile' bgColor='white' colorScheme='green' />}
@@ -61,7 +69,7 @@ export function Navbar() {
           onClick={toggleColorMode}
           aria-label='toggle-dark-mode'
         />
-        <Image src="/images/oic.png" alt="s" height='10' width='10' borderRadius="8" sx={{ filter: 'blur(0px)' }}/>
+       
       </HStack>
     </Box>
   )

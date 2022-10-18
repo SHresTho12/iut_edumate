@@ -47,7 +47,7 @@ function FeatureCard() {
         </Box>
         <Stack pt={10} align={'center'}>
           <Text color={'white'} fontSize={'sm'} textTransform={'uppercase'}>
-           Quey Section
+           Query Section
           </Text>
           <Heading color={"grey.900"} fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
             Find All Questions
@@ -55,7 +55,7 @@ function FeatureCard() {
            <Navlink
               to="/query"
                name="Query section"
-                colorScheme="white"
+                colorScheme="green"
               _hover={{ bg: "grey" }}
               bgColor="white"
               size="md"

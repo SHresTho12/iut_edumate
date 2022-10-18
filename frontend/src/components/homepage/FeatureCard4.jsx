@@ -55,7 +55,7 @@ function FeatureCard() {
           <Navlink
               to="/project"
               name="Project and Research"
-              colorScheme="white"
+              colorScheme="green"
                _hover={{ bg: "grey" }}
               bgColor="white"
               size="md"

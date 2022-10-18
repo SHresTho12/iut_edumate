@@ -55,7 +55,7 @@ function FeatureCard() {
            <Navlink
               to="/co"
               name="Co-Curricular Activities"
-              colorScheme="white"
+              colorScheme="green"
                _hover={{ bg: "grey" }}
               bgColor="white"
               size="md"

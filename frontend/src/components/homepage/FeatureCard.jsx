@@ -55,14 +55,14 @@ function FeatureCard() {
            <Navlink
               to="/academic"
               name="Academic Resources"
-              colorScheme="white"
+              colorScheme="green"
                _hover={{ bg: "grey" }}
               bgColor="white"
               size="md"
               height="50px"
               width="200px"
               border="2px"
-              
+            
             />
            
         </Stack>
