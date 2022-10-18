@@ -138,6 +138,30 @@ function DetailQuestion() {
     });
   };
 
+//answer votes for
+const handleanswerUpvote = async (ansid) => {
+  
+  const bodyJSON = {
+    
+    user: currentUSer.uid,
+  };
+  await axios.put(`/answer/upvote/${ansid}`,bodyJSON).then((res) => {
+    getUpdatedAnswer();
+  });
+};
+
+const handleanswerDownvote = async (ansid) => {
+  const bodyJSON = {
+    
+    user: currentUSer.uid,
+  };
+  await axios.put(`/answer/downvote/${ansid}`,bodyJSON).then((res) => {
+    getUpdatedAnswer();
+  });
+};
+
+
+
   return (
     <ChakraProvider theme={theme}>
 
@@ -252,13 +276,18 @@ function DetailQuestion() {
         <Heading as='h3' marginBlockStart={'4vh'} marginLeft='1vw' fontSize={'30px'}> Answers</Heading>
         <Box p={2} bg="#FAFCDB" borderRadius="10px" boxShadow={'2xl'}>
         {questionData?.answerDetails.map((_q,index) => (
-
+          console.log(_q),
             <Grid templateColumns="repeat(5, 1fr)" gap={0}>
         <GridItem colSpan={1} w="100%"  borderRight="1px solid" borderRadius="1">
           <Box >
             <Text>Info</Text>
             <Text fontSize="sm">Posted by : {_q.user.displayName}</Text>
            <small>{ new Date(_q.created_at).toLocaleString()}</small>
+           <Text fontSize="sm">Liked by : {_q.upvote}</Text>
+              <Text fontSize="sm">Disliked by : {_q.downvote}</Text>
+           <HStack  m={2}><Button size="sm" onClick={()=>handleanswerUpvote(_q._id)} bgColor="green">Up vote</Button>
+                <Button size="sm" onClick={()=>handleanswerDownvote(_q._id)} bgColor="red">Down vote</Button></HStack>
+           
           </Box>
         </GridItem>
         <GridItem w="100%" colSpan={4}  >

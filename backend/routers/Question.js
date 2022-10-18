@@ -148,6 +148,8 @@ router.get("/:id", async (req, res) => {
                   user: 1,
                   answer: 1,
                   // created_at: 1,
+                  upvote:1,
+                  downvote:1,
                   question_id: 1,
                   created_at: 1,
                 },
@@ -202,7 +204,7 @@ router.get("/:id", async (req, res) => {
         })
         .catch((e) => {
           console.log("Error: ", e);
-          res.status(400).send(error);
+          res.status(400).send(e);
         });
     } catch (err) {
       res.status(400).send({
