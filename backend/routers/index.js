@@ -12,6 +12,6 @@ router.get("/", (req, res) => {
 router.use("/askquestion", questionRouter);
 router.use("/answer", answerRouter);
 router.use("/comment", commentRouter);
-router.use("/user", commentRouter);
+router.use("/user", userRouter);
 
 module.exports = router;
