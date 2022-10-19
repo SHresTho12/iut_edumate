@@ -10,12 +10,13 @@ import {
   Heading
 } from '@chakra-ui/react'
 import "./contact.css";
-
+import axios from "axios"
 
 import { useContext, useRef, useState } from "react";
 
 import { ThemeContext } from "../context";
 import { FilePondComponent } from "./filepond";
+import { useAuth } from '../Context/AuthContext';
 
 const Contact = () => {
   // const formRef = useRef();
@@ -43,6 +44,35 @@ const Contact = () => {
   //     );
   // };
 
+
+
+//axios put req to post project data
+  const { currentUSer } = useAuth()
+const [projectname,setProjectname] = useState('')
+const [projectlink,setProjectlink] = useState('')
+const [ projectdescription,setProjectdescription] = useState('')
+const handleSubmit = async () => {
+  const body = {
+    projectname: projectname,
+    projectlink: projectlink,
+    projectdescription: projectdescription,
+    user:currentUSer,
+  };
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  await axios
+    .post("/project", body, config)
+    .then(() => {
+      alert("Answer added successfully");
+    
+    })
+    .catch((err) => console.log(err));
+};
+
   return (
     <div className="c">
       <div className="c-bg"></div>
@@ -55,7 +85,7 @@ const Contact = () => {
           <FormControl id='name' variant="floating" marginLeft='50px'   >
               
               
-              <Input marginBottom='8px'
+              <Input marginBottom='8px' value='projectname' onChange={(e) =>setProjectname(e.target.value)}
                 h='3.2rem' placeholder=' ' width='80%'   name='name' type='name' autoComplete='name' required />
            <FormLabel>Project Name</FormLabel>
             </FormControl>
@@ -71,16 +101,16 @@ const Contact = () => {
             <FormControl id='name' variant="floating" marginLeft='50px' >
               
               
-              <Input marginBottom='8px'
-                h='3.2rem' placeholder=' ' width='80%'  name='email' type='email' autoComplete='email' required />
-           <FormLabel>Email</FormLabel>
+              <Input marginBottom='8px' value='projectlink' onChange={(e) =>setProjectlink(e.target.value)}
+                h='3.2rem' placeholder=' ' width='80%'  name='projectlink' type='text' autoComplete='email' required />
+           <FormLabel>Project Link</FormLabel>
             </FormControl>
 
             <FormControl id='name' variant="floating" marginLeft='50px'>
               
               
-              <textarea className='txt'
-                h='3.2rem' placeholder=' ' width='10%'  rows={'5'} name='message' type='text' autoComplete='message' required />
+              <Input className='txt' value='projectdescription' onChange={(e) =>setProjectdescription(e.target.value)}
+                h='3.2rem' placeholder=' ' width='10%'  rows={'5'} name='projectdescription' type='text' autoComplete='message' required />
            <FormLabel>Project Idea</FormLabel>
             </FormControl>
             {/* <Box  marginLeft='50px' width='80%'>
@@ -89,7 +119,7 @@ const Contact = () => {
           <FilePondComponent  />
         </Box>
          */}
-            <Button name='btn' type='submit' colorScheme='green' size='md' marginBottom='18px' fontSize='md' marginLeft='50px'>
+            <Button onClick={handleSubmit} name='btn' type='submit' colorScheme='green' size='md' marginBottom='18px' fontSize='md' marginLeft='50px'>
               Submit
             </Button>
           
