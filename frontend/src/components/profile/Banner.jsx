@@ -11,7 +11,7 @@ import {
   } from "@chakra-ui/react";
   import React from "react";
 import { useAuth } from "../../Context/AuthContext";
-  import homeimg from "../../images/Svg/user-svgrepo-com.svg";
+  import homeimg from "../../images/Svg/user.png";
 
   function Home() {
    
@@ -38,7 +38,7 @@ import { useAuth } from "../../Context/AuthContext";
           </Center>
           <Center w="100%">
             <Image
-            borderRadius="full"
+            borderRadius="20"
             size="40%"
       boxSize='40%'
       objectFit='cover'

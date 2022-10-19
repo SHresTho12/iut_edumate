@@ -24,7 +24,7 @@ console.log(personalQuestions);
   return (
     <Layout><Box >
          <Banner></Banner>
-          <SiteStaus></SiteStaus>
+          <SiteStaus personalQuestions={personalQuestions}></SiteStaus>
           <Projects></Projects>
     
           <PersonalQuestions personalQuestions={personalQuestions}></PersonalQuestions>

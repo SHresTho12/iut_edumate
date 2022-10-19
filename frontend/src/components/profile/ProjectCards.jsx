@@ -7,7 +7,16 @@ function ProjectCards() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     //farmer motion expandable card
-    <Box
+    
+      <motion.div
+        layout
+        onClick={() => setIsOpen(!isOpen)}
+        className="motion-card"
+        p={5}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <Box
       border="2px solid green"
       _hover={{
         background: "white",
@@ -18,14 +27,6 @@ function ProjectCards() {
      
      
     >
-      <motion.div
-        layout
-        onClick={() => setIsOpen(!isOpen)}
-        className="motion-card"
-        p={5}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
         <motion.h2 transition={{ layout: { duration: 1 } }} layout="position">
           <Heading
             _hover={{
@@ -48,8 +49,7 @@ function ProjectCards() {
             <motion.p>
               {" "}
               <Text color="black" p={2}>
-                orem ipsum dolor sit amet, consectetur adipiscing el aspect
-                ratio Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Some description about the project
               </Text>
             </motion.p>
 
@@ -61,8 +61,9 @@ function ProjectCards() {
             />
           </motion.div>
         )}
+        </Box>
       </motion.div>
-    </Box>
+ 
   );
 }
 
