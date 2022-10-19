@@ -29,38 +29,71 @@ import {
 export function Sidebar() {
      const { isOpen, onOpen, onClose } = useDisclosure()
      const btnRef = React.useRef()
-     const { logout, currentUSer } = useAuth()
+     const {  currentUSer } = useAuth()
      const [email, setEmail] = useState('')
      const [name, setName] = useState('')
-     const [password, setPassword] = useState('')
+      const [studentid, setStudentid] = useState('');
+      const [departmentname, setDepartmentname] = useState('');
+      const [program, setProgram] = useState('');
      const history = useHistory()
 
      const [loading,setLoading] = useState(false);
 
      const handleSubmit = async (e) => {
       e.preventDefault();
-    
+      
       if (currentUSer) {
         setLoading(true);
         const bodyJSON = {
+        fireuid : currentUSer.uid,
        name:name,
-       email:email,
-       password:password
+       email:currentUSer.email,
+       department: departmentname,
+       studentid:studentid,
+       user: currentUSer
         };
         await axios
           .post("/user", bodyJSON)
           .then((res) => {
             // console.log(res.data);
-            alert("Updated");
+            alert("User Updated");
             setLoading(false);
             history.push("/profile");
           })
           .catch((err) => {
             console.log(err);
+            alert(err.message);
           });
       }
     };
    
+
+
+    // const handleprofileSubmit = async (e) => {
+    //   e.preventDefault();
+    
+     
+    //     const bodyJSON = {
+    //       title: title,
+    //       body: body,
+    //       tags: JSON.stringify(tags),
+    //       user: currentUSer,
+    //     };
+    //     await axios
+    //       .post("/askquestion", bodyJSON)
+    //       .then((res) => {
+    //         // console.log(res.data);
+    //         alert("Question added successfully");
+    //         setLoading(false);
+    //         history.push("/query");
+    //       })
+    //       .catch((err) => {
+    //         console.log(err);
+    //       });
+    //   }
+    // };
+
+
      return (
        <>
          {/* <Button ref={btnRef} colorScheme='teal' onClick={onOpen}> */}
@@ -89,37 +122,10 @@ export function Sidebar() {
            <FormLabel color='#7895B2'>Name</FormLabel>
             </FormControl>
         
-            <FormControl id='email' variant="floating" >
+            
               
-              <Input
-                h='3.2rem'
-                placeholder=' '
-                name='email'
-                type='email'
-                autoComplete='email'
-                required
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-               
-              />
-              <FormLabel color='#7895B2'>Email address</FormLabel>
-            </FormControl>
-            <FormControl id='email' variant="floating" >
               
-              <Input
-                h='3.2rem'
-                placeholder=' '
-                name='number'
-                type='number'
-                autoComplete='number'
-                required
-                value={email}
-                 onChange={e => setEmail(e.target.value)}
-               
-              />
-              <FormLabel color='#7895B2'>Student ID</FormLabel>
-            </FormControl>
-            <FormControl id='email' variant="floating" >
+            <FormControl id='department' variant="floating" >
               
               <Input
                 h='3.2rem'
@@ -128,8 +134,9 @@ export function Sidebar() {
                 type='deptname'
                 autoComplete='deptname'
                 required
-                // value={name}
-                // onChange={e => setEmail(e.target.value)}
+                 value={departmentname} onChange={(e) => {setDepartmentname(e.target.value);
+                }}
+               
                
               />
               <FormLabel color='#7895B2'>Department</FormLabel>
@@ -142,14 +149,44 @@ export function Sidebar() {
                 placeholder=' '
                 name='deptname'
                 type='deptname'
-                autoComplete='deptname'
+                autoComplete='program'
                 required
-                //value={name}
+                value={program}
                 // onChange={e => setEmail(e.target.value)}
-               
+                onChange={(e) => setProgram(e.target.value)}
               />
               <FormLabel color='#7895B2'>Program</FormLabel>
             </FormControl>
+            <FormControl id='semester' variant="floating" >
+              
+              <Input
+                h='3.2rem'
+                placeholder=' '
+                name='Student Id'
+                type='studentid'
+                autoComplete='studentid'
+                required
+                //value={name}
+                 onChange={e => setStudentid(e.target.value)}
+               
+              />
+              <FormLabel color='#7895B2'>Student Id</FormLabel>
+            </FormControl>
+            {/* <FormControl id='email' variant="floating" >
+              
+              <Input
+                h='3.2rem'
+                placeholder=' '
+                name='Student Id'
+                type='studentid'
+                autoComplete='studentid'
+                required
+                //value={name}
+                 onChange={e => setStudentid(e.target.value)}
+               
+              />
+              <FormLabel color='#7895B2'>Student Id</FormLabel>
+            </FormControl> */}
 
             </Stack>
              </DrawerBody>
@@ -158,6 +195,7 @@ export function Sidebar() {
                <Button variant='outline' colorScheme='red' mr={3} onClick={onClose} >
                  Cancel
                </Button>
+               <Button colorScheme='blue.200' disabled={loading} type='submit'  >Update</Button>
                <Button colorScheme='blue' disabled={loading} type='submit' onClick={handleSubmit} >Save</Button>
              </DrawerFooter>
            </DrawerContent>

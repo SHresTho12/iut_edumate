@@ -12,7 +12,7 @@ function Projects() {
         <GridItem  border="2px" borderColor="white" colSpan={2}>
             <NewsFeed></NewsFeed>
         </GridItem>
-        <GridItem h='100px'  colSpan={3}>
+        <GridItem h='auto'  colSpan={3}>
            <Grid templateRows='repeat(2,1fr)' templateColumns='repeat(3, 1fr)' gap='6'>
            <ProjectCards/>
            <ProjectCards/>
