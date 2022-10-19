@@ -28,8 +28,8 @@ export default function AppRouter(props) {
         <Switch>
           {/* <Route exact path='/' component={Homepage} /> */}
           <Route exact path='/' component={home} />
-          <Route exact path='/query' component={Query} />
-          <Route exact path='/project' component={Project} />
+          {/* <Route exact path='/query' component={Query} /> */}
+          {/* <Route exact path='/project' component={Project} /> */}
           <Route exact path='/co' component={co} />
           <Route exact path='/art' component={art} />
           <Route exact path='/tournaments' component={tournaments} />

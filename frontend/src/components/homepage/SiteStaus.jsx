@@ -2,7 +2,7 @@ import { Grid,Box, HStack, Icon,Text,Center } from '@chakra-ui/react'
 import React from 'react'
 
 import { FaGraduationCap,FaFileUpload,FaHandsHelping } from 'react-icons/fa';
-function SiteStaus() {
+function SiteStaus({questions}) {
   return (
 <Center>  <Grid w="80%" color="white" p={10} templateColumns="repeat(3, 1fr)" gap={6}>
       <Center  borderRadius={5} p={2} bgColor="#4b4b4b"><HStack>

@@ -47,7 +47,7 @@ function FeatureCard() {
         </Box>
         <Stack pt={10} align={'center'}>
           <Text color={'white'} fontSize={'sm'} textTransform={'uppercase'}>
-           Co Co-Curricular Activities
+           Co-Curricular Activities
           </Text>
           <Heading color={"grey.900"} fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
             Games and Activities

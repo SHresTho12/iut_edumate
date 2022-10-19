@@ -47,7 +47,7 @@ function FeatureCard() {
         </Box>
         <Stack pt={10} align={'center'}>
           <Text color={'white'} fontSize={'sm'} textTransform={'uppercase'}>
-           Pro and Research
+           Projects and Research
           </Text>
           <Heading color={"grey.900"} fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
             Find All Teammates

@@ -1,6 +1,6 @@
 import { Box, VStack,FormLabel,FormControl, Heading, Input, Badge, Button, Center } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { Layout } from "../ProLayout";
+import { Layout } from "../Layout";
 import axios from "axios";
 import ReactQuill from "react-quill";
 import {useHistory} from 'react-router-dom'

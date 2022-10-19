@@ -36,7 +36,7 @@ function ProjectCards() {
             color="green.200"
           >
             {" "}
-            Project 😱
+            Project 💡
           </Heading>
         </motion.h2>
         {isOpen && (
