@@ -121,21 +121,21 @@ function DetailQuestion() {
   const handleUpvote = async () => {
     const bodyJSON = {
       
-      user: currentUSer.uid,
+      user: currentUSer,
     };
     await axios.put(`/askquestion/upvote/${id}`,bodyJSON).then((res) => {
       getUpdatedAnswer();
-    });
+    }).catch((err) => alert(" Already Upvoted the answer"));
   };
 
   const handleDownvote = async () => {
     const bodyJSON = {
       
-      user: currentUSer.uid,
+      user: currentUSer,
     };
     await axios.put(`/askquestion/downvote/${id}`,bodyJSON).then((res) => {
       getUpdatedAnswer();
-    });
+    }).catch((err) => alert(" Already Downvoted the question"));
   };
 
 //answer votes for
@@ -143,21 +143,21 @@ const handleanswerUpvote = async (ansid) => {
   
   const bodyJSON = {
     
-    user: currentUSer.uid,
+    user: currentUSer,
   };
   await axios.put(`/answer/upvote/${ansid}`,bodyJSON).then((res) => {
     getUpdatedAnswer();
-  });
+  }).catch((err) => alert(" Already Upvoted the answer"));
 };
 
 const handleanswerDownvote = async (ansid) => {
   const bodyJSON = {
     
-    user: currentUSer.uid,
+    user: currentUSer,
   };
   await axios.put(`/answer/downvote/${ansid}`,bodyJSON).then((res) => {
     getUpdatedAnswer();
-  });
+  }).catch((err) => alert(" Already Downvoted the answer"));
 };
 
 
