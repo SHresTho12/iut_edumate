@@ -33,13 +33,13 @@ function App() {
         {/* <Center as="Box" alignContent={'center'} height='7vh'  bgColor='teal.100' marginBlockStart={'2vh'} fontSize={'xl'}>Go get it!</Center> */}
       </h1>
 
-      <div
+      <Center
         className="container-fluid"
         style={{ display: "flex", flexWrap: "wrap", margin: "10px 130px" }}
       >
     {content.map((sample) => (<Card sample={sample} />))}
         
-      </div>
+      </Center>
     </div>
     </Layout>
 
