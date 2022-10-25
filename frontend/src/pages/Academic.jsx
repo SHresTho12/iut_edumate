@@ -3,7 +3,8 @@ import {
    
      ChakraProvider,
      Center,
-     Box
+     Box,
+     Tabs, TabList, TabPanels, Tab, TabPanel
     
     
    } from "@chakra-ui/react";
@@ -12,6 +13,7 @@ import Card from "../components/Flip";
 import content from "../components/Content";
 import theme from "./theme";
 import { Layout } from "../components/Layout";
+import { Side } from "../components/AcademicSidebar";
 
 function createEntry(entry) {
   return <Card  />;
@@ -27,10 +29,31 @@ function App() {
   return (
      <ChakraProvider theme={theme}>
      <Layout>
-    <div>
+     
+<Tabs isFitted variant='enclosed'>
+  <TabList marginBlockStart='2em' >
+    <Tab fontSize={'23px'}>Post Resource</Tab>
+    <Tab fontSize={'23px'}>Get Resource</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Center>Notes</Center>
+      <Center>Question Bank</Center>
+      <Center>Important Links</Center>
+      <Center>Lab Works</Center>
+    </TabPanel>
+    <TabPanel>
+    <Center>Notes</Center>
+      <Center>Question Bank</Center>
+      <Center>Important Links</Center>
+      <Center>Lab Works</Center>
+    </TabPanel>
+  </TabPanels>
+</Tabs>
+    {/* <div>
       <h1>
         <Center as="Box" alignContent={'center'} height='7vh' bgColor='blue.100' marginBlockStart={'2vh'} fontSize={'2xl'}>Need Study Help?</Center>
-        {/* <Center as="Box" alignContent={'center'} height='7vh'  bgColor='teal.100' marginBlockStart={'2vh'} fontSize={'xl'}>Go get it!</Center> */}
+       
       </h1>
 
       <Center
@@ -40,7 +63,7 @@ function App() {
     {content.map((sample) => (<Card sample={sample} />))}
         
       </Center>
-    </div>
+    </div> */}
     </Layout>
 
 </ChakraProvider>

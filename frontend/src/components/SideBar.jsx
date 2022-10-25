@@ -50,6 +50,7 @@ export function Sidebar() {
        email:currentUSer.email,
        department: departmentname,
        studentid:studentid,
+       program:setProgram,
        user: currentUSer
         };
         await axios
@@ -147,8 +148,8 @@ export function Sidebar() {
               <Input
                 h='3.2rem'
                 placeholder=' '
-                name='deptname'
-                type='deptname'
+                name='program'
+                type='program'
                 autoComplete='program'
                 required
                 value={program}
@@ -166,7 +167,7 @@ export function Sidebar() {
                 type='studentid'
                 autoComplete='studentid'
                 required
-                //value={name}
+                value={studentid}
                  onChange={e => setStudentid(e.target.value)}
                
               />
