@@ -37,7 +37,7 @@ import { useAuth } from "../../Context/AuthContext";
         setLoading(true);
         const bodyJSON = {
         fireuid : currentUSer.uid,
-       name:name,
+       name:currentUSer.name,
        email:currentUSer.email,
        department: departmentname,
        studentid:studentid,
@@ -67,12 +67,12 @@ import { useAuth } from "../../Context/AuthContext";
             {" "}
             <VStack>
               <Text  fontWeight="bold" fontSize="5xl" >
-                {currentUSer.name},{" "}
+                {currentUSer.name}{" "}
                
               </Text>{" "}
-                <Text font="Rubik" fontWeight="bold" fontSize="6xl" color="green.200">
+                <Text font="Rubik" fontWeight="bold" fontSize="4xl" color="green.300">
                 {" "}
-                {currentUSer.email},{" "}
+                {currentUSer.email}{" "}
               </Text>
              
               <Button size="lg">Explore</Button>

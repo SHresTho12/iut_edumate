@@ -4,7 +4,7 @@ import {
      ChakraProvider,
      Center,
      Box,
-     Tabs, TabList, TabPanels, Tab, TabPanel
+     Tabs, TabList, TabPanels, Tab, TabPanel,Image
     
     
    } from "@chakra-ui/react";
@@ -30,24 +30,54 @@ function App() {
      <ChakraProvider theme={theme}>
      <Layout>
      
-<Tabs isFitted variant='enclosed'>
+<Tabs isFitted  variant='soft-rounded' colorScheme='green'>
   <TabList marginBlockStart='2em' >
-    <Tab fontSize={'23px'}>Post Resource</Tab>
-    <Tab fontSize={'23px'}>Get Resource</Tab>
+    <Tab fontSize={'23px'}>Notes</Tab>
+    <Tab fontSize={'23px'}>Question Bank</Tab>
+    <Tab fontSize={'23px'}>Important Links</Tab>
+    <Tab fontSize={'23px'}>Lab Works</Tab>
   </TabList>
   <TabPanels>
     <TabPanel>
-      <Center>Notes</Center>
-      <Center>Question Bank</Center>
-      <Center>Important Links</Center>
-      <Center>Lab Works</Center>
+    
+    <Image
+            src="/images/note.gif"
+            alt="s"
+            height='80vh'
+            sx={{ filter: "blur(0px)" }}
+          />
+    
     </TabPanel>
     <TabPanel>
-    <Center>Notes</Center>
-      <Center>Question Bank</Center>
-      <Center>Important Links</Center>
-      <Center>Lab Works</Center>
+
+    <Image
+            src="/images/bank.gif"
+            alt="s"
+            height='80vh'
+            sx={{ filter: "blur(0px)" }}
+          />
+  
     </TabPanel>
+    <TabPanel>
+
+<Image
+        src="/images/link.gif"
+        alt="s"
+        height='80vh'
+        sx={{ filter: "blur(0px)" }}
+      />
+
+</TabPanel>
+  <TabPanel>
+
+<Image
+        src="/images/lab.gif"
+        alt="s"
+        height='80vh'
+        sx={{ filter: "blur(0px)" }}
+      />
+
+</TabPanel>
   </TabPanels>
 </Tabs>
     {/* <div>
