@@ -21,6 +21,9 @@ import tournaments from './tournaments'
 import academic from './../pages/Academic'
 import home from '../pages/home/Homepage'
 
+
+import uploadfile from '../pages/fileshare/Upload'
+
 export default function AppRouter(props) {
   return (
     <>
@@ -54,6 +57,7 @@ export default function AppRouter(props) {
           <ProtectedRoute exact path='/art' component={art} />
           <ProtectedRoute exact path='/tournaments' component={tournaments} />
           <ProtectedRoute exact path='/academic' component={academic} />
+          <ProtectedRoute exact path='/upload' component={uploadfile} />
           
 
 
