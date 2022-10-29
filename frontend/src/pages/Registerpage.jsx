@@ -29,6 +29,7 @@ import  axios  from 'axios'
 export default function Registerpage() {
   const history = useHistory()
   const [email, setEmail] = useState('')
+  const [studentid, setStudentid] = useState('')
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -37,10 +38,11 @@ export default function Registerpage() {
   const {register,signInWithGoogle} = useAuth()
   const {currentUSer} = useAuth()
   const initialvalue = {
-    Uid:"",
-    Name:"",
-    Email:"",
-    Number:""
+    fireuid:"",
+    name:"",
+    email:"",
+    number:"",
+    studentid:"",
   }
   return (
     <ChakraProvider theme={theme}>
@@ -83,11 +85,12 @@ export default function Registerpage() {
            register(email , password)
            .then((response) => {console.log(response);
           
-          initialvalue.Uid=response.user.uid;
-          initialvalue.Name = name;
-          initialvalue.Email = email;
-          initialvalue.Number="";
-          axios.post("http://localhost:3001/profile",initialvalue).then((response) => {
+          initialvalue.fireuid=response.user.uid;
+          initialvalue.name = name;
+          initialvalue.email = email;
+          initialvalue.number="";
+          initialvalue.studentid=studentid;
+          axios.post("/user",initialvalue).then((response) => {
             console.log(response.data);
       
     });
@@ -124,8 +127,13 @@ export default function Registerpage() {
             </FormControl>
             <FormControl id='email' variant="floating" >
               
-              <Input h='3.2rem' placeholder=' ' value={email} onChange={(e) => setEmail(e.target.value)} name='email' type='email' autoComplete='email' required />
+              <Input h='3.2rem' placeholder=' ' value={email} onChange={(e) => setEmail(e.target.value)} name='email' type='email' autoComplete='email'  required />
               <FormLabel>Email address</FormLabel>
+            </FormControl>
+             <FormControl id='email' variant="floating" >
+              
+              <Input h='3.2rem' placeholder=' ' value={studentid} onChange={(e) => setStudentid(e.target.value)} name='studentid' type='text'  required />
+              <FormLabel>Student Id</FormLabel>
             </FormControl>
             <FormControl id='password' variant="floating" >
               
