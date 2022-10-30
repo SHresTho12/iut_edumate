@@ -70,7 +70,7 @@ export function Navbar() {
               
             />}
       {currentUSer && 
-        <Navlink to='/settings' name='Profile' bgColor='white' colorScheme='green' />}
+        <Navlink to='/settings' name='Update' bgColor='white' colorScheme='green' />}
          
          
         
