@@ -10,18 +10,38 @@ import {
   Image,
   Button, 
   ButtonGroup ,
-  Avatar
+  Avatar,
+  Input,
+
+  Drawer,
+  DrawerOverlay,
+  DrawerFooter,
+  DrawerBody,
+  DrawerHeader,
+  useDisclosure,
+  DrawerContent,
+  DrawerCloseButton,
+
+
 } from '@chakra-ui/react'
 import React from 'react'
-import { Sidebar } from './SideBar'
+import  Sidebar  from './SideBar'
 import { FaMoon, FaSun } from 'react-icons/fa'
 import { useAuth } from '../Context/AuthContext'
 import Navlink from './Navlink'
+import { useState } from 'react'
+
+
+import {useHistory} from 'react-router-dom'
+import axios from "axios";
 
 export function Navbar() {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const { toggleColorMode } = useColorMode()
   // const { logout, currentUSer } = useAuth()
   const { logout, currentUSer } = useAuth()
+  
+  const btnRef = React.useRef()
 
   return (
     <Box 
@@ -49,7 +69,10 @@ export function Navbar() {
               bgColor='white' colorScheme='green' 
               
             />}
-        {currentUSer && <Link><Sidebar/></Link>}
+      {currentUSer && 
+        <Navlink to='/settings' name='Profile' bgColor='white' colorScheme='green' />}
+         
+         
         
         {/* {!currentUSer && <Navlink to='/login' name='Login' bgColor='white' colorScheme='green' />}
         {!currentUSer && <Navlink to='/register' name='Register' bgColor='white' colorScheme='green' />} */}

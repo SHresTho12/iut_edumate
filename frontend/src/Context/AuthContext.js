@@ -33,11 +33,11 @@ export default function AuthContextProvider({ children }) {
     };
   }, []);
 
-  function register(email, password) {
-    return createUserWithEmailAndPassword(auth, email, password);
+  function register(name,email, password) {
+    return createUserWithEmailAndPassword(auth, name,email, password);
   }
-  function login(email, password) {
-    return signInWithEmailAndPassword(auth, email, password);
+  function login(name,email, password) {
+    return signInWithEmailAndPassword(auth,name, email, password);
   }
 
   function signInWithGoogle() {

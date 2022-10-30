@@ -194,8 +194,8 @@ const handleanswerDownvote = async (ansid) => {
               <Text fontSize="sm">Liked by : {questionData?.upvote}</Text>
               <Text fontSize="sm">Disliked by : {questionData?.downvote}</Text>
                 <HStack m={2}> 
-                <Button onClick={handleUpvote} bgColor="green">Up vote</Button>
-                <Button onClick={handleDownvote} bgColor="red">Down vote</Button>
+                <Button onClick={handleUpvote} bgColor="#8af783" _hover={{bg:'#52eb49'}}>Up vote</Button>
+                <Button onClick={handleDownvote} bgColor="#f75c5c" _hover={{bg:'#f03535'}}>Down vote</Button>
                 </HStack>
             </VStack>
           </Box>
