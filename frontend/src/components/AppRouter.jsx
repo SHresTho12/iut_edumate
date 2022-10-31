@@ -31,11 +31,11 @@ export default function AppRouter(props) {
           <Route exact path='/' component={home} />
           {/* <Route exact path='/query' component={Query} /> */}
           {/* <Route exact path='/project' component={Project} /> */}
-          <Route exact path='/co' component={co} />
-          <Route exact path='/art' component={art} />
-          <Route exact path='/tournaments' component={tournaments} />
-          <Route exact path='/tournaments' component={tournaments} />
-          <Route exact path='/settings' component={Sidebar} />
+          {/* <Route exact path='/co' component={co} />
+          <Route exact path='/art' component={art} /> */}
+         
+          {/* <Route exact path='/tournaments' component={tournaments} /> */}
+          {/* <Route exact path='/settings' component={Sidebar} /> */}
           
           
 
