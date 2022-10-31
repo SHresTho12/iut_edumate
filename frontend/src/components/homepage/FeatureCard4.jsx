@@ -49,7 +49,7 @@ function FeatureCard() {
           <Text color={'white'} fontSize={'sm'} textTransform={'uppercase'}>
            Projects and Research
           </Text>
-          <Heading color={"grey.900"} fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
+          <Heading color={"grey.900"} fontSize={'xl'} fontFamily={'body'} fontWeight={500}>
             Find All Teammates
           </Heading>
           <Navlink

@@ -20,6 +20,7 @@ import art from './art'
 import tournaments from './tournaments'
 import academic from './../pages/Academic'
 import home from '../pages/home/Homepage'
+import Sidebar from './SideBar'
 
 export default function AppRouter(props) {
   return (
@@ -34,7 +35,7 @@ export default function AppRouter(props) {
           <Route exact path='/art' component={art} />
           <Route exact path='/tournaments' component={tournaments} />
           <Route exact path='/tournaments' component={tournaments} />
-        
+          <Route exact path='/settings' component={Sidebar} />
           
           
 
@@ -54,7 +55,7 @@ export default function AppRouter(props) {
           <ProtectedRoute exact path='/art' component={art} />
           <ProtectedRoute exact path='/tournaments' component={tournaments} />
           <ProtectedRoute exact path='/academic' component={academic} />
-          
+          <ProtectedRoute exact path='/settings' component={Sidebar} />
 
 
         

@@ -49,7 +49,7 @@ function FeatureCard() {
           <Text color={'white'} fontSize={'sm'} textTransform={'uppercase'}>
            Co-Curricular Activities
           </Text>
-          <Heading color={"grey.900"} fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
+          <Heading color={"grey.900"} fontSize={'xl'} fontFamily={'body'} fontWeight={500}>
             Games and Activities
           </Heading>
            <Navlink

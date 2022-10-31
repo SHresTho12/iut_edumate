@@ -34,9 +34,9 @@ function Question({ data }) {
 
   return (
     <ChakraProvider theme={theme}>
-      <VStack alignItems="right" borderY="1px" m="2" color="#00454A">
-        <Box fontSize="x-large" bgColor="#C8FFD4">
-          <Link to={`/question?id=${data?._id}`}>{data?.title}</Link>
+      <VStack alignItems="right"  m="2" color="#00454A" shadow={'2xl'} margin='20px'>
+        <Box fontSize="x-large" bgColor="#affac9" borderRadius='5px' height={'7vh'} >
+          <Link to={`/question?id=${data?._id}`} >{data?.title}</Link>
         </Box>
         <HStack>
           {tags.map((tag, index) => (
@@ -71,12 +71,14 @@ function Question({ data }) {
 
         
           <Button
-            bgColor="green.80"
-            _hover={{ bg: "#10a377" }}
+            bgColor="#affac9"
+            _hover={{ bg: "#73de98" }}
             size="md"
             marginLeft="1vw"
+            marginBottom={'40vh'}
+        
           >
-            <Link to={`/question?id=${data?._id}`}>Expand The Question     .</Link><FaExpandAlt/>
+            <Link to={`/question?id=${data?._id}` }>Expand The Question     .</Link><FaExpandAlt/>
           </Button>
         
       </VStack>

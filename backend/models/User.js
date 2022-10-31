@@ -5,9 +5,11 @@ const userSchema = new mongoose.Schema({
   name: { type: String, default: "" },
   email: { type: String, default: "" },
   department: { String, default: "" },
+  program: { String, default: "" },
   Semester: { String, default: "" },
-  user: Object,
   studentid: { type: String, default: "" },
+  user: Object,
+  
 });
 
 module.exports = mongoose.model("Users", userSchema);

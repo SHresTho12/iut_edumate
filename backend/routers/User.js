@@ -10,6 +10,7 @@ router.post("/", async (req, res) => {
     email: req.body.email,
     studentid: req.body.studentid,
     department: req.body.department,
+    program: req.body.program,
     Semester: req.body.Semester,
     user: req.body.user,
   });

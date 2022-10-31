@@ -5,9 +5,10 @@ import Home from '../../components/homepage/Home'
 import SiteStaus from '../../components/homepage/SiteStaus'
 import TopStudents from '../../components/homepage/TopStudents'
 import { Layout } from '../../components/Layout'
+import theme from "../theme";
 
 //import '../../Css/home.css'
-import { Box } from '@chakra-ui/react'
+import { Box,  ChakraProvider } from '@chakra-ui/react'
 import { useAuth } from '../../Context/AuthContext'
 function Homepage() {
   
@@ -15,6 +16,7 @@ function Homepage() {
 
 
   return (
+    <ChakraProvider theme={theme}>
     <Layout>
      
     <Box   bgColor="#3d3d3d">
@@ -25,6 +27,8 @@ function Homepage() {
     {/*<TopStudents></TopStudents> */} 
     </Box>
     </Layout>
+    
+    </ChakraProvider>
     
   )
 }
