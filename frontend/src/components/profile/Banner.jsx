@@ -10,12 +10,54 @@ import {
     Button
   } from "@chakra-ui/react";
   import React from "react";
+  import {useHistory} from 'react-router-dom'
+  import axios from "axios";
 import { useAuth } from "../../Context/AuthContext";
   import homeimg from "../../images/Svg/user.png";
+  import { useState } from 'react'
 
   function Home() {
    
-    const { currentUSer } = useAuth();
+    const btnRef = React.useRef()
+    const {  currentUSer } = useAuth()
+    const [email, setEmail] = useState('')
+    const [name, setName] = useState('')
+     const [studentid, setStudentid] = useState('');
+     const [departmentname, setDepartmentname] = useState('');
+     const [program, setProgram] = useState('');
+    const history = useHistory()
+   
+
+
+    const [loading,setLoading] = useState(false);
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      
+      if (currentUSer) {
+        setLoading(true);
+        const bodyJSON = {
+        fireuid : currentUSer.uid,
+       name:currentUSer.name,
+       email:currentUSer.email,
+       department: departmentname,
+       studentid:studentid,
+       program:setProgram,
+       user: currentUSer
+        };
+        await axios
+          .post("/user", bodyJSON)
+          .then((res) => {
+            // console.log(res.data);
+            alert("User Updated");
+            setLoading(false);
+            history.push("/profile");
+          })
+          .catch((err) => {
+            console.log(err);
+            alert(err.message);
+          });
+      }
+    };
    
     console.log(currentUSer.photoURL);
     return (
@@ -25,12 +67,12 @@ import { useAuth } from "../../Context/AuthContext";
             {" "}
             <VStack>
               <Text  fontWeight="bold" fontSize="5xl" >
-                {currentUSer.displayName},{" "}
+                {currentUSer.name}{" "}
                
               </Text>{" "}
-                <Text font="Rubik" fontWeight="bold" fontSize="6xl" color="green.200">
+                <Text font="Rubik" fontWeight="bold" fontSize="4xl" color="green.300">
                 {" "}
-            190042128
+                {currentUSer.email}{" "}
               </Text>
              
               <Button size="lg">Explore</Button>

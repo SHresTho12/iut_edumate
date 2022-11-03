@@ -64,51 +64,38 @@ function Flip(props) {
         
       >
         <p>{props.back}</p>
-        <Center bgColor={'blue.100'} height='7vh' borderRadius={'6px'} marginBlockStart='5.5vh' >
-        <Menu >
-  <MenuButton as={'Button'} >
-  Department
+        <Center  height='7vh' borderRadius={'6px'} marginBlockStart='3vh' >
+       
+  <Button bgColor={'blue.100'} width='14vw'>
+  Notes
    
-  </MenuButton>
-  <MenuList>
-    <MenuItem>CSE</MenuItem>
-    <MenuItem>MPE</MenuItem>
-    <MenuItem>CEE</MenuItem>
-    <MenuItem>EEE</MenuItem>
-   
-  </MenuList>
-</Menu>
+  </Button>
+
 </Center>
-        <Center bgColor={'blue.100'} height='7vh' borderRadius={'6px'} marginBlockStart='3vh' >
-        <Menu >
-  <MenuButton as={'Button'} >
-  Semester
+      <Center  height='7vh' borderRadius={'6px'} marginBlockStart='3vh' >
+       
+       <Button bgColor={'blue.100'} width='14vw'>
+       Question Bank
+        
+       </Button>
+     
+     </Center>
+     <Center  height='7vh' borderRadius={'6px'} marginBlockStart='3vh' >
+       
+  <Button bgColor={'blue.100'} width='14vw'>
+  Important Links
    
-  </MenuButton>
-  <MenuList>
-    <MenuItem>1-1</MenuItem>
-    <MenuItem>1-2</MenuItem>
-    <MenuItem>2-1</MenuItem>
-    <MenuItem>2-2</MenuItem>
-    <MenuItem>3-1</MenuItem>
-  </MenuList>
-</Menu>
+  </Button>
+
 </Center>
-       <Center bgColor={'blue.100'} height='7vh' borderRadius={'6px'} marginBlockStart='3vh' >
-        <Menu >
-  <MenuButton as={'Button'} >
-  Course
-   
-  </MenuButton>
-  <MenuList>
-    <MenuItem>Design Project</MenuItem>
-    <MenuItem>Software Security</MenuItem>
-    <MenuItem>Server Programming</MenuItem>
-    <MenuItem>Numerical Methods</MenuItem>
-   
-  </MenuList>
-</Menu>
-</Center>
+     <Center  height='7vh' borderRadius={'6px'} marginBlockStart='3vh' >
+       
+       <Button bgColor={'blue.100'} width='14vw'>
+       Lab Works
+        
+       </Button>
+     
+     </Center>
 
 
       </div>
