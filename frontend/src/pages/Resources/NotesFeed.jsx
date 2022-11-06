@@ -20,7 +20,7 @@ function NotesFeed() {
 console.log(notes)
 
   return (
-  <Box border="" >
+  <Box marginLeft={10} border="" >
 
 
        <Flex align="center" justify="center">

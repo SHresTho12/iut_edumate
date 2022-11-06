@@ -9,8 +9,8 @@ function Notes({ data }) {
     console.log(data)
   
   return (
-    <VStack borderRadius={5}  p={2} alignItems="right"  m="2" color="#00454A" shadow={'2xl'} margin='20px'>
-        <Box p={2} fontSize="x-large" bgColor="#affac9" borderRadius='5px' height={'7vh'} >
+    <VStack borderRadius={5} bgColor="#F3F1F5" p={3} alignItems="right"  m="2" color="#00454A" shadow={'2xl'} margin='20px'>
+        <Box p={4} fontSize="x-large" bgColor="#affac9" borderRadius='5px' height={'7vh'} >
           <Link  to={`/notes?id=${data?._id}`} >{data?.title}</Link>
         </Box>
         <HStack>
@@ -40,14 +40,14 @@ function Notes({ data }) {
           </HStack>
         </Box>
 
-        <Heading size="sm" fontSize="small">
+        <Heading size="md" fontSize="small">
           Total interested People : {data?.interested.length}
         </Heading>
 
         
           <Button
             bgColor="#affac9"
-            _hover={{ bg: "#73de98" }}
+            _hover={{ bg: "#73de98", color: "white", size:"large",fontSize:"large" }}
             size="md"
             marginLeft="1vw"
             marginBottom={'40vh'}
