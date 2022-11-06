@@ -5,6 +5,7 @@ const commentRouter = require("./Comment");
 const answerRouter = require("./Answers");
 const userRouter = require("./User");
 const projectRouter = require("./Project");
+const notesRouter = require("./Notes");
 router.get("/", (req, res) => {
   res.send("Hello from Iut Edumate");
 });
@@ -14,4 +15,5 @@ router.use("/answer", answerRouter);
 router.use("/comment", commentRouter);
 router.use("/user", userRouter);
 router.use("/project", projectRouter);
+router.use("/notes", notesRouter);
 module.exports = router;
