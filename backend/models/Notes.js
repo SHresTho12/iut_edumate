@@ -3,9 +3,10 @@ const mongoose = require("mongoose");
 const notesSchema = new mongoose.Schema({
   title: String,
   body: String,
-  semester: { String, default: "" },
-  department: { String, default: "" },
-  course: { String, default: "" },
+  course: { type: String, default: "" },
+  department: { type: String, default: "" },
+  semester: { type: String, default: "" },
+
   created_at: {
     type: Date,
     default: Date.now(),
