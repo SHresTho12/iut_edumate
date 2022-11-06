@@ -123,10 +123,7 @@ router.get("/", async (req, res) => {
   await notesDB
     .find()
     .then((doc) => {
-      res.status(200).send({
-        status: true,
-        data: doc,
-      });
+      res.status(200).send(doc);
     })
     .catch((err) => {
       res.status(400).send({
