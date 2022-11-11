@@ -27,7 +27,7 @@ console.log(notes)
         <Heading as='h2' size='lg'  color='#00454A' shadow={'2xl'}>Available Notes</Heading>
         
        </Flex>
-       <Button><Link>Post a Note</Link></Button>
+       <Button><Link to='/addnote'>Post a Note</Link></Button>
        {notes?.map((_q) => (
            <Box m={2}><Notes data={_q}></Notes></Box>
          
