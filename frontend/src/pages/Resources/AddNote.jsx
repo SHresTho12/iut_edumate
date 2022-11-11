@@ -1,4 +1,4 @@
-import { Box,HStack, VStack,FormLabel,FormControl, Heading, Input, Badge, Button, Center } from "@chakra-ui/react";
+import { Box,HStack, VStack,FormLabel,FormControl,Menu, Heading, Input, Badge, Button, Center ,MenuItem , MenuButton , MenuList} from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Layout } from "../../components/Layout";
 import axios from "axios";
@@ -14,7 +14,9 @@ function AskQuestion() {
 const { currentUSer, setAlert } = useAuth()
 const [title,setTitle] = useState("")
 const [body,setBody] = useState("")
-const [tags,setTags] = useState([])
+const [department,setDepartment] = useState("")
+const [semester,setSemester] = useState("")
+const [course,setCourse] = useState("")
 const [loading,setLoading] = useState(false);
 const history = useHistory()
 const handleQuill = (value) => {
@@ -34,7 +36,9 @@ const handleSubmit = async (e) => {
     const bodyJSON = {
       title: title,
       body: body,
-      
+      course: course,
+      semester: semester,
+      department: department,
       user: currentUSer,
     };
     await axios
@@ -105,7 +109,72 @@ const handleSubmit = async (e) => {
             {/* <Editor></Editor> */}
             
             <Center marginBottom='3vh'>
-            <HStack><Button>Department</Button><Button>Semester</Button><Button> Course</Button></HStack>
+
+
+              <VStack>
+              <HStack>
+                <Heading>Information Added :</Heading>
+                <Badge p={2} fontSize='lg' bgColor='#C4DDFF' color='#001D6E' borderRadius={5}>
+                  {department?department:"Department"} 
+                </Badge>
+                <Badge p={2} fontSize='lg' bgColor='#C4DDFF' color='#001D6E' borderRadius={5}>
+                  {semester?semester:"Semester"}
+                </Badge>
+                <Badge p={2} fontSize='lg' bgColor='#C4DDFF' color='#001D6E' borderRadius={5}>
+                  {course?course:"Course"}
+                </Badge>
+
+
+              </HStack>
+              <HStack>
+             <Menu m={4} >
+      
+        <MenuButton width='40vh' as={Button} bgColor='#9BA3EB' _hover={{bg:'#8b92d3'}}>
+          Department
+        </MenuButton>
+        <MenuList>
+          <MenuItem onClick={()=> setDepartment('CSE')}>CSE</MenuItem>
+          <MenuItem onClick={() => setDepartment('Swe')}>SWE</MenuItem>
+          <MenuItem onClick={() => setDepartment('CEE')}>CEE</MenuItem>
+          <MenuItem onClick={() => setDepartment('EEE')}>EEE</MenuItem>
+          <MenuItem onClick={() => setDepartment('BTM')}>BTM</MenuItem>
+          <MenuItem onClick={() => setDepartment('TVE')}>TVE</MenuItem>
+        </MenuList>
+      </Menu>
+      <Menu m={4}>
+        <MenuButton  width='40vh' as={Button} bgColor='#80ED99' _hover={{bg:'#73D589'}}>
+          Semester
+        </MenuButton>
+        <MenuList>
+          <MenuItem onClick={()=> setSemester("1-1")}>1-1</MenuItem>
+          <MenuItem onClick={()=> setSemester("1-2")}>1-2</MenuItem>
+          <MenuItem onClick={()=> setSemester("2-1")}>2-1</MenuItem>
+          <MenuItem onClick={()=> setSemester("2-2")}>2-2</MenuItem>
+          <MenuItem>3-1</MenuItem>
+          <MenuItem>3-2</MenuItem>
+        </MenuList>
+      </Menu>
+      <Menu m={4}>
+        <MenuButton width='40vh' as={Button} bgColor='#90E0EF' _hover={{bg:'#81C9D7'}}>
+          Course
+        </MenuButton>
+        <MenuList>
+          <MenuItem onClick={()=> setCourse("Software-Security")}>Software-Security</MenuItem>
+          <MenuItem onClick={()=> setCourse("SS")}>Server-Programming</MenuItem>
+          <MenuItem onClick={()=> setCourse("DP")}>DP</MenuItem>
+          <MenuItem onClick={()=> setCourse("Sp Lab")}>Lab Server Program</MenuItem>
+          <MenuItem>dummy</MenuItem>
+        </MenuList>
+        </Menu>
+
+
+
+
+
+            </HStack>
+            
+
+              </VStack>
             
           </Center>
             <Button disabled={loading} type='submit' onClick={handleSubmit} bg="#4A47A3" m={2} color='#EDF7FA' height='9vh' fontSize='large' _hover={{ bg: "#192965" }}>
