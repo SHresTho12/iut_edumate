@@ -1,9 +1,11 @@
-import { Center,Heading,VStack,Flex,Box, Button } from '@chakra-ui/react'
+import { Center,Heading,VStack,Flex,Box, Button,ChakraProvider  } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Question from '../../components/Query-Section/Question'
 import Notes from '../../components/Resources/Notes'
+import { Layout } from '../../components/Layout'
+import theme from "../theme";
 
 function NotesFeed() {
    
@@ -20,6 +22,8 @@ function NotesFeed() {
 console.log(notes)
 
   return (
+    <ChakraProvider theme={theme}>
+   
   <Box marginLeft={10} border="" >
 
 
@@ -27,14 +31,19 @@ console.log(notes)
         <Heading as='h2' size='lg'  color='#00454A' shadow={'2xl'}>Available Notes</Heading>
         
        </Flex>
-       <Button><Link to='/addnote'>Post a Note</Link></Button>
+      
        {notes?.map((_q) => (
-           <Box m={2}><Notes data={_q}></Notes></Box>
-         
+           <Box m={2}><Notes data={_q}></Notes>
+           </Box>
+           
         
           ))}
+          
        
     </Box>
+   
+
+    </ChakraProvider>
   )
 }
 

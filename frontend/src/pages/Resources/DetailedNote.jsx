@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Layout } from "../../components/Layout";
 import parse from "html-react-parser";
+import theme from "../theme";
+
 import { useAuth } from "../../Context/AuthContext";
 import {
   Heading,
@@ -89,6 +91,7 @@ function DetailedNote() {
   console.log(note);
 
   return (
+    <ChakraProvider theme={theme}>
     <Layout>
       <Box>
         <VStack alignItems="left">
@@ -104,9 +107,7 @@ function DetailedNote() {
             <Tag mY={1} variant="solid" colorScheme="teal" marginRight={"1vw"}>
               {new Date(note?.created_at).toLocaleString()}
             </Tag>
-            {/* <Tag mY={1} variant="solid" colorScheme="teal">
-                Answers count: {note?.answerDetails.length}
-              </Tag> */}
+            
           </Box>
 
           <Grid templateColumns="repeat(5, 1fr)" gap={6}>
@@ -114,6 +115,7 @@ function DetailedNote() {
               colSpan={1}
               w="100%"
               bg="blue.100"
+            
               borderRadius="10px"
               shadow={"2xl"}
             >
@@ -133,7 +135,7 @@ function DetailedNote() {
                       bgColor="#8af783"
                       _hover={{ bg: "#52eb49" }}
                     >
-                      Up vote
+                      Upvote
                     </Button>
                     <Button
                       onClick={handleDownvote}
@@ -235,6 +237,7 @@ function DetailedNote() {
         </Box>
       </Box>
     </Layout>
+    </ChakraProvider>
   );
 }
 

@@ -10,6 +10,7 @@ import {
   Image,
   VStack,
   HStack,
+  Button,Link
 } from "@chakra-ui/react";
 import React from "react";
 import Card from "../components/Flip";
@@ -38,15 +39,20 @@ function App() {
             <Tab fontSize={"23px"}>Lab Works</Tab>
           </TabList>
           <TabPanels>
-            <TabPanel>
-              <HStack>
+            <TabPanel >
+          
+              <HStack alignContent='flex-start'>
+            
+                <Box w="50%"><NotesFeed ></NotesFeed></Box>
+             <VStack> 
+              <Button h='50px'><Link to='/addnote'>Post a Note</Link></Button>
                 <Image
                   src="/images/note.gif"
                   alt="s"
                   height="80vh"
                   sx={{ filter: "blur(0px)" }}
                 />
-                <Box w="50%"><NotesFeed ></NotesFeed></Box>
+                </VStack>
               </HStack>
             </TabPanel>
             <TabPanel>

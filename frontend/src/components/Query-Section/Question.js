@@ -57,7 +57,7 @@ function Question({ data }) {
                 <Text borderRadius={5} p={2} bgColor="green.200">
                   Liked by : {data?.upvote}
                 </Text>
-                <Text borderRadius={5} p={2} bgColor="red.100">
+                <Text borderRadius={5} p={2} bgColor="#CFD2CF">
                   Disliked by : {data?.downvote}
                 </Text>
               </HStack>
@@ -72,7 +72,7 @@ function Question({ data }) {
         
           <Button
             bgColor="#affac9"
-            _hover={{ bg: "#73de98" }}
+            _hover={{ bg: "#73de98", color: "white", size:"large",fontSize:"large" }}
             size="md"
             marginLeft="1vw"
             marginBottom={'40vh'}

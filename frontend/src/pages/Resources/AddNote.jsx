@@ -1,9 +1,10 @@
-import { Box,HStack, VStack,FormLabel,FormControl,Menu, Heading, Input, Badge, Button, Center ,MenuItem , MenuButton , MenuList} from "@chakra-ui/react";
+import { Box,HStack, VStack,FormLabel,FormControl,Menu, Heading, Input, Badge, Button, Center ,MenuItem , MenuButton , MenuList, ChakraProvider} from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Layout } from "../../components/Layout";
 import axios from "axios";
 import ReactQuill from "react-quill";
 import {useHistory} from 'react-router-dom'
+import theme from "../theme";
 
 
 
@@ -56,6 +57,7 @@ const handleSubmit = async (e) => {
 };
 
   return (
+    <ChakraProvider theme={theme}>
     <Layout>
       <Box
         p={10}
@@ -102,9 +104,9 @@ const handleSubmit = async (e) => {
           </Box>
           
           <Box mt="2" alignItems="left">
-            <Heading m={3} size="md" align="left" color='#001D6E'>
-              Select options
-            </Heading>
+          {/* <Heading m={3} size="md" align="left" color='#001D6E'>
+            Select options
+          </Heading> */}
             {/* //<ReactQuill className="react-quill" theme="snow" /> */}
             {/* <Editor></Editor> */}
             
@@ -113,7 +115,7 @@ const handleSubmit = async (e) => {
 
               <VStack>
               <HStack>
-                <Heading>Information Added :</Heading>
+                <Heading>Tags:</Heading>
                 <Badge p={2} fontSize='lg' bgColor='#C4DDFF' color='#001D6E' borderRadius={5}>
                   {department?department:"Department"} 
                 </Badge>
@@ -185,6 +187,7 @@ const handleSubmit = async (e) => {
         </VStack>
       </Box>
     </Layout>
+    </ChakraProvider>
   );
 }
 

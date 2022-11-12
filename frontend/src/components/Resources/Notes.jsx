@@ -32,7 +32,7 @@ function Notes({ data }) {
                 <Text borderRadius={5} p={2} bgColor="green.200">
                   Liked by : {data?.upvote}
                 </Text>
-                <Text borderRadius={5} p={2} bgColor="red.100">
+                <Text borderRadius={5} p={2} bgColor="#CFD2CF">
                   Disliked by : {data?.downvote}
                 </Text>
               </HStack>

@@ -213,7 +213,7 @@ function DetailQuestion() {
                         bgColor="#8af783"
                         _hover={{ bg: "#52eb49" }}
                       >
-                        Up vote
+                        Upvote
                       </Button>
                       <Button
                         onClick={handleDownvote}
@@ -354,14 +354,16 @@ function DetailQuestion() {
                               <Button
                                 size="sm"
                                 onClick={() => handleanswerUpvote(_q._id)}
-                                bgColor="green"
+                                bgColor="#8af783"
+                                _hover={{ bg: "#52eb49" }}
                               >
-                                Up vote
+                                Upvote
                               </Button>
                               <Button
                                 size="sm"
                                 onClick={() => handleanswerDownvote(_q._id)}
-                                bgColor="red"
+                                bgColor="#f75c5c"
+                        _hover={{ bg: "#f03535" }}
                               >
                                 Down vote
                               </Button>
