@@ -21,8 +21,8 @@ import tournaments from './tournaments'
 import academic from './../pages/Academic'
 import home from '../pages/home/Homepage'
 import Sidebar from './SideBar'
-
-
+import AddNote from '../pages/Resources/AddNote'
+import Note from '../pages/Resources/DetailedNote'
 import uploadfile from '../pages/fileshare/Upload'
 
 export default function AppRouter(props) {
@@ -60,6 +60,8 @@ export default function AppRouter(props) {
           <ProtectedRoute exact path='/academic' component={academic} />
 
           <ProtectedRoute exact path='/upload' component={uploadfile} />
+           <ProtectedRoute exact path='/addNote' component={AddNote} />
+                <ProtectedRoute exact path='/notes' component={Note} />
           
 
           <ProtectedRoute exact path='/settings' component={Sidebar} />

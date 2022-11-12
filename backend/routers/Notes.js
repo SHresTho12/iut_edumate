@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const router = express.Router();
 const notesDB = require("../models/Notes");
 
@@ -118,21 +119,6 @@ router.put("/downvote/:id", async (req, res) => {
   }
 });
 
-//get note request
-router.get("/", async (req, res) => {
-  await notesDB
-    .find()
-    .then((doc) => {
-      res.status(200).send(doc);
-    })
-    .catch((err) => {
-      res.status(400).send({
-        status: false,
-        message: "No notes found",
-      });
-    });
-});
-
 //interested update request
 router.put("/interested/:id", async (req, res) => {
   const id = req.params.id;
@@ -152,6 +138,119 @@ router.put("/interested/:id", async (req, res) => {
     res.status(200).send({
       status: true,
       message: "Note added to your interested list",
+    });
+  }
+});
+
+//get individual note by param id nad comments related to that note
+router.get("/", async (req, res) => {
+  const error = {
+    message: "Error in retrieving questions",
+    error: "Bad request",
+  };
+
+  notesDB
+    .aggregate([
+      {
+        $lookup: {
+          from: "notecomments",
+          let: { note_id: "$_id" },
+          pipeline: [
+            {
+              $match: {
+                $expr: {
+                  $eq: ["$note_id", "$$note_id"],
+                },
+              },
+            },
+            {
+              $project: {
+                _id: 1,
+                // user_id: 1,
+                comment: 1,
+                created_at: 1,
+                // question_id: 1,
+              },
+            },
+          ],
+          as: "noteComments",
+        },
+      },
+      // {
+      //   $unwind: {
+      //     path: "$answerDetails",
+      //     preserveNullAndEmptyArrays: true,
+      //   },
+      // },
+      {
+        $project: {
+          __v: 0,
+          // _id: "$_id",
+          // answerDetails: { $first: "$answerDetails" },
+        },
+      },
+    ])
+    .exec()
+    .then((noteDetails) => {
+      res.status(200).send(noteDetails);
+    })
+    .catch((e) => {
+      console.log("Error: ", e);
+      res.status(400).send(error);
+    });
+});
+
+//detailed note info
+router.get("/:id", async (req, res) => {
+  try {
+    notesDB
+      .aggregate([
+        {
+          $match: { _id: mongoose.Types.ObjectId(req.params.id) },
+        },
+        {
+          $lookup: {
+            from: "notecomments",
+            let: { note_id: "$_id" },
+            pipeline: [
+              {
+                $match: {
+                  $expr: {
+                    $eq: ["$note_id", "$$note_id"],
+                  },
+                },
+              },
+              {
+                $project: {
+                  _id: 1,
+                  user: 1,
+                  comment: 1,
+                  note_id: 1,
+                  created_at: 1,
+                },
+              },
+            ],
+            as: "noteComments",
+          },
+        },
+        {
+          $project: {
+            __v: 0,
+          },
+        },
+      ])
+      .exec()
+      .then((noteDetails) => {
+        res.status(200).send(noteDetails);
+      })
+      .catch((e) => {
+        console.log("Error: ", e);
+        res.status(400).send(e);
+      });
+  } catch (err) {
+    console.log(err);
+    res.status(400).send({
+      message: "Note not found",
     });
   }
 });
