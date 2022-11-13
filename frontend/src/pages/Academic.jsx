@@ -10,7 +10,7 @@ import {
   Image,
   VStack,
   HStack,
-  Button,Link
+  Button,Link,GridItem
 } from "@chakra-ui/react";
 import React from "react";
 import Card from "../components/Flip";
@@ -31,9 +31,9 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Layout>
-        <Tabs isFitted variant="soft-rounded" colorScheme="green">
+        <Tabs isFitted variant="soft-rounded" colorScheme={'#cacee0'}>
           <TabList marginBlockStart="2em">
-            <Tab fontSize={"23px"}>Notes</Tab>
+            <Tab fontSize={"23px"} >Notes</Tab>
             <Tab fontSize={"23px"}>Question Bank</Tab>
             <Tab fontSize={"23px"}>Important Links</Tab>
             <Tab fontSize={"23px"}>Lab Works</Tab>
@@ -41,17 +41,23 @@ function App() {
           <TabPanels>
             <TabPanel >
           
-              <HStack alignContent='flex-start'>
+              <HStack >
             
-                <Box w="50%"><NotesFeed ></NotesFeed></Box>
-             <VStack> 
-              <Button h='50px'><Link to='/addnote'>Post a Note</Link></Button>
-                <Image
-                  src="/images/note.gif"
+                <Box w="100%"><NotesFeed ></NotesFeed></Box>
+             <VStack > 
+             <Button h='10vh' width='18vw' ><Link  to='/addnote'>Post a Note</Link></Button>
+             <GridItem   shadow='4xl'  width='90%' height='50%' colSpan={2}  borderRadius='8px' >
+             
+           
+             <Image
+                  src="/images/postnote.jpg"
                   alt="s"
                   height="80vh"
                   sx={{ filter: "blur(0px)" }}
                 />
+           </GridItem>
+             
+              
                 </VStack>
               </HStack>
             </TabPanel>

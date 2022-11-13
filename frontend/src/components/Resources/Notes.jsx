@@ -10,12 +10,12 @@ function Notes({ data }) {
   
   return (
     <VStack borderRadius={5} bgColor="#F3F1F5" p={3} alignItems="right"  m="2" color="#00454A" shadow={'2xl'} margin='20px'>
-        <Box p={4} fontSize="x-large" bgColor="#affac9" borderRadius='5px' height={'7vh'} >
+        <Box p={4} fontSize="x-large" bgColor="#D2DAFF" borderRadius='5px' height={'7vh'} >
           <Link  to={`/notes?id=${data?._id}`} >{data?.title}</Link>
         </Box>
         <HStack>
           {tags.map((tag, index) => (
-            <Tag key={index} size="sm" colorScheme="teal" variant="solid">
+            <Tag key={index} size="sm" bgColor="#7e8fde" variant="solid">
               {tag}
             </Tag>
           ))}
@@ -29,7 +29,7 @@ function Notes({ data }) {
            {/* <FaThumbtack />  */}
             <Box>
               <HStack>
-                <Text borderRadius={5} p={2} bgColor="green.200">
+                <Text borderRadius={5} p={2} bgColor="#b0bcf5">
                   Liked by : {data?.upvote}
                 </Text>
                 <Text borderRadius={5} p={2} bgColor="#CFD2CF">
@@ -46,8 +46,8 @@ function Notes({ data }) {
 
         
           <Button
-            bgColor="#affac9"
-            _hover={{ bg: "#73de98", color: "white", size:"large",fontSize:"large" }}
+            bgColor="#D2DAFF"
+            _hover={{ bg: "#a2b2fa", color: "white", size:"large",fontSize:"large" }}
             size="md"
             marginLeft="1vw"
             marginBottom={'40vh'}

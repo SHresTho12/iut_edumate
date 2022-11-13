@@ -28,7 +28,7 @@ console.log(notes)
 
 
        <Flex align="center" justify="center">
-        <Heading as='h2' size='lg'  color='#00454A' shadow={'2xl'}>Available Notes</Heading>
+        <Heading as='h2' size='lg'  color='#00454A' shadow={'2xl'} fontSize='20px'>Available Notes</Heading>
         
        </Flex>
       

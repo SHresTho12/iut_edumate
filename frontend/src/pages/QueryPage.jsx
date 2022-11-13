@@ -51,7 +51,7 @@ export default function Profilepage() {
             marginBottom='3vh'
           />
 
-          <GridItem bgColor='#E6FFE6' border="4px" shadow='2xl' borderColor='#4AA96C' width='45vh' colSpan={2}  borderRadius='8px'>
+          <GridItem bgColor='#E6FFE6' border="4px" shadow='2xl' borderColor='#4AA96C' width='45vh' colSpan={2}  borderRadius='8px' >
 
         
            <Center fontSize={'20px'} > <QuerNavSection  questions={questions}></QuerNavSection></Center>
@@ -60,8 +60,8 @@ export default function Profilepage() {
           
        
           </VStack>
-          <GridItem bgColor='#E6FFE6' colStart={3} shadow='2xl' border="4px" borderColor='#4AA96C' w='130vh' colEnd={6} borderRadius='8px'>
-            <QueryFeed questions={questions}></QueryFeed>
+          <GridItem  colStart={3} shadow='2xl'   w='130vh' colEnd={6} >
+            <QueryFeed questions={questions} ></QueryFeed>
             
           </GridItem>
         </Grid>
