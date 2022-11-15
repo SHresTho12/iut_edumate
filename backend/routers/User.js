@@ -33,27 +33,60 @@ router.post("/", async (req, res) => {
 
 //get request for user matching fireuid
 router.get("/:id", async (req, res) => {
-    const id = req.params.id;
-    try {
-        const user = await UserDB.findOne({ fireuid: id });
-        if (!user) {
-            res.status(404).send({
-                status: false,
-                message: "User not found",
-            });
-        } else {
-            res.status(200).send({
-                status: true,
-                data: user,
-            });
-        }
-    } catch (err) {
-        res.status(500).send({
-            status: false,
-            message: "Error while getting user",
-        });
+  const id = req.params.id;
+  try {
+    const user = await UserDB.findOne({ fireuid: id });
+    if (!user) {
+      res.status(404).send({
+        status: false,
+        message: "User not found",
+      });
+    } else {
+      res.status(200).send({
+        status: true,
+        data: user,
+      });
     }
+  } catch (err) {
+    res.status(500).send({
+      status: false,
+      message: "Error while getting user",
+    });
+  }
 });
 
+//update profile requested
+router.put("/update/:id", async (req, res) => {
+  const fireuid = req.params.id;
+
+  const name = req.body.name;
+  const email = req.body.email;
+  const studentid = req.body.studentid;
+  const department = req.body.department;
+  const program = req.body.program;
+  const semester = req.body.Semester;
+
+  const filter = { fireuid: req.params.id };
+  const update = {
+    studentid: studentid,
+    department: department,
+    program: program,
+    Semester: semester,
+  };
+  const response = await new Promise((resolve, reject) => {
+    UserDB.findOneAndUpdate(filter, update, { new: true }, (err, doc) => {
+      if (err) {
+        resolve("User not updated");
+      } else {
+        resolve(doc);
+      }
+    });
+  });
+
+  res.status(200).send({
+    status: true,
+    data: response,
+  });
+});
 
 module.exports = router;
