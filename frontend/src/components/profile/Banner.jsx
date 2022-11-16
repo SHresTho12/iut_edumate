@@ -16,7 +16,7 @@ import { useAuth } from "../../Context/AuthContext";
   import homeimg from "../../images/Svg/user.png";
   import { useState } from 'react'
 
-  function Home() {
+  function Home({dbuser}) {
    
     const btnRef = React.useRef()
     const {  currentUSer } = useAuth()
@@ -59,7 +59,7 @@ import { useAuth } from "../../Context/AuthContext";
       }
     };
    
-    console.log(currentUSer.photoURL);
+    console.log(dbuser);
     return (
       <Box >
         <Grid p={10} h="40vh" templateColumns="repeat(2, 1fr)" gap="0">
