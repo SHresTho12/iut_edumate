@@ -69,6 +69,7 @@ router.put("/update/:id", async (req, res) => {
   const filter = { fireuid: req.params.id };
   const update = {
     studentid: studentid,
+    name: name,
     department: department,
     program: program,
     Semester: semester,
