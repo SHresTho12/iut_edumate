@@ -122,7 +122,7 @@ router.put("/downvote/:id", async (req, res) => {
 //interested update request
 router.put("/interested/:id", async (req, res) => {
   const id = req.params.id;
-  const user = req.body.user;
+  const user = req.body.user.uid;
   const note = await notesDB.findById(id);
   let interested = note.interested;
   if (interested.includes(user)) {
@@ -254,5 +254,28 @@ router.get("/:id", async (req, res) => {
     });
   }
 });
+
+// //update the interested list
+// router.put("/interested/:id", async (req, res) => {
+//   const id = req.params.id;
+//   const user = req.body.user;
+//   const note = await notesDB.findById(id);
+//   let interested = note.interested;
+//   if (interested.includes(user)) {
+//     res.status(400).send({
+//       status: false,
+//       message: "You have already added this note to your interested list",
+//     });
+//   } else {
+//     interested.push(user);
+//     await notesDB.findByIdAndUpdate(id, {
+//       interested: interested,
+//     });
+//     res.status(200).send({
+//       status: true,
+//       message: "Note added to your interested list",
+//     });
+//   }
+// });
 
 module.exports = router;

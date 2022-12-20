@@ -88,6 +88,26 @@ function DetailedNote() {
 
   console.log(note);
 
+
+//handle interested request
+  const handleInterested = async () => {
+    const bodyJSON = {
+      user: currentUSer,
+    };
+    await axios
+
+      .put(`/notes/interested/${id}`, bodyJSON)
+      .then((res) => {
+        getUpdatedAnswer();
+      })
+      .catch((err) => alert(" Already interested"));
+  };
+
+
+
+
+
+
   return (
     <Layout>
       <Box>
@@ -143,6 +163,15 @@ function DetailedNote() {
                       Down vote
                     </Button>
                   </HStack>
+                    <Button
+                      onClick={handleInterested}
+                      m={2}
+                      bgColor="#9c99ff"
+                      color={"white"}
+                      _hover={{ bg: "#8e8bfc" }}
+                    >
+                     Request The Resource
+                    </Button>
                 </VStack>
               </Box>
             </GridItem>
@@ -230,9 +259,11 @@ function DetailedNote() {
                     ))}
                 </GridItem>
               </Grid>
+              
             </Box>
           </Box>
         </Box>
+        
       </Box>
     </Layout>
   );
