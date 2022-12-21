@@ -4,6 +4,7 @@ const multer = require("multer");
 const mongoose = require("mongoose");
 const path = require("path");
 const fileDB = require("../models/File");
+const { v4: uuidv4 } = require("uuid");
 //file upload to mongodb
 
 // const GridFsStorage = require("multer-gridfs-storage");
@@ -28,11 +29,21 @@ const fileDB = require("../models/File");
 // const { findOneAndReplace } = require("../models/Notes");
 // const { findOneAndUpsert } = require("../models/Notes");
 
+// let storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, "./Uploads/");
+//   },
+//   filename: function (req, file, cb) {
+//     const uniqueName = `${Date.now()}-${Math.round(
+//       Math.random() * 1e9
+//     )}${path.extname(file.originalname)}`;
+//     cb(null, uniqueName);
+//   },
+// });
+
 let storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "./Uploads/");
-  },
-  filename: function (req, file, cb) {
+  destination: (req, file, cb) => cb(null, "backend/uploads/"),
+  filename: (req, file, cb) => {
     const uniqueName = `${Date.now()}-${Math.round(
       Math.random() * 1e9
     )}${path.extname(file.originalname)}`;
@@ -46,14 +57,13 @@ let upload = multer({ storage, limits: { fileSize: 1000000 * 100 } }).single(
 
 //post req to upload a file to mongodb
 router.post("/", async (req, res) => {
-  if (!req.body.file) {
-    return res.status(400).send({
-      status: false,
-      message: "File not added successfully",
-    });
-  }
-
   upload(req, res, async (err) => {
+    if (!req.file) {
+      return res.status(400).send({
+        status: false,
+        message: "File not added successfully",
+      });
+    }
     if (err) {
       return res.status(500).send({ error: err.message });
     }
@@ -68,10 +78,9 @@ router.post("/", async (req, res) => {
       course: req.body.course,
     });
     const response = await file.save();
-    res.json({ file: `${process.env.APP_BASE_URL}/files/${response.uuid}` });
+    //res.json({ file: `${process.env.APP_BASE_URL}/files/${response.uuid}` });
+    return res.json({ file: `http://localhost:80/upload/${response.uuid}` });
   });
 });
-
-router.post("/upload/file");
 
 module.exports = router;
