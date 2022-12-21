@@ -2,16 +2,18 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const mongoose = require("mongoose");
+const path = require("path");
+const fileDB = require("../models/File");
 //file upload to mongodb
 
 // const GridFsStorage = require("multer-gridfs-storage");
 // const Grid = require("gridfs-stream");
 // const crypto = require("crypto");
-// const path = require("path");
+//
 
 // const methodOverride = require("method-override");
 // const bodyParser = require("body-parser");
-// const fileDB = require("../models/File");
+//
 // const notesDB = require("../models/Notes");
 // const { db } = require("../models/Notes");
 // const { response } = require("express");
@@ -38,8 +40,12 @@ let storage = multer.diskStorage({
   },
 });
 
+let upload = multer({ storage, limits: { fileSize: 1000000 * 100 } }).single(
+  "myfile"
+);
+
 //post req to upload a file to mongodb
-router.post("/file", async (req, res) => {
+router.post("/", async (req, res) => {
   if (!req.body.file) {
     return res.status(400).send({
       status: false,
@@ -47,30 +53,23 @@ router.post("/file", async (req, res) => {
     });
   }
 
-  const fileData = new fileDB({
-    filename: req.body.filename,
-    file: req.body.file,
-    course: req.body.course,
-    department: req.body.department,
-    semester: req.body.semester,
-    user: req.body.user,
-  });
-
-  await fileData
-
-    .save()
-    .then((doc) => {
-      res.status(201).send({
-        status: true,
-        data: doc,
-      });
-    })
-    .catch((err) => {
-      res.status(400).send({
-        status: false,
-        message: "File not added successfully",
-      });
+  upload(req, res, async (err) => {
+    if (err) {
+      return res.status(500).send({ error: err.message });
+    }
+    const file = new fileDB({
+      filename: req.file.filename,
+      uuid: uuidv4(),
+      path: req.file.path,
+      size: req.file.size,
+      user: req.body.user,
+      semester: req.body.semester,
+      department: req.body.department,
+      course: req.body.course,
     });
+    const response = await file.save();
+    res.json({ file: `${process.env.APP_BASE_URL}/files/${response.uuid}` });
+  });
 });
 
 router.post("/upload/file");
