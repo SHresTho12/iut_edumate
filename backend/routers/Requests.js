@@ -5,15 +5,14 @@ const router = express.Router();
 
 //post a request to the database
 router.post("/", async (req, res) => {
-  const request = new RequestDB({
+  const request = new requestDB({
     title: req.body.title,
     department: req.body.department,
     semester: req.body.semester,
     course: req.body.course,
-    requester: req.body.user,
-    requestedID: req.body.requestedID,
+    requester: req.body.requester,
     resourceID: req.body.resourceID,
-    owner: owner,
+    owner: req.body.owner,
   });
 
   await request
@@ -25,6 +24,7 @@ router.post("/", async (req, res) => {
       });
     })
     .catch((err) => {
+      console.log(err);
       res.status(400).send({
         status: false,
         message: "Request not added successfully",

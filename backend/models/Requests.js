@@ -10,14 +10,8 @@ const requestSchema = new Schema({
     type: Date,
     default: Date.now(),
   },
-  owner: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-  },
-  requester: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-  },
+  owner: Object,
+  requester: Object,
   resourceID: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Notes",
