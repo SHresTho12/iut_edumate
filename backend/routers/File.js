@@ -56,7 +56,8 @@ let upload = multer({ storage, limits: { fileSize: 1000000 * 100 } }).single(
 );
 
 //post req to upload a file to mongodb
-router.post("/", async (req, res) => {
+router.post("/upload", async (req, res) => {
+  //VALIDATE REQUEST
   upload(req, res, async (err) => {
     if (!req.file) {
       return res.status(400).send({
@@ -79,8 +80,63 @@ router.post("/", async (req, res) => {
     });
     const response = await file.save();
     //res.json({ file: `${process.env.APP_BASE_URL}/files/${response.uuid}` });
-    return res.json({ file: `http://localhost:80/upload/${response.uuid}` });
+    return res.json({
+      file: `http://localhost:80/file/upload/${response.uuid}`,
+    });
   });
+});
+
+// router.get("/show/:uuid", async (req, res) => {
+//   try {
+//     const file = await File.findOne({ uuid: req.params.uuid });
+//     // Link expired
+//     if (!file) {
+//       return res.render("download", { error: "Link has been expired." });
+//     }
+//     return res.render("download", {
+//       uuid: file.uuid,
+//       fileName: file.filename,
+//       fileSize: file.size,
+//       downloadLink: `http://localhost:80/file/download/${file.uuid}`,
+//     });
+//   } catch (err) {
+//     return res.render("download", { error: "Something went wrong." });
+//   }
+// });
+//get req to download a file from mongodb
+// router.get("/download/:uuid", async (req, res) => {
+//   try {
+//     const file = await fileDB.findOne({ uuid: req.params.uuid });
+//     if (!file) {
+//       return res.status(400).send({
+//         status: false,
+//         message: "File not found",
+//       });
+//     }
+//     const filePath = `${__dirname}/../${file.path}`;
+//     res.download(filePath);
+//   } catch (err) {
+//     return res.status(500).send({ error: err.message });
+//   }
+// });
+
+//GET REQUEST FOR GETTING FILE INFO
+router.get("/show/:uuid", async (req, res) => {
+  try {
+    const file = await fileDB.findOne({ uuid: req.params.uuid });
+    if (!file) {
+      return res.status(400).send({
+        status: false,
+        message: "File not found",
+      });
+    }
+    return res.json({
+      file,
+      downloadLink: `http://localhost:80/file/download/${file.uuid}`,
+    });
+  } catch (err) {
+    return res.status(500).send({ error: err.message });
+  }
 });
 
 module.exports = router;

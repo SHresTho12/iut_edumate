@@ -19,5 +19,5 @@ router.use("/user", userRouter);
 router.use("/project", projectRouter);
 router.use("/notes", notesRouter);
 router.use("/noteComment", noteCommentRouter);
-router.use("/upload", fileRouter);
+router.use("/file", fileRouter);
 module.exports = router;
