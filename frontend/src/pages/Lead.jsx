@@ -62,14 +62,27 @@ import {
      return (
        <ChakraProvider theme={theme}>
          <Layout>
-           <VStack spacing={2.5} color="green.500" marginBlockStart={'4vh'}>
+       
+           <HStack><Image
+            src="/images/lead.jpg"
+            alt="s"
+           
+            sx={{ filter: "blur(0px)" }}
+            width='50vw'
+          //   border='8px' 
+          //   borderRightColor='#5FF194'
+          //   borderLeftColor='white'
+          //   borderBottomColor='white'
+          //   borderBlockStartColor='white'
             
+          />
+              <VStack spacing={2.5} color="green.500" marginBlockStart={'1vh'}>
            <Center  borderRadius={5} p={2}   color="#434242"
                   
                    bgColor="#FFF6BD"
                    size="md"
                    height="55px"
-                   width="50vw"
+                   width="100%"
                   
                   
                    ><HStack>
@@ -125,10 +138,11 @@ import {
    
     
              </Stack>
+             </VStack>
+             </HStack>
+        
+        
           
-        
-        
-           </VStack>
            
          </Layout>
    
