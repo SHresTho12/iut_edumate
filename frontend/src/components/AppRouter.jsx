@@ -11,6 +11,8 @@ import Query from '../pages/QueryPage'
 import ResetPasswordPage from '../pages/ResetPasswordPage'
 import Registerpage from '../pages/Registerpage'
 import co from '../pages/coCurricular'
+import lead from '../pages/Lead'
+
 
 import AskQuestion from './Query-Section/AskQuestion'
 import Question from '../pages/DetailQuestion'
@@ -55,9 +57,11 @@ export default function AppRouter(props) {
 
           <ProtectedRoute exact path='/project' component={Project} />
           <ProtectedRoute exact path='/co' component={co} />
+          <ProtectedRoute exact path='/lead' component={lead} />
           <ProtectedRoute exact path='/art' component={art} />
           <ProtectedRoute exact path='/tournaments' component={tournaments} />
           <ProtectedRoute exact path='/academic' component={academic} />
+         
 
           <ProtectedRoute exact path='/upload' component={uploadfile} />
            <ProtectedRoute exact path='/addNote' component={AddNote} />
