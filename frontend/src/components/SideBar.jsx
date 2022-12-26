@@ -32,24 +32,25 @@ export default function Sidebar() {
    const [departmentname, setDepartmentname] = useState('');
    const [program, setProgram] = useState('');
   const history = useHistory()
-
+console.log(currentUSer)
   const [loading,setLoading] = useState(false);
-
+  const id = currentUSer.uid;
   const handleSubmit = async (e) => {
-   e.preventDefault();
+   
    
    if (currentUSer) {
      setLoading(true);
      const bodyJSON = {
-     fireuid : currentUSer.uid,
+    fireuid : currentUSer.uid,
     name:name,
     email:currentUSer.email,
     department: departmentname,
+    program: program,
     studentid:studentid,
     user: currentUSer
      };
      await axios
-       .post("/user", bodyJSON)
+       .put(`/user/update/${id}`, bodyJSON)
        .then((res) => {
          // console.log(res.data);
          alert("User Updated");
@@ -167,7 +168,7 @@ export default function Sidebar() {
          <Button variant='outline' colorScheme='red' mr={3} onClick={onClose} >
                  Cancel
                </Button>
-               <Button colorScheme='blue'>Save</Button>
+               <Button onClick={() => handleSubmit()} colorScheme='blue'>Save</Button>
          </HStack>
          </VStack>
         
