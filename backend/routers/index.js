@@ -8,6 +8,7 @@ const projectRouter = require("./Project");
 const notesRouter = require("./Notes");
 const noteCommentRouter = require("./NoteComments");
 const fileRouter = require("./File");
+const requestRouter = require("./Requests");
 router.get("/", (req, res) => {
   res.send("Hello from Iut Edumate");
 });
@@ -20,4 +21,5 @@ router.use("/project", projectRouter);
 router.use("/notes", notesRouter);
 router.use("/noteComment", noteCommentRouter);
 router.use("/file", fileRouter);
+router.use("/request", requestRouter);
 module.exports = router;

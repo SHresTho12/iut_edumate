@@ -14,7 +14,7 @@ const requestSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-  requestUser: {
+  requester: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
@@ -22,6 +22,7 @@ const requestSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Notes",
   },
+  status: { tyepe: Boolean, default: false },
 });
 
 module.exports = mongoose.model("Requests", requestSchema);
