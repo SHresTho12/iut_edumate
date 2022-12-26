@@ -32,4 +32,43 @@ router.post("/", async (req, res) => {
     });
 });
 
+//get only reqest made by the user
+router.get("/user", async (req, res) => {
+  const user = req.body.user;
+  await requestDB
+    .find({ requester: user })
+    .then((doc) => {
+      res.status(200).send({
+        status: true,
+        data: doc,
+      });
+    })
+    .catch((err) => {
+      res.status(400).send({
+        status: false,
+        message: "Request not found",
+      });
+    });
+});
+
+//get all the requests of the user of owner
+router.get("/owner", async (req, res) => {
+  const user = req.body.user;
+  await requestDB
+
+    .find({ owner: user })
+    .then((doc) => {
+      res.status(200).send({
+        status: true,
+        data: doc,
+      });
+    })
+    .catch((err) => {
+      res.status(400).send({
+        status: false,
+        message: "Request not found",
+      });
+    });
+});
+
 module.exports = router;
