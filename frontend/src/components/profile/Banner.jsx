@@ -15,6 +15,7 @@ import {
 import { useAuth } from "../../Context/AuthContext";
   import homeimg from "../../images/Svg/user.png";
   import { useState } from 'react'
+  import Navlink from "../Navlink";
 
   function Home({dbuser}) {
    
@@ -75,7 +76,14 @@ import { useAuth } from "../../Context/AuthContext";
                 {currentUSer.email}{" "}
               </Text>
              
-              <Button size="lg">Explore</Button>
+              {/* <Button size="lg">LeaderBoard</Button> */}
+              <Navlink
+          to="/lead"
+          name="LeaderBoard"
+          bgColor="#4AA96C"
+          color="white"
+          _hover={{bg:'#3B8756'}}
+        />
             </VStack>
           </Center>
           <Center w="100%">
