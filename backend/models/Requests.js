@@ -18,6 +18,7 @@ const requestSchema = new Schema({
     required: true,
   },
   status: { type: Boolean, default: false },
+  uuid: { type: String, default: "" },
 });
 
 module.exports = mongoose.model("Requests", requestSchema);
