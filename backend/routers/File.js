@@ -132,7 +132,7 @@ router.get("/show/:uuid", async (req, res) => {
     }
     return res.json({
       file,
-      downloadLink: `http://localhost:80/file/download/${file.uuid}`,
+      downloadLink: `http://localhost:3000/file/download/${file.uuid}`,
     });
   } catch (err) {
     return res.status(500).send({ error: err.message });

@@ -33,8 +33,8 @@ router.post("/", async (req, res) => {
 });
 
 //get only reqest made by the user
-router.get("/user", async (req, res) => {
-  const user = req.body.user;
+router.get("/user/:id", async (req, res) => {
+  const user = req.params.id;
   await requestDB
     .find({ requester: user })
     .then((doc) => {
@@ -52,8 +52,8 @@ router.get("/user", async (req, res) => {
 });
 
 //get all the requests of the user of owner
-router.get("/owner", async (req, res) => {
-  const user = req.body.user;
+router.get("/owner/:id", async (req, res) => {
+  const user = req.params.id;
   await requestDB
 
     .find({ owner: user })

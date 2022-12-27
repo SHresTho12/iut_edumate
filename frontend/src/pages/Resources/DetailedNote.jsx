@@ -109,8 +109,8 @@ function DetailedNote() {
 
   const handlerequest = async () => {
      const body = {
-      owner: note?.user,
-      requester: currentUSer,
+      owner: note?.user.uid,
+      requester: currentUSer.uid,
       semester: note?.semester,
       course: note?.course,
       title: note?.title,

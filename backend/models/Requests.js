@@ -2,21 +2,22 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const requestSchema = new Schema({
-  title: { type: String, required: true },
-  semester: { type: String, required: true },
-  department: { type: String, required: true },
-  course: { type: String, required: true },
+  title: { type: String, required: false },
+  semester: { type: String, required: false },
+  department: { type: String, required: false },
+  course: { type: String, required: false },
   created_at: {
     type: Date,
     default: Date.now(),
   },
-  owner: Object,
-  requester: Object,
+  owner: { type: String, required: true },
+  requester: { type: String, required: true },
   resourceID: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Notes",
+    required: true,
   },
-  status: { tyepe: Boolean, default: false },
+  status: { type: Boolean, default: false },
 });
 
 module.exports = mongoose.model("Requests", requestSchema);
