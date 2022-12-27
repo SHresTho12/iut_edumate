@@ -1,7 +1,7 @@
 import { Grid,VStack,Box,GridItem, Center, Heading,Text, Stack,Image,useColorModeValue } from '@chakra-ui/react'
 import React from 'react'
 import NewsFeed from './NewsFeed'
-import ProjectCards from './ProjectCards'
+import ResourceCard from './ResourceCard'
 
 function Projects() {
   return (
@@ -13,14 +13,14 @@ function Projects() {
             <NewsFeed></NewsFeed>
         </GridItem>
         <GridItem h='auto'  colSpan={3}>
-        <Heading p={2} m={5} >Projects Ideas</Heading>
+        <Heading p={2} m={5} >Available Resources</Heading>
            <Grid templateRows='repeat(2,1fr)' templateColumns='repeat(3, 1fr)' gap='6'>
-           <ProjectCards/>
-           <ProjectCards/>
-           <ProjectCards/>
-           <ProjectCards/>
-           <ProjectCards/>
-           <ProjectCards/>
+           <ResourceCard/>
+           <ResourceCard/>
+           <ResourceCard/>
+           <ResourceCard/>
+           <ResourceCard/>
+           <ResourceCard/>
            </Grid>
         </GridItem>
     </Grid>

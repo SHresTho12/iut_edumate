@@ -7,7 +7,9 @@ import {
     Text,
     Center,
     VStack,
-    Button
+    Button,
+  Stack,
+  useColorModeValue
   } from "@chakra-ui/react";
   import React from "react";
   import {useHistory} from 'react-router-dom'
@@ -98,7 +100,7 @@ import { useAuth } from "../../Context/AuthContext";
             {/* <img src={homeimg}></img> */}
           </Center>
         </Grid>
-      </Box>
+        </Box>
   
       
     );
