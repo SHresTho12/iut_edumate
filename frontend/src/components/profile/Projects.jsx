@@ -2,7 +2,7 @@ import { Grid,VStack,Box,GridItem, Center, Heading,Text, Stack,Image,useColorMod
 import React from 'react'
 import NewsFeed from './NewsFeed'
 import ProjectCards from './ProjectCards'
-import { Layout } from '../../components/ProLayout'
+import { Layout } from '../../components/Layout'
 
 function Projects() {
   return (
