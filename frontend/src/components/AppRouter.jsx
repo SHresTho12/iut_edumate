@@ -1,3 +1,4 @@
+
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
@@ -8,12 +9,15 @@ import { useAuth } from "../Context/AuthContext";
 
 import Profile from "../pages/profile/Profile";
 import Loginpage from "../pages/Loginpage";
+import Pro from './profile/Projects';
+import Resource from './profile/Resources';
 import ForgotPasswordPage from "../pages/ForgotPasswordPage";
 import Profilepage from "../pages/Profilepage";
 import Query from "../pages/QueryPage";
 import ResetPasswordPage from "../pages/ResetPasswordPage";
 import Registerpage from "../pages/Registerpage";
 import co from "../pages/coCurricular";
+import lead from '../pages/Lead'
 
 import AskQuestion from "./Query-Section/AskQuestion";
 import Question from "../pages/DetailQuestion";
@@ -31,6 +35,7 @@ import Requests from "../pages/Requests/Requests";
 import Requested from "../pages/Requests/Requested";
 import Download from "../pages/fileshare/Download";
 
+
 export default function AppRouter(props) {
   return (
     <>
@@ -40,15 +45,14 @@ export default function AppRouter(props) {
           <Route exact path="/" component={home} />
           {/* <Route exact path='/query' component={Query} /> */}
           {/* <Route exact path='/project' component={Project} /> */}
-          <Route exact path="/co" component={co} />
-          <Route exact path="/art" component={art} />
-          <Route exact path="/tournaments" component={tournaments} />
-          <Route exact path="/tournaments" component={tournaments} />
+
+          
+      
           <Route exact path="/settings" component={Sidebar} />
 
           <ProtectedRoute exact path="/login" component={Loginpage} />
           <ProtectedRoute exact path="/register" component={Registerpage} />
-          {/* <ProtectedRoute exact path='/profile' component={Profilepage} /> */}
+            <ProtectedRoute exact path='/lead' component={lead} />
           <ProtectedRoute exact path="/profile" component={Profile} />
           <ProtectedRoute exact path="/query" component={Query} />
           <ProtectedRoute exact path="/askquestion" component={AskQuestion} />
@@ -63,7 +67,8 @@ export default function AppRouter(props) {
           <ProtectedRoute exact path="/art" component={art} />
           <ProtectedRoute exact path="/tournaments" component={tournaments} />
           <ProtectedRoute exact path="/academic" component={academic} />
-
+          <ProtectedRoute exact path='/pro' component={Pro} />
+          <ProtectedRoute exact path='/resource' component={Resource} />
           <ProtectedRoute exact path="/upload" component={uploadfile} />
           <ProtectedRoute exact path="/addNote" component={AddNote} />
           <ProtectedRoute exact path="/notes" component={Note} />

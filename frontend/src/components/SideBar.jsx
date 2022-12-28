@@ -32,24 +32,25 @@ export default function Sidebar() {
    const [departmentname, setDepartmentname] = useState('');
    const [program, setProgram] = useState('');
   const history = useHistory()
-
+console.log(currentUSer)
   const [loading,setLoading] = useState(false);
-
+  const id = currentUSer.uid;
   const handleSubmit = async (e) => {
-   e.preventDefault();
+   
    
    if (currentUSer) {
      setLoading(true);
      const bodyJSON = {
-     fireuid : currentUSer.uid,
+    fireuid : currentUSer.uid,
     name:name,
     email:currentUSer.email,
     department: departmentname,
+    program: program,
     studentid:studentid,
     user: currentUSer
      };
      await axios
-       .post("/user", bodyJSON)
+       .put(`/user/update/${id}`, bodyJSON)
        .then((res) => {
          // console.log(res.data);
          alert("User Updated");
@@ -116,53 +117,58 @@ export default function Sidebar() {
            <Input
              h='3.2rem'
              placeholder=' '
-             name='email'
-             type='email'
-             autoComplete='email'
+             name='deptartment'
+             type='deptartment'
+             autoComplete='deptartment'
              required
-              value={email} onChange={(e) => {setEmail(e.target.value);
+              value={departmentname} onChange={(e) => {setDepartmentname(e.target.value);
              }}
             
             
            />
-           <FormLabel color='#7895B2'>Email</FormLabel>
+           <FormLabel color='#7895B2'>Department</FormLabel>
          </FormControl>
 
-         <FormControl id='id' variant="floating" >
-           
-           <Input
-             h='3.2rem'
-             placeholder=' '
-             name='id'
-             type='id'
-             autoComplete='id'
-             required
-             value={program}
-             // onChange={e => setEmail(e.target.value)}
-             onChange={(e) => setStudentid(e.target.value)}
-           />
-           <FormLabel color='#7895B2'>Student ID</FormLabel>
-         </FormControl>
-         {/* <FormControl id='password' variant="floating" >
-           
-           <Input
-             h='3.2rem'
-             placeholder=' '
-             name='password'
-             type='password'
-             autoComplete='password'
-             required
-             //value={name}
-              onChange={e => set(e.target.value)}
+  
+
+          <FormControl id='id' variant="floating" >
             
-           />
-           <FormLabel color='#7895B2'>Student Id</FormLabel>
-         </FormControl> */}
+            <Input
+              h='3.2rem'
+              placeholder=' '
+              name='program'
+              type='program'
+              autoComplete='program'
+              required
+              value={program}
+              // onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setProgram(e.target.value)}
+            />
+            <FormLabel color='#7895B2'>Program</FormLabel>
+          </FormControl>
+        
+
+            <FormControl id='id' variant="floating" >
+              
+              <Input
+                h='3.2rem'
+                placeholder=' '
+                name='id'
+                type='id'
+                autoComplete='id'
+                required
+                value={studentid}
+                // onChange={e => setEmail(e.target.value)}
+                onChange={(e) => setStudentid(e.target.value)}
+              />
+              <FormLabel color='#7895B2'>Student ID</FormLabel>
+            </FormControl>
+
          <HStack>
          <Button variant='outline' colorScheme='red' mr={3} onClick={onClose} >
                  Cancel
                </Button>
-               <Button colorScheme='blue'>Save</Button>
+               <Button onClick={() => handleSubmit()} colorScheme='blue'>Save</Button>
          </HStack>
          </VStack>
         

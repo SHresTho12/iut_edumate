@@ -4,24 +4,24 @@ import React from 'react'
 import { Layout } from '../components/ProLayout'
 import { useAuth } from '../Context/AuthContext'
 import theme from './theme'
-import { useState } from 'react';
+import { useState ,useEffect } from 'react';
 import { IconName } from "react-icons/fa";
 import { AiFillStar } from "react-icons/md"
 import {FaTrophy} from "react-icons/fa";
 import {BiUserCircle} from "react-icons/bi";
-
+import axios from 'axios'
 import currentActivities from './profile-section/currentActivities';
 
 
 
 export default function Profilepage() {
   const { currentUSer, setLoading, setAlert } = useAuth()
-  
+  const id = currentUSer.uid;
   console.log(currentUSer)
   const [name, setName] = useState(currentUSer?.displayName);
   const [file, setFile] = useState(null);
   const [photoURL, setPhotoURL] = useState(currentUSer?.photoURL);
-
+  const [dbuser , setDbuser] = useState([])
   const handleChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -30,8 +30,17 @@ export default function Profilepage() {
     }
   };
   
-
-  
+//axios req to get user data from db
+useEffect(() => {
+  async function getUser() {
+    await axios.get(`/user/${id}`).then((res) => {
+      setDbuser(res.data.reverse());
+      console.log("hi",res.data)
+    });
+  }
+  getUser();
+},[])
+  console.log(dbuser);
   return (
     <ChakraProvider theme={theme}>
     <Layout>

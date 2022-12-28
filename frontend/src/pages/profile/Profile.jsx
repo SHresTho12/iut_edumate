@@ -1,6 +1,6 @@
 import { Box,ChakraProvider } from '@chakra-ui/react'
 import axios from 'axios'
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import Banner from '../../components/profile/Banner'
 import PersonalQuestions from '../../components/profile/PersonalQuestions'
 import Projects from '../../components/profile/Projects'
@@ -10,6 +10,8 @@ import { useAuth } from '../../Context/AuthContext'
 import theme from "../theme";
 function Profile() {
     const { currentUSer} = useAuth()
+    const id = currentUSer.uid;
+    const [dbuser , setDbuser] = useState('')
     const [questions,setQuestions] = React.useState([])
   useEffect(() => {
   async function getQuestion() {
@@ -20,12 +22,28 @@ function Profile() {
   }
   getQuestion();
 }, []);
+
+
+
+useEffect(() => {
+  async function getUser() {
+    await axios.get(`/user/${id}`).then((res) => {
+      setDbuser(res.data);
+      console.log("hi",res.data.data)
+      console.log(res.data.data)
+    });
+  }
+  getUser();
+},[])
+
+
+
 let personalQuestions = questions.filter((question) => question.user.uid === currentUSer.uid )
 console.log(personalQuestions);
   return (
     <ChakraProvider theme={theme}>
     <Layout><Box >
-         <Banner></Banner>
+         <Banner user={dbuser}></Banner>
           <SiteStaus personalQuestions={personalQuestions}></SiteStaus>
           <Projects></Projects>
     

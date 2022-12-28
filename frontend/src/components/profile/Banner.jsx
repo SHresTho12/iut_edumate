@@ -7,7 +7,9 @@ import {
     Text,
     Center,
     VStack,
-    Button
+    Button,
+  Stack,
+  useColorModeValue
   } from "@chakra-ui/react";
   import React from "react";
   import {useHistory} from 'react-router-dom'
@@ -15,8 +17,9 @@ import {
 import { useAuth } from "../../Context/AuthContext";
   import homeimg from "../../images/Svg/user.png";
   import { useState } from 'react'
+  import Navlink from "../Navlink";
 
-  function Home() {
+  function Home({dbuser}) {
    
     const btnRef = React.useRef()
     const {  currentUSer } = useAuth()
@@ -59,7 +62,7 @@ import { useAuth } from "../../Context/AuthContext";
       }
     };
    
-    console.log(currentUSer.photoURL);
+    console.log(dbuser);
     return (
       <Box >
         <Grid p={10} h="40vh" templateColumns="repeat(2, 1fr)" gap="0">
@@ -75,7 +78,14 @@ import { useAuth } from "../../Context/AuthContext";
                 {currentUSer.email}{" "}
               </Text>
              
-              <Button size="lg">Explore</Button>
+              {/* <Button size="lg">LeaderBoard</Button> */}
+              <Navlink
+          to="/lead"
+          name="LeaderBoard"
+          bgColor="#4AA96C"
+          color="white"
+          _hover={{bg:'#3B8756'}}
+        />
             </VStack>
           </Center>
           <Center w="100%">
@@ -90,7 +100,7 @@ import { useAuth } from "../../Context/AuthContext";
             {/* <img src={homeimg}></img> */}
           </Center>
         </Grid>
-      </Box>
+        </Box>
   
       
     );
