@@ -8,8 +8,7 @@ import SiteStaus from '../../components/profile/SiteStaus'
 import { Layout } from '../../components/ProLayout'
 import { useAuth } from '../../Context/AuthContext'
 import theme from "../theme";
-import Navlink from "../../components/Navlink";
-function Profile() {
+function Personal() {
     const { currentUSer} = useAuth()
     const id = currentUSer.uid;
     const [dbuser , setDbuser] = useState('')
@@ -44,9 +43,6 @@ console.log(personalQuestions);
   return (
     <ChakraProvider theme={theme}>
     <Layout><Box >
-         <Banner user={dbuser}></Banner>
-          <SiteStaus personalQuestions={personalQuestions}></SiteStaus>
-          <Projects></Projects>
          
     
           <PersonalQuestions personalQuestions={personalQuestions}></PersonalQuestions>
@@ -58,4 +54,4 @@ console.log(personalQuestions);
   )
 }
 
-export default Profile
+export default Personal
