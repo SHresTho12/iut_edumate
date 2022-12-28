@@ -48,10 +48,13 @@ console.log(personalQuestions);
           <SiteStaus personalQuestions={personalQuestions}></SiteStaus>
          <Center><Navlink
           to="/pro"
+          height='10vh'
+          width='20vh'
           name="Projects"
           bgColor="#4AA96C"
           color="white"
           _hover={{bg:'#3B8756'}}
+        
         />
         </Center> 
           {/* <Projects></Projects> */}
