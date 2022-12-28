@@ -1,5 +1,5 @@
 
-import { Grid,VStack,Box,GridItem, Center, Heading,Text, Stack,Image,useColorModeValue } from '@chakra-ui/react'
+import { Grid,VStack,Box,GridItem, Center, Heading,Text, Stack,Image,useColorModeValue,HStack,Button } from '@chakra-ui/react'
 
 import React from 'react'
 import { Link } from 'react-router-dom'
