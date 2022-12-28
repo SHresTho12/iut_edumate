@@ -24,7 +24,7 @@ import DividerWithText from '../components/DividerWithText'
 import { Layout } from '../components/Layout'
 import { useAuth } from '../Context/AuthContext'
 import useMounted from '../hooks/useMounted'
-
+import axios from 'axios'
 
 export default function Loginpage() {
   const history = useHistory()
@@ -48,8 +48,26 @@ export default function Loginpage() {
   const mounted = useMounted()
  
 
-  function handleRedirectToOrBack() {
+  function handleRedirectToOrBack(user) {
     // console.log(location?.state)
+    console.log("hello")
+     axios.get(`/user/${user.user.uid}`).then((res) => {
+      
+      
+      // if(res.status === false){
+      // 
+      // }
+    }).catch((err) => {
+          const initialvalue = {
+          fireuid: user.user.uid,
+          name: user.user.displayName,
+          email: user.user.email,
+          
+        }
+        axios.post("/user",initialvalue).then((response) => {
+          console.log(response.data);
+        });
+      });
     history.replace(location.state?.from ?? '/profile')
     // if (location.state) {
     //   history.replace(location.state?.from)
@@ -57,6 +75,12 @@ export default function Loginpage() {
     //   history.replace('/profile')
     // }
   }
+
+  //write a function that will check if a user already exits with uid if not create one
+  function handleGoogle(user) {
+    
+  }
+      
 
   return (
     <ChakraProvider theme={theme}>
@@ -188,8 +212,9 @@ export default function Loginpage() {
           onClick={() =>
             signInWithGoogle()
               .then(user => {
-                handleRedirectToOrBack()
-                console.log(user)
+                handleGoogle(user)
+                handleRedirectToOrBack(user)
+                
               })
               .catch(e => console.log(e.message))
           }
