@@ -179,7 +179,7 @@ const handleSubmit = async (e) => {
             
           </Center>
             <Button disabled={loading} type='submit' onClick={handleSubmit} bg="#4A47A3" m={2} color='#EDF7FA' height='9vh' fontSize='large' _hover={{ bg: "#192965" }}>
-              {loading?'Adding Question .....' : 'Post Question '}
+              {loading?'Adding Question .....' : 'Post Note '}
             </Button>
           </Box>
         
