@@ -2,9 +2,11 @@ import { Grid,VStack,Box,GridItem, Center, Heading,Text, Stack,Image,useColorMod
 import React from 'react'
 import NewsFeed from './NewsFeed'
 import ProjectCards from './ProjectCards'
+import { Layout } from '../../components/ProLayout'
 
 function Projects() {
   return (
+    <Layout>
    <Center  h="70vh" m={5} >
     <VStack>
     
@@ -27,6 +29,7 @@ function Projects() {
     </VStack>
 
    </Center>
+   </Layout>
 
   )
 }
