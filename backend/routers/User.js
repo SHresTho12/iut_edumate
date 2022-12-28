@@ -90,22 +90,21 @@ router.put("/update/:id", async (req, res) => {
 });
 
 //increament points
-router.put("/update/points/:id", async (req, res) => {
-  const fireuid = req.params.id;
-  const points = req.body.points;
-  const filter = { fireuid: req.params.id };
-  const update = {
-    points: points,
-  };
-  const response = await new Promise((resolve, reject) => {
-    UserDB.findOneAndUpdate(filter, update, { new: true }, (err, doc) => {
-      if (err) {
-        resolve("User not updated");
-      } else {
-        resolve(doc);
-      }
-    });
-  });
-});
+
+// if (interested.includes(user)) {
+//   res.status(400).send({
+//     status: false,
+//     message: "You have already added this note to your interested list",
+//   });
+// } else {
+//   interested.push(user);
+//   await notesDB.findByIdAndUpdate(id, {
+//     interested: interested,
+//   });
+//   res.status(200).send({
+//     status: true,
+//     message: "Note added to your interested list",
+//   });
+// }
 
 module.exports = router;
