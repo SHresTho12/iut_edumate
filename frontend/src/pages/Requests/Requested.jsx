@@ -31,7 +31,7 @@ function Requested() {
     <Layout>
         <Box>
     {requests.map(request => (
-        <RequestCard request={request} />
+        <RequestCard request={request} upload={false} />
     ))}
   </Box>
     </Layout>

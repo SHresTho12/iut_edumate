@@ -9,7 +9,7 @@ function RequestCard({ request }) {
  <ChakraProvider theme={theme}>
       <VStack alignItems="right"  m="2" color="#00454A" shadow={'2xl'} margin='20px'>
         <Box fontSize="x-large" bgColor="#affac9" borderRadius='5px' height={'7vh'} >
-          <Link to={`/download?id=${request?.uuid}`} >{request?.title}</Link>
+          <Link to={`/upload?id=${request?.uuid}` } >{request?.title}</Link>
         </Box>
         <HStack>
         
@@ -34,7 +34,7 @@ function RequestCard({ request }) {
         
           >
              {
-        request.status?<Link to={`/download?id=${request?.uuid}` }>Download</Link> : <Text>The request is not completed yet</Text>
+        request.status? <Text>The request Has been Completed</Text>:<Link to={`/upload?id=${request?._id}` }>Upload</Link> 
     }
     
           </Button>
