@@ -87,39 +87,18 @@ router.post("/upload/:id", async (req, res) => {
   });
 });
 
-// router.get("/show/:uuid", async (req, res) => {
-//   try {
-//     const file = await File.findOne({ uuid: req.params.uuid });
-//     // Link expired
-//     if (!file) {
-//       return res.render("download", { error: "Link has been expired." });
-//     }
-//     return res.render("download", {
-//       uuid: file.uuid,
-//       fileName: file.filename,
-//       fileSize: file.size,
-//       downloadLink: `http://localhost:80/file/download/${file.uuid}`,
-//     });
-//   } catch (err) {
-//     return res.render("download", { error: "Something went wrong." });
-//   }
-// });
 //get req to download a file from mongodb
-// router.get("/download/:uuid", async (req, res) => {
-//   try {
-//     const file = await fileDB.findOne({ uuid: req.params.uuid });
-//     if (!file) {
-//       return res.status(400).send({
-//         status: false,
-//         message: "File not found",
-//       });
-//     }
-//     const filePath = `${__dirname}/../${file.path}`;
-//     res.download(filePath);
-//   } catch (err) {
-//     return res.status(500).send({ error: err.message });
-//   }
-// });
+router.get("/download/:uuid", async (req, res) => {
+  // Extract link and get file from storage send download stream
+  const file = await fileDB.findOne({ uuid: req.params.uuid });
+  // Link expired
+  if (!file) {
+    return res.render("download", { error: "Link has been expired." });
+  }
+  const response = await file.save();
+  const filePath = `${file.path}`;
+  res.download(filePath);
+});
 
 //GET REQUEST FOR GETTING FILE INFO
 router.get("/show/:uuid", async (req, res) => {

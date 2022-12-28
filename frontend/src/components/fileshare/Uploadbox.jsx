@@ -1,9 +1,9 @@
-import { Box, VStack, Heading, Center, Input } from "@chakra-ui/react";
+import { Box, VStack, Heading, Center, Input, Button } from "@chakra-ui/react";
 import React from "react";
-
-function Uploadbox() {
+import { useState } from "react";
+function Uploadbox({id}) {
   const [dragActive, setDragActive] = React.useState(false);
-  let file = React.useRef(null);
+  const [file,setFile] = useState(null);
 
   const uploadFile = (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ function Uploadbox() {
     // Get the files that were dropped
     const files = e.dataTransfer.files;
     if (files.length > 0) {
-      file = files[0];
+     setFile(files[0]) ;
       console.log(file);
     }
 
@@ -59,6 +59,13 @@ function Uploadbox() {
           <Center>
             <Input m={4} type="file" className="drop-zone__input" />
           </Center>
+         
+          
+            <Center>
+              <Button m={4} onClick={uploadFile}>Upload</Button>
+            </Center>
+         
+
         </VStack>
       </Box>
     </Box>

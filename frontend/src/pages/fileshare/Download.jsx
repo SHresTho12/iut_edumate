@@ -34,7 +34,21 @@ console.log(file);
 
     console.log(id);
     const handleDownload = () => {
-        console.log('download')
+        //get request for a file information
+        axios.get(`/file/download/${id}`,{
+        responseType: 'blob' // Set the response type to 'blob' to receive the file as a Blob
+      })
+        .then((res) => {
+            const fileUrl = URL.createObjectURL(res.data)
+            const a = document.createElement('a')
+        a.href = fileUrl
+        a.download = 'my-file'
+        a.click()
+        }
+        )
+        .catch((err) => console.log("The error: " + err.message));
+
+
     }
 
   return (
