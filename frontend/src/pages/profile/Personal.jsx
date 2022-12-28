@@ -5,7 +5,7 @@ import Banner from '../../components/profile/Banner'
 import PersonalQuestions from '../../components/profile/PersonalQuestions'
 import Projects from '../../components/profile/Projects'
 import SiteStaus from '../../components/profile/SiteStaus'
-import { Layout } from '../../components/ProLayout'
+import { Layout } from '../../components/Layout'
 import { useAuth } from '../../Context/AuthContext'
 import theme from "../theme";
 function Personal() {
