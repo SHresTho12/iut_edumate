@@ -1,10 +1,10 @@
-import { Box,HStack, VStack,FormLabel,FormControl,Menu, Heading, Input, Badge, Button, Center ,MenuItem , MenuButton , MenuList} from "@chakra-ui/react";
+import { Box,HStack, VStack,FormLabel,FormControl,Menu, Heading, Input, Badge, Button, Center ,MenuItem , MenuButton , MenuList, ChakraProvider} from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Layout } from "../../components/Layout";
 import axios from "axios";
 import ReactQuill from "react-quill";
 import {useHistory} from 'react-router-dom'
-
+import theme from "../../components/Query-Section/theme";
 
 
 
@@ -56,6 +56,7 @@ const handleSubmit = async (e) => {
 };
 
   return (
+    <ChakraProvider theme={theme}>
     <Layout>
       <Box
         p={10}
@@ -185,6 +186,7 @@ const handleSubmit = async (e) => {
         </VStack>
       </Box>
     </Layout>
+    </ChakraProvider>
   );
 }
 
