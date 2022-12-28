@@ -15,7 +15,7 @@ function NewsFeed() {
   return (
    <Box >
         <VStack>
-            <Heading size="lg" p={2}>Reponses</Heading>
+            <Heading size="lg" p={2}>Responses</Heading>
             <Box>
                 <VStack>
                     <Box p={5} border="1px solid green">Labiba fariha was interested in project 1</Box>
