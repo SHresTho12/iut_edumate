@@ -89,4 +89,23 @@ router.put("/update/:id", async (req, res) => {
   });
 });
 
+//increament points
+router.put("/update/points/:id", async (req, res) => {
+  const fireuid = req.params.id;
+  const points = req.body.points;
+  const filter = { fireuid: req.params.id };
+  const update = {
+    points: points,
+  };
+  const response = await new Promise((resolve, reject) => {
+    UserDB.findOneAndUpdate(filter, update, { new: true }, (err, doc) => {
+      if (err) {
+        resolve("User not updated");
+      } else {
+        resolve(doc);
+      }
+    });
+  });
+});
+
 module.exports = router;
