@@ -8,6 +8,7 @@ import SiteStaus from '../../components/profile/SiteStaus'
 import { Layout } from '../../components/ProLayout'
 import { useAuth } from '../../Context/AuthContext'
 import theme from "../theme";
+import Navlink from "../../components/Navlink";
 function Profile() {
     const { currentUSer} = useAuth()
     const id = currentUSer.uid;
@@ -45,6 +46,13 @@ console.log(personalQuestions);
     <Layout><Box >
          <Banner user={dbuser}></Banner>
           <SiteStaus personalQuestions={personalQuestions}></SiteStaus>
+          <Navlink
+          to="/pro"
+          name="Projects"
+          bgColor="#4AA96C"
+          color="white"
+          _hover={{bg:'#3B8756'}}
+        />
           <Projects></Projects>
     
           <PersonalQuestions personalQuestions={personalQuestions}></PersonalQuestions>
