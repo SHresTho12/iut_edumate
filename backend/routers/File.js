@@ -56,7 +56,7 @@ let upload = multer({ storage, limits: { fileSize: 1000000 * 100 } }).single(
 );
 
 //post req to upload a file to mongodb
-router.post("/upload", async (req, res) => {
+router.post("/upload/:id", async (req, res) => {
   //VALIDATE REQUEST
   upload(req, res, async (err) => {
     if (!req.file) {
@@ -77,6 +77,7 @@ router.post("/upload", async (req, res) => {
       semester: req.body.semester,
       department: req.body.department,
       course: req.body.course,
+      requestId: req.params.id,
     });
     const response = await file.save();
     //res.json({ file: `${process.env.APP_BASE_URL}/files/${response.uuid}` });
@@ -132,7 +133,7 @@ router.get("/show/:uuid", async (req, res) => {
     }
     return res.json({
       file,
-      downloadLink: `http://localhost:3000/file/download/${file.uuid}`,
+      downloadLink: `http://localhost:80/file/download/${file.uuid}`,
     });
   } catch (err) {
     return res.status(500).send({ error: err.message });

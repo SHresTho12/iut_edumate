@@ -71,4 +71,24 @@ router.get("/owner/:id", async (req, res) => {
     });
 });
 
+//update the uuid of the request model
+router.put("/uuid/:id", async (req, res) => {
+  const id = req.params.id;
+  const uuid = req.body.uuid;
+  await requestDB
+    .findByIdAndUpdate(id, { uuid: uuid })
+    .then((doc) => {
+      res.status(200).send({
+        status: true,
+        data: doc,
+      });
+    })
+    .catch((err) => {
+      res.status(400).send({
+        status: false,
+        message: "Request not found",
+      });
+    });
+});
+
 module.exports = router;

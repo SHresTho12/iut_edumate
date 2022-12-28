@@ -7,8 +7,8 @@ function Download() {
 
     let search = window.location.search;
     const params = new URLSearchParams(search);
-    //const id = params.get("id");
-    const id ='a1705d30-864b-41f9-beb5-88e058d10fe0'
+   const id = params.get("id");
+    //const id ='a1705d30-864b-41f9-beb5-88e058d10fe0'
     const [file , setFile] = useState();
     console.log(id);
    useEffect(() => {
