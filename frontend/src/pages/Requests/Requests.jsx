@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Card, Flex, Heading, Text } from '@chakra-ui/react'
+import {Box, Card, Flex, Heading, Text,Image } from '@chakra-ui/react'
 import { Layout } from '../../components/Layout'
 import { useState,useEffect } from 'react';
 import axios from 'axios';
@@ -25,10 +25,12 @@ function Requests() {
     }, [id]);
   return (
     <Layout>
+   
        <Box>
     {requests.map(request => (
         <UploadRequestCard request={request} upload={true}/>
     ))}
+ 
   </Box>
     </Layout>
   )
