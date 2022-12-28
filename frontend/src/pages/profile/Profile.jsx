@@ -59,7 +59,7 @@ console.log(personalQuestions);
         </Center> 
           {/* <Projects></Projects> */}
     
-          {/* <PersonalQuestions personalQuestions={personalQuestions}></PersonalQuestions> */}
+          <PersonalQuestions personalQuestions={personalQuestions}></PersonalQuestions>
     </Box>
          
     </Layout>
