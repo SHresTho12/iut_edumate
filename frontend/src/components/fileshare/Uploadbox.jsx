@@ -7,6 +7,17 @@ function Uploadbox({id}) {
   const [file,setFile] = useState(null);
   const [semester, setSemester] = useState("2-2");
 
+
+  function updateStatus(){
+    //axios put request to update the status of the request
+    axios.put(`/request/complete/${id}`)
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => console.log(err));
+
+  }
+
   const uploadFile = (e) => {
     e.preventDefault();
     // const fileToBeUploaded = file.current.files[0];
@@ -31,6 +42,7 @@ formData.append("semester", semester);
       })
       .then(response => {
         console.log(response.data)
+        updateStatus();
       })
 
 
