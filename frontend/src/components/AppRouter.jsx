@@ -6,6 +6,7 @@ import { useAuth } from '../Context/AuthContext'
 import Profile from '../pages/profile/Profile'
 import Pro from './profile/Projects'
 import Resource from './profile/Resources'
+import pq from './profile/PersonalQuestions'
 import Loginpage from '../pages/Loginpage'
 import ForgotPasswordPage from '../pages/ForgotPasswordPage'
 import Profilepage from '../pages/Profilepage'
@@ -65,6 +66,7 @@ export default function AppRouter(props) {
           <ProtectedRoute exact path='/academic' component={academic} />
           <ProtectedRoute exact path='/pro' component={Pro} />
           <ProtectedRoute exact path='/resource' component={Resource} />
+          <ProtectedRoute exact path='/pq' component={pq} />
          
 
           <ProtectedRoute exact path='/upload' component={uploadfile} />
