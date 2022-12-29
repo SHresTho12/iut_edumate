@@ -1,13 +1,18 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config({ path: "../.env" });
+
 module.exports = async ({ from, to, subject, text, html }) => {
   let transporter = nodemailer.createTransport({
     host: "smtp-relay.sendinblue.com",
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: "talimulbari@iut-dhaka.edu", // generated ethereal user
-      pass: process.env.REACT_APP_MAIL_PASSWORD, // generated ethereal password
+      // user: user, // generated ethereal user
+      // pass: pass, // generated ethereal password
+      // user: "talimul11bari@gmail.com",
+      // pass: "CV4PnJLzDHKGTY6f",
+      user: process.env.REACT_APP_MAIL_USER,
+      pass: process.env.REACT_APP_MAIL_PASSWORD,
     },
   });
 
@@ -20,4 +25,3 @@ module.exports = async ({ from, to, subject, text, html }) => {
     html: html, // html body
   });
 };
-console.log(process.env.REACT_APP_MAIL_PASSWORD);
