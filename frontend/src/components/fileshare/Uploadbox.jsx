@@ -4,12 +4,15 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import EmailSend from "../../pages/fileshare/EmailSend";
+import { useAuth } from '../../Context/AuthContext';
 function Uploadbox({id}) {
+  const {currentUser} = useAuth();
   const [dragActive, setDragActive] = React.useState(false);
   const [file,setFile] = useState(null);
   const [semester, setSemester] = useState("2-2");
   const [fileId, setFileId] = useState("");
   const [sendEmail, setSendEmail] = useState(false);
+  const userId = currentUser.uid;
   function updateStatus(){
     //axios put request to update the status of the request
     axios.put(`/request/complete/${id}`)
@@ -18,6 +21,14 @@ function Uploadbox({id}) {
     })
     .catch(err => console.log(err));
 
+  }
+  function updatePoint(){
+    //axios put request to update the status of the request
+    axios.put(`/points/update/${userId}`)
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => console.log(err));
   }
 
   function updateUUID(uuid){
@@ -50,6 +61,7 @@ formData.append("semester", semester);
         updateStatus();
         setFileId(response.data.uuid);
         setSendEmail(true);
+        updatePoint();
         updateUUID(response.data.uuid);
       })
 
