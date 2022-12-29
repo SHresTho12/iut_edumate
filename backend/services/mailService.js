@@ -9,8 +9,8 @@ module.exports = async ({ from, to, subject, text, html }) => {
     auth: {
       // user: user, // generated ethereal user
       // pass: pass, // generated ethereal password
-      // user: "talimul11bari@gmail.com",
-      // pass: "CV4PnJLzDHKGTY6f",
+      //user: "talimul11bari@gmail.com",
+      //pass: "CV4PnJLzDHKGTY6f",
       user: process.env.REACT_APP_MAIL_USER,
       pass: process.env.REACT_APP_MAIL_PASSWORD,
     },
