@@ -86,7 +86,7 @@ const uid = currentUSer.uid;
        <ChakraProvider theme={theme}>
          <Layout>
           <Center><VStack><Heading><Text fontSize="4xl">Your Position: {pos}</Text></Heading>
-            <Heading><Text fontSize="3xl">Your Points: {user.points}</Text></Heading></VStack>
+            <Heading><Text fontSize="3xl">Your Points: {user?.points}</Text></Heading></VStack>
             
             </Center>
         
@@ -115,7 +115,7 @@ const uid = currentUSer.uid;
                    >
                     
                     <HStack>
-                    //showpersonal position and points
+                    
             
            
 

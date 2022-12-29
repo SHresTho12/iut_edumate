@@ -5,41 +5,6 @@ const mongoose = require("mongoose");
 const path = require("path");
 const fileDB = require("../models/File");
 const { v4: uuidv4 } = require("uuid");
-//file upload to mongodb
-
-// const GridFsStorage = require("multer-gridfs-storage");
-// const Grid = require("gridfs-stream");
-// const crypto = require("crypto");
-//
-
-// const methodOverride = require("method-override");
-// const bodyParser = require("body-parser");
-//
-// const notesDB = require("../models/Notes");
-// const { db } = require("../models/Notes");
-// const { response } = require("express");
-// const { json } = require("body-parser");
-// const { ObjectId } = require("mongodb");
-// const { Mongoose } = require("mongoose");
-// const { findById } = require("../models/Notes");
-// const { findOne } = require("../models/Notes");
-// const { findOneAndUpdate } = require("../models/Notes");
-// const { findOneAndDelete } = require("../models/Notes");
-// const { findOneAndRemove } = require("../models/Notes");
-// const { findOneAndReplace } = require("../models/Notes");
-// const { findOneAndUpsert } = require("../models/Notes");
-
-// let storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, "./Uploads/");
-//   },
-//   filename: function (req, file, cb) {
-//     const uniqueName = `${Date.now()}-${Math.round(
-//       Math.random() * 1e9
-//     )}${path.extname(file.originalname)}`;
-//     cb(null, uniqueName);
-//   },
-// });
 
 let storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, "backend/uploads/"),
@@ -82,7 +47,7 @@ router.post("/upload/:id", async (req, res) => {
     const response = await file.save();
     //res.json({ file: `${process.env.APP_BASE_URL}/files/${response.uuid}` });
     return res.json({
-      file: `http://localhost:80/file/upload/${response.uuid}`,
+      file: `http://localhost:80/file/download/${response.uuid}`,
       uuid: response.uuid,
     });
   });
@@ -118,6 +83,37 @@ router.get("/show/:uuid", async (req, res) => {
   } catch (err) {
     return res.status(500).send({ error: err.message });
   }
+});
+
+//email sending to the user
+router.post("/send", async (req, res) => {
+  const { uuid, emailTo, emailFrom } = req.body;
+  if (!uuid || !emailTo || !emailFrom) {
+    return res.status(422).send({ error: "All fields are required" });
+  }
+  // Get data from db
+  const file = await fileDB.findOne({ uuid: uuid });
+  if (file.sender) {
+    return res.status(422).send({ error: "Email already sent" });
+  }
+  file.sender = emailFrom;
+  file.receiver = emailTo;
+  const response = await file.save();
+  // Send email
+  const sendMail = require("../services/mailService");
+  sendMail({
+    from: emailFrom,
+    to: emailTo,
+    subject: "IUT Edumate File Sharing",
+    text: `${emailFrom} shared a file with you.`,
+    html: require("../services/emailTemplate")({
+      emailFrom: emailFrom,
+      downloadLink: `http://localhost:80/file/download/${file.uuid}`,
+      size: parseInt(file.size / 1000) + " KB",
+      expires: "24 hours",
+    }),
+  });
+  return res.send({ success: true });
 });
 
 module.exports = router;
