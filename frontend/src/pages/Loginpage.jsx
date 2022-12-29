@@ -53,7 +53,7 @@ export default function Loginpage() {
     console.log("hello")
      axios.get(`/user/${user.user.uid}`).then((res) => {
       
-      
+        
       // if(res.status === false){
       // 
       // }

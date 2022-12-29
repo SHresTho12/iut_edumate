@@ -83,6 +83,7 @@ router.post("/upload/:id", async (req, res) => {
     //res.json({ file: `${process.env.APP_BASE_URL}/files/${response.uuid}` });
     return res.json({
       file: `http://localhost:80/file/upload/${response.uuid}`,
+      uuid: response.uuid,
     });
   });
 });

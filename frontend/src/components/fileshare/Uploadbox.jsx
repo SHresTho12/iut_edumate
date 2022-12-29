@@ -18,16 +18,19 @@ function Uploadbox({id}) {
 
   }
 
+  function updateUUID(uuid){
+    //axios put request to update the status of the request
+    axios.put(`/request/uuid/${id}`,{uuid:uuid})
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => console.log(err));
+
+  }
+
   const uploadFile = (e) => {
     e.preventDefault();
-    // const fileToBeUploaded = file.current.files[0];
-    // const formData = new FormData();
-    // formData.append("file", fileToBeUploaded);
-    // console.log(formData);
-    // const xyz = XMLHttpRequest();
-    // xyz.onreadystatechange = () => {
-    //   console.log(xyz.readyState);
-    // };
+   
 
 const formData = new FormData();
 formData.append("myfile", file);
@@ -43,6 +46,7 @@ formData.append("semester", semester);
       .then(response => {
         console.log(response.data)
         updateStatus();
+        updateUUID(response.data.uuid);
       })
 
 
