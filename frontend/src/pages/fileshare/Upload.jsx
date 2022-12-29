@@ -14,11 +14,11 @@ function Upload() {
    <Layout>
      <VStack alignItems='center' justifyContent='center' height='100vh'>
      <Image
-            src="/images/up.jpg"
+            src="/images/upload.jpg"
             alt="s"
-           
+         
             sx={{ filter: "blur(0px)" }}
-            width='40vw'
+            width='20%'
         
             
           />

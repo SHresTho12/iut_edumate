@@ -19,44 +19,35 @@ import { FilePondComponent } from "./filepond";
 import { useAuth } from '../Context/AuthContext';
 
 const Contact = () => {
-  // const formRef = useRef();
-  // const [done, setDone] = useState(false)
-  // const theme = useContext(ThemeContext);
-  // const darkMode = theme.state.darkMode;
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   emailjs
-  //     .sendForm(
-  //       "service_rrvnzco",
-  //       "template_3v5nih4",
-  //       formRef.current,
-  //       "user_DrriDPTGKO2Zj4RDXCA6W"
-  //     )
-  //     .then(
-  //       (result) => {
-  //         console.log(result.text);
-  //         setDone(true)
-  //       },
-  //       (error) => {
-  //         console.log(error.text);
-  //       }
-  //     );
-  // };
 
 
 
 //axios put req to post project data
-  const { currentUSer } = useAuth()
+const { currentUSer } = useAuth()
+const [loading,setLoading] = useState(false);
 const [projectname,setProjectname] = useState('')
 const [projectlink,setProjectlink] = useState('')
 const [ projectdescription,setProjectdescription] = useState('')
+const [ projectSubject,setProjectSubject] = useState('')
+const [Researchname,setResearchname] = useState('')
+const [Researchlink,setResearchlink] = useState('')
+const [Researchmail,setResearchmail] = useState('')
+const [ResearchAuthor,setResearchAuthor] = useState('')
+const [Researchdescription,setResearchdescription] = useState('')
 const handleSubmit = async () => {
   const body = {
     projectname: projectname,
     projectlink: projectlink,
     projectdescription: projectdescription,
-    user:currentUSer,
+    Researchname: Researchname,
+    Researchlink: Researchlink,
+    Researchmail: Researchmail,
+    ResearchAuthor: ResearchAuthor,
+    Researchdescription: Researchdescription,
+    user:currentUSer
+ 
+
   };
   const config = {
     headers: {
@@ -67,11 +58,14 @@ const handleSubmit = async () => {
   await axios
     .post("/project", body, config)
     .then(() => {
-      alert("Answer added successfully");
+      alert("Your description is added successfully");
     
     })
     .catch((err) => console.log(err));
 };
+
+
+
 
   return (
     <div className="c">
@@ -85,7 +79,7 @@ const handleSubmit = async () => {
           <FormControl id='name' variant="floating" marginLeft='50px'   >
               
               
-              <Input marginBottom='8px' value='' onChange={(e) =>setProjectname(e.target.value)}
+              <Input marginBottom='8px' value={projectname} onChange={(e) =>setProjectname(e.target.value)}
                 h='3.2rem' placeholder=' ' width='80%'   name='name' type='name' autoComplete='name' required />
            <FormLabel>Project Name</FormLabel>
             </FormControl>
@@ -93,15 +87,15 @@ const handleSubmit = async () => {
             <FormControl id='name' variant="floating" marginLeft='50px'>
               
               
-              <Input marginBottom='8px'
-                h='3.2rem' placeholder=' ' width='80%'   name='subject' type='text' autoComplete='subject' required />
+              <Input marginBottom='8px' value={projectSubject} onChange={(e) =>setProjectSubject(e.target.value)}
+                h='3.2rem' placeholder=' '  width='80%'   name='subject' type='text' autoComplete='subject' required />
            <FormLabel>Subject</FormLabel>
             </FormControl>
 
             <FormControl id='name' variant="floating" marginLeft='50px' >
               
               
-              <Input marginBottom='8px' value='' onChange={(e) =>setProjectlink(e.target.value)}
+              <Input marginBottom='8px' value={projectlink}  onChange={(e) =>setProjectlink(e.target.value)}
                 h='3.2rem' placeholder=' ' width='80%'  name='projectlink' type='text' autoComplete='email' required />
            <FormLabel>Project Link</FormLabel>
             </FormControl>
@@ -109,8 +103,8 @@ const handleSubmit = async () => {
             <FormControl id='name' variant="floating" marginLeft='50px'>
               
               
-              <Input className='txt' value='' onChange={(e) =>setProjectdescription(e.target.value)}
-                h='3.2rem' placeholder=' ' width='80%' height='20vh' rows={'5'} name='projectdescription' type='text' autoComplete='message' required />
+              <Input className='txt' value={projectdescription} onChange={(e) =>setProjectdescription(e.target.value)}
+                h='5rem' placeholder=' ' width='80%'  rows={'5'} name='projectdescription' type='text' autoComplete='message' required />
            <FormLabel>Project Idea</FormLabel>
             </FormControl>
             {/* <Box  marginLeft='50px' width='80%'>
@@ -122,10 +116,6 @@ const handleSubmit = async () => {
             <Button onClick={handleSubmit} name='btn' type='submit' colorScheme='green' size='md' marginBottom='18px' fontSize='md' marginLeft='50px'>
               Submit
             </Button>
-          
-
-         
-         
           </form>
      
       <Heading marginLeft='50px' fontSize='2xl' >
@@ -133,11 +123,12 @@ const handleSubmit = async () => {
             <div className="c-bg2"></div>
           </Heading>
           
+          
           <form >
           <FormControl id='name' variant="floating" marginLeft='50px' >
               
               
-              <Input marginBottom='8px'
+              <Input marginBottom='8px' value={Researchname} onChange={(e) =>setResearchname(e.target.value)}
                 h='3.2rem' placeholder=' ' width='80%'   name='name' type='name' autoComplete='name' required />
            <FormLabel>Paper Title</FormLabel>
             </FormControl>
@@ -145,7 +136,7 @@ const handleSubmit = async () => {
             <FormControl id='name' variant="floating" marginLeft='50px'>
               
               
-              <Input marginBottom='8px'
+              <Input marginBottom='8px' value={ResearchAuthor} onChange={(e) =>setResearchAuthor(e.target.value)}
                 h='3.2rem' placeholder=' ' width='80%'   name='subject' type='text' autoComplete='subject' required />
            <FormLabel>Author</FormLabel>
             </FormControl>
@@ -153,7 +144,7 @@ const handleSubmit = async () => {
             <FormControl id='name' variant="floating" marginLeft='50px' >
               
               
-              <Input marginBottom='8px'
+              <Input marginBottom='8px' value={Researchmail} onChange={(e) =>setResearchmail(e.target.value)}
                 h='3.2rem' placeholder=' ' width='80%'  name='email' type='email' autoComplete='email' required />
            <FormLabel>Email</FormLabel>
             </FormControl>
@@ -161,14 +152,14 @@ const handleSubmit = async () => {
             <FormControl id='name' variant="floating" marginLeft='50px'>
               
               
-            <Input marginBottom='8px'
+            <Input marginBottom='8px' value={Researchdescription} onChange={(e) =>setResearchdescription(e.target.value)}
                 h='3.2rem' placeholder=' ' width='80%' height='20vh'  name='message' type='text' autoComplete='message' required />
            <FormLabel>Abstract</FormLabel>
             </FormControl>
             <FormControl id='name' variant="floating" marginLeft='50px' >
               
               
-              <Input marginBottom='8px' value='' onChange={(e) =>setProjectlink(e.target.value)}
+              <Input marginBottom='8px' value={Researchlink} onChange={(e) =>setResearchlink(e.target.value)}
                 h='3.2rem' placeholder=' ' width='80%'  name='projectlink' type='text' autoComplete='email' required />
            <FormLabel>Paper Link</FormLabel>
             </FormControl>
