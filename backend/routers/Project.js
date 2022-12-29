@@ -63,53 +63,53 @@ router.post("/", async (req, res) => {
       error: "Bad request",
     };
   
-    projectDB
-      .aggregate([
+  //   projectDB
+  //     .aggregate([
      
   
-        {
-          $project: {
-            __v: 0,
+  //       {
+  //         $project: {
+  //           __v: 0,
          
-          },
-        },
-      ])
-      .exec()
-      .then((projectDetails) => {
-        res.status(200).send(projectDetails);
-      })
-      .catch((e) => {
-        console.log("Error: ", e);
-        res.status(400).send(error);
-      });
-  });
+  //         },
+  //       },
+  //     ])
+  //     .exec()
+  //     .then((projectDetails) => {
+  //       res.status(200).send(projectDetails);
+  //     })
+  //     .catch((e) => {
+  //       console.log("Error: ", e);
+  //       res.status(400).send(error);
+  //     });
+  // });
   
-  //detailed note info
-  router.get("/:id", async (req, res) => {
-    try {
-      projectDB
-        .aggregate([
+  // //detailed note info
+  // router.get("/:id", async (req, res) => {
+  //   try {
+  //     projectDB
+  //       .aggregate([
       
-          {
-            $project: {
-              __v: 0,
-            },
-          },
-        ])
-        .exec()
-        .then((projectDetails) => {
-          res.status(200).send(projectDetails);
-        })
-        .catch((e) => {
-          console.log("Error: ", e);
-          res.status(400).send(e);
-        });
-    } catch (err) {
-      console.log(err);
-      res.status(400).send({
-        message: "Note not found",
-      });
-    }
+  //         {
+  //           $project: {
+  //             __v: 0,
+  //           },
+  //         },
+  //       ])
+  //       .exec()
+  //       .then((projectDetails) => {
+  //         res.status(200).send(projectDetails);
+  //       })
+  //       .catch((e) => {
+  //         console.log("Error: ", e);
+  //         res.status(400).send(e);
+  //       });
+  //   } catch (err) {
+  //     console.log(err);
+  //     res.status(400).send({
+  //       message: "Note not found",
+  //     });
+  //   }
   });
 
   

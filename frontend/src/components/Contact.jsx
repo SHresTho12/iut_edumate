@@ -147,11 +147,11 @@ const handleSubmit = async () => {
             </FormControl>
         
             <Button onClick={handleSubmit} name='btn' type='submit' colorScheme='green' size='md' marginBottom='18px' fontSize='md' marginLeft='50px'>
-              Submit
+            {loading?'Adding Project Idea .....' : 'Submit'}
             </Button>
-            <Button disabled={loading} type='submit' onClick={handleSubmit} bg="#4A47A3" m={2} color='#EDF7FA' height='9vh' fontSize='large' _hover={{ bg: "#192965" }}>
+            {/* <Button disabled={loading} type='submit' onClick={handleSubmit} bg="#4A47A3" m={2} color='#EDF7FA' height='9vh' fontSize='large' _hover={{ bg: "#192965" }}>
               {loading?'Adding Project Idea .....' : 'Post Question '}
-            </Button>
+            </Button> */}
           
 
          
