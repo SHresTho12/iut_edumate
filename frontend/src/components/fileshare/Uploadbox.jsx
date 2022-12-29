@@ -2,12 +2,14 @@ import { Box, VStack, Heading, Center, Input, Button } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import EmailSend from "../../pages/fileshare/EmailSend";
 function Uploadbox({id}) {
   const [dragActive, setDragActive] = React.useState(false);
   const [file,setFile] = useState(null);
   const [semester, setSemester] = useState("2-2");
-
-
+  const [fileId, setFileId] = useState("");
+  const [sendEmail, setSendEmail] = useState(false);
   function updateStatus(){
     //axios put request to update the status of the request
     axios.put(`/request/complete/${id}`)
@@ -18,16 +20,19 @@ function Uploadbox({id}) {
 
   }
 
+  function updateUUID(uuid){
+    //axios put request to update the status of the request
+    axios.put(`/request/uuid/${id}`,{uuid:uuid})
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => console.log(err));
+
+  }
+
   const uploadFile = (e) => {
     e.preventDefault();
-    // const fileToBeUploaded = file.current.files[0];
-    // const formData = new FormData();
-    // formData.append("file", fileToBeUploaded);
-    // console.log(formData);
-    // const xyz = XMLHttpRequest();
-    // xyz.onreadystatechange = () => {
-    //   console.log(xyz.readyState);
-    // };
+   
 
 const formData = new FormData();
 formData.append("myfile", file);
@@ -43,6 +48,9 @@ formData.append("semester", semester);
       .then(response => {
         console.log(response.data)
         updateStatus();
+        setFileId(response.data.uuid);
+        setSendEmail(true);
+        updateUUID(response.data.uuid);
       })
 
 
@@ -98,11 +106,13 @@ formData.append("semester", semester);
           
             <Center>
               <Button m={4} onClick={uploadFile}>Upload</Button>
+              
             </Center>
          
 
         </VStack>
       </Box>
+      {sendEmail && <EmailSend uuid={fileId}></EmailSend>}
     </Box>
   );
 }
