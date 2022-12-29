@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+require("dotenv").config();
 module.exports = async ({ from, to, subject, text, html }) => {
   let transporter = nodemailer.createTransport({
     host: "smtp-relay.sendinblue.com",
@@ -19,3 +20,6 @@ module.exports = async ({ from, to, subject, text, html }) => {
     html: html, // html body
   });
 };
+const api = process.env.MAIL_USER;
+
+console.log(process.env);
