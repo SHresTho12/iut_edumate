@@ -19,30 +19,7 @@ import { FilePondComponent } from "./filepond";
 import { useAuth } from '../Context/AuthContext';
 
 const Contact = () => {
-  // const formRef = useRef();
-  // const [done, setDone] = useState(false)
-  // const theme = useContext(ThemeContext);
-  // const darkMode = theme.state.darkMode;
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   emailjs
-  //     .sendForm(
-  //       "service_rrvnzco",
-  //       "template_3v5nih4",
-  //       formRef.current,
-  //       "user_DrriDPTGKO2Zj4RDXCA6W"
-  //     )
-  //     .then(
-  //       (result) => {
-  //         console.log(result.text);
-  //         setDone(true)
-  //       },
-  //       (error) => {
-  //         console.log(error.text);
-  //       }
-  //     );
-  // };
 
 
 
@@ -51,9 +28,11 @@ const Contact = () => {
 const [projectname,setProjectname] = useState('')
 const [projectlink,setProjectlink] = useState('')
 const [ projectdescription,setProjectdescription] = useState('')
+const [ projectSubject,setProjectSubject] = useState('')
 const handleSubmit = async () => {
   const body = {
     projectname: projectname,
+    projectSubject: projectSubject,
     projectlink: projectlink,
     projectdescription: projectdescription,
     user:currentUSer,
@@ -85,7 +64,7 @@ const handleSubmit = async () => {
           <FormControl id='name' variant="floating" marginLeft='50px'   >
               
               
-              <Input marginBottom='8px'  onChange={(e) =>setProjectname(e.target.value)}
+              <Input marginBottom='8px' value={projectname} onChange={(e) =>setProjectname(e.target.value)}
                 h='3.2rem' placeholder=' ' width='80%'   name='name' type='name' autoComplete='name' required />
            <FormLabel>Project Name</FormLabel>
             </FormControl>
@@ -93,7 +72,7 @@ const handleSubmit = async () => {
             <FormControl id='name' variant="floating" marginLeft='50px'>
               
               
-              <Input marginBottom='8px'
+              <Input marginBottom='8px' value={projectSubject} onChange={(e) =>setProjectSubject(e.target.value)}
                 h='3.2rem' placeholder=' '  width='80%'   name='subject' type='text' autoComplete='subject' required />
            <FormLabel>Subject</FormLabel>
             </FormControl>
@@ -101,7 +80,7 @@ const handleSubmit = async () => {
             <FormControl id='name' variant="floating" marginLeft='50px' >
               
               
-              <Input marginBottom='8px'  onChange={(e) =>setProjectlink(e.target.value)}
+              <Input marginBottom='8px' value={projectlink}  onChange={(e) =>setProjectlink(e.target.value)}
                 h='3.2rem' placeholder=' ' width='80%'  name='projectlink' type='text' autoComplete='email' required />
            <FormLabel>Project Link</FormLabel>
             </FormControl>
@@ -109,7 +88,7 @@ const handleSubmit = async () => {
             <FormControl id='name' variant="floating" marginLeft='50px'>
               
               
-              <Input className='txt'  onChange={(e) =>setProjectdescription(e.target.value)}
+              <Input className='txt' value={projectdescription} onChange={(e) =>setProjectdescription(e.target.value)}
                 h='5rem' placeholder=' ' width='80%'  rows={'5'} name='projectdescription' type='text' autoComplete='message' required />
            <FormLabel>Project Idea</FormLabel>
             </FormControl>
