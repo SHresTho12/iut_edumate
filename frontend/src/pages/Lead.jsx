@@ -25,7 +25,8 @@ import {
    } from "@chakra-ui/react";
    import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
    import Slider from 'react-slick';
-   import React from "react";
+   import React, { useState,useEffect } from "react";
+   import axios from "axios";
    import "@fontsource/raleway/400.css";
    import "@fontsource/open-sans/700.css";
    import "@fontsource/josefin-sans/700.css";
@@ -55,14 +56,40 @@ import {
    };
    
    export default function Homepage() {
+    const [userList , setUserList] = useState([]);
+    const { currentUSer } = useAuth();
+    
+    //get the user data
+    //const points = user.points;
+    //axios call to get the user data
+    useEffect(() => {
+        axios.get('/leaderboard')
+            .then(res => {
+                setUserList(res.data.data);
+                
+            })
+            .catch(err => console.log(err));
+    }, []);
+
+const uid = currentUSer.uid;
+
+    //finst the user in the list
+    const user = userList.find((user) => user.fireuid === uid);
+    //get the position of the user
+    const pos = userList.indexOf(user) + 1;
+    
    
-     const { logout, currentUSer } = useAuth();
+     
      
    
      return (
        <ChakraProvider theme={theme}>
          <Layout>
-       
+          <Center><VStack><Heading><Text fontSize="4xl">Your Position: {pos}</Text></Heading>
+            <Heading><Text fontSize="3xl">Your Points: {user.points}</Text></Heading></VStack>
+            
+            </Center>
+        
            <HStack><Image
             src="/images/lead.jpg"
             alt="s"
@@ -85,10 +112,15 @@ import {
                    width="100%"
                   
                   
-                   ><HStack>
-  
-         <Text  fontSize="2xl"> Total Earned Points</Text>
-         <Text  fontSize="2xl">30</Text>
+                   >
+                    
+                    <HStack>
+                    //showpersonal position and points
+            
+           
+
+         <Text  fontSize="2xl"> Leader Board</Text>
+         
          </HStack></Center>
              <Stack direction="row" gap={0} spacing={6} marginBlockStart='5vh'>
           
@@ -98,40 +130,23 @@ import {
    
     <Thead>
       <Tr>
-        <Th>Activity</Th>
-        <Th>Timepstamp</Th>
+        <Th>Name</Th>
+        <Th>Position</Th>
         <Th isNumeric>earned Points</Th>
       </Tr>
     </Thead>
     <Tbody>
-      <Tr>
-      <Td>Uploaded questions</Td>
-        <Td>1 hours ago</Td>
-        <Td isNumeric>5</Td>
-      </Tr>
-      <Tr>
-        <Td>Uploaded notes</Td>
-        <Td>2 hours ago</Td>
-        <Td isNumeric>5</Td>
-      </Tr>
-      <Tr>
-      <Td>Uploaded research paper</Td>
-        <Td>1 hours ago</Td>
-        <Td isNumeric>10</Td>
-      </Tr>
+      {userList.map((user, index) => (
+        <Tr>
+          <Td>{user.name}</Td>
+          <Td>{index + 1}</Td>
+          <Td isNumeric>{user.points}</Td>
+        </Tr>
+      ))}
+
+      
     </Tbody>
-    <Tfoot>
-      <Tr>
-      <Td>Uploaded Lab Works</Td>
-        <Td>4 hours ago</Td>
-        <Td isNumeric>5</Td>
-      </Tr>
-      <Tr>
-      <Td>Answered Query</Td>
-        <Td>4 hours ago</Td>
-        <Td isNumeric>5</Td>
-      </Tr>
-    </Tfoot>
+    
   </Table>
 </TableContainer>
           
