@@ -25,6 +25,7 @@ const Contact = () => {
 
 //axios put req to post project data
   const { currentUSer } = useAuth()
+  const [loading,setLoading] = useState(false);
 const [projectname,setProjectname] = useState('')
 const [projectlink,setProjectlink] = useState('')
 const [ projectdescription,setProjectdescription] = useState('')
@@ -137,22 +138,20 @@ const handleSubmit = async () => {
            <FormLabel>Email</FormLabel>
             </FormControl>
 
-            <FormControl id='name' variant="floating" marginLeft='50px'>
+            <FormControl id='name' variant="floating" marginLeft='50px' >
               
               
-              <textarea className='txt'
-                h='3.2rem' placeholder=' ' width='10%'  rows={'5'} name='message' type='text' autoComplete='message' required />
-           <FormLabel>Abstract</FormLabel>
+              <Input marginBottom='8px' value={projectlink}  onChange={(e) =>setProjectlink(e.target.value)}
+                h='3.2rem' placeholder=' ' width='80%'  name='projectlink' type='text' autoComplete='email' required />
+           <FormLabel>Paper Link</FormLabel>
             </FormControl>
-            <Box  marginLeft='50px' width='80%'>
-            
-            Upload your file here
-          <FilePondComponent  />
-        </Box>
         
-            {/* <Button name='btn' type='submit' colorScheme='green' size='lg' fontSize='md' marginLeft='50px'>
+            <Button onClick={handleSubmit} name='btn' type='submit' colorScheme='green' size='md' marginBottom='18px' fontSize='md' marginLeft='50px'>
               Submit
-            </Button> */}
+            </Button>
+            <Button disabled={loading} type='submit' onClick={handleSubmit} bg="#4A47A3" m={2} color='#EDF7FA' height='9vh' fontSize='large' _hover={{ bg: "#192965" }}>
+              {loading?'Adding Project Idea .....' : 'Post Question '}
+            </Button>
           
 
          
