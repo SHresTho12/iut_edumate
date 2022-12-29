@@ -34,8 +34,8 @@ function Question({ data }) {
 
   return (
     <ChakraProvider theme={theme}>
-      <VStack alignItems="right"  m="2" color="#00454A" shadow={'2xl'} margin='20px'>
-        <Box fontSize="x-large" bgColor="#affac9" borderRadius='5px' height={'7vh'} >
+      <VStack alignItems="right"  m="2" color="#00454A" shadow={'2xl'} margin='20px'  border='4px'borderColor='green.400' borderRadius='8px'>
+        <Box fontSize="x-large" bgColor="#affac9" borderRadius='5px' height={'7vh'}  >
           <Link to={`/question?id=${data?._id}`} >{data?.title}</Link>
         </Box>
         <HStack>
