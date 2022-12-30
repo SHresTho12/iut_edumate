@@ -44,6 +44,20 @@ export default function Registerpage() {
     number:"",
     studentid:"",
   }
+ function handleGoogle(user){
+    console.log(user)
+        initialvalue.fireuid=user.user.uid;
+          initialvalue.name = user.user.displayName;
+          initialvalue.email = user.user.email;
+          initialvalue.number="";
+          
+          axios.post("/user",initialvalue).then((response) => {
+            console.log(response.data);
+      
+    });
+
+  }
+
   return (
     <ChakraProvider theme={theme}>
     <Layout  >
@@ -165,7 +179,9 @@ export default function Registerpage() {
           isFullWidth
           colorScheme='purple'
           leftIcon={<FaGoogle />}
-          onClick={() => signInWithGoogle().then(user => console.log(user)).catch(error => console.log(error))}
+          onClick={() => signInWithGoogle().then(user => {
+          handleGoogle(user)
+          }).catch(error => console.log(error))}
         >
           Sign in with Google
         </Button>

@@ -1,4 +1,4 @@
-import { Box,ChakraProvider } from '@chakra-ui/react'
+import { Box,ChakraProvider,Center } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { useEffect,useState } from 'react'
 import Banner from '../../components/profile/Banner'
@@ -46,8 +46,20 @@ console.log(personalQuestions);
     <Layout><Box >
          <Banner user={dbuser}></Banner>
           <SiteStaus personalQuestions={personalQuestions}></SiteStaus>
-          <Projects></Projects>
-         
+
+         <Center><Navlink
+          to="/pro"
+          height='10vh'
+          width='20vh'
+          name="Projects"
+          bgColor="#4AA96C"
+          color="white"
+          _hover={{bg:'#3B8756'}}
+        
+        />
+        </Center> 
+          {/* <Projects></Projects> */}
+
     
           {/* <PersonalQuestions personalQuestions={personalQuestions}></PersonalQuestions> */}
     </Box>
