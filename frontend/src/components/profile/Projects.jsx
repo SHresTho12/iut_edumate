@@ -48,7 +48,7 @@ console.log(personalProjects)
 
     <Grid w="100%" templateColumns='repeat(5, 1fr)' gap='6'>
         <GridItem  border="2px" borderColor="white" colSpan={2}>
-            <NewsFeed></NewsFeed>
+            <NewsFeed uid={uid}></NewsFeed>
         </GridItem>
         <GridItem h='auto'  colSpan={3}>
         <Heading p={2} m={5} >Projects Ideas</Heading>
