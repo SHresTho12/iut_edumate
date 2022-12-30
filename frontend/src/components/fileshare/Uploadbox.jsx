@@ -111,7 +111,7 @@ formData.append("semester", semester);
       >
         <VStack>
           <Heading m="2" p="2" className="drop-zone__prompt">
-            Drop files here to upload
+            Select your file here to upload
           </Heading>
           <Center>
             <Input m={4} type="file" name="file" onChange={handleChange} />
