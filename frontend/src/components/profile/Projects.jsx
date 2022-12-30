@@ -9,7 +9,7 @@ import { Layout } from '../../components/Layout'
 
 function Projects() {
   return (
-    <Layout>
+
    <Center  h="70vh" m={5} >
     <VStack>
 
@@ -44,7 +44,7 @@ function Projects() {
     </VStack>
 
    </Center>
-   </Layout>
+   
 
   )
 }

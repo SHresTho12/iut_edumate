@@ -21,6 +21,13 @@ function ProjectFeed() {
   }
   getUser();
 },[])
+const handleIupdate = async() => {
+     await axios.get(`/project`).then((res) => {
+      setProjects(res.data);
+      console.log("hi",res.data.reverse());
+    });
+
+};
 
 //interested people in the project put request
   const handleInterested = async (id) => {
@@ -33,7 +40,7 @@ function ProjectFeed() {
       .put(`/project/interested/${id}`, bodyJSON)
       .then((res) => {
        
-        
+        handleIupdate();
       })
       .catch((err) => alert(" Already interested"));
       
