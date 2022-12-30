@@ -15,7 +15,7 @@ function PersonalQuestions({personalQuestions}) {
         <Grid templateRows='repeat(2, 1fr)'
   templateColumns='repeat(1, 1fr)'>
             {personalQuestions?.map((question) => (
-                 <Box borderRadius={5} border="2px" w="100%"><Question data={question} key={question.id} /></Box>
+                 <Box borderRadius={5} border="4px" borderColor={'green.200'} w="100%"><Question data={question} key={question.id} /></Box>
             ))}
             {/* <Center personalQuestions={personalQuestion}></Center> */}
                 

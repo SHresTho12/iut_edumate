@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Card, Flex, Heading, Text } from '@chakra-ui/react'
+import { Box, Card, Flex, Heading, Text,Image, HStack } from '@chakra-ui/react'
 import { Layout } from '../../components/Layout'
 import { useState,useEffect } from 'react';
 import axios from 'axios';
@@ -29,11 +29,22 @@ function Requested() {
 
   return (
     <Layout>
-        <Box>
+    <HStack>
+       <Image
+            src="/images/req.jpg"
+            alt="s"
+           
+            sx={{ filter: "blur(0px)" }}
+            width='50vw'
+       
+            
+          />
+        <Box width="60%"> 
     {requests.map(request => (
         <RequestCard request={request} upload={false} />
     ))}
   </Box>
+  </HStack>
     </Layout>
   )
 }

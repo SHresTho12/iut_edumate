@@ -1,4 +1,12 @@
 
+
+
+
+
+
+
+
+
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
@@ -17,6 +25,10 @@ import Query from "../pages/QueryPage";
 import ResetPasswordPage from "../pages/ResetPasswordPage";
 import Registerpage from "../pages/Registerpage";
 import co from "../pages/coCurricular";
+
+import pq from './profile/PersonalQuestions'
+
+
 import lead from '../pages/Lead'
 
 import AskQuestion from "./Query-Section/AskQuestion";
@@ -34,7 +46,12 @@ import uploadfile from "../pages/fileshare/Upload";
 import Requests from "../pages/Requests/Requests";
 import Requested from "../pages/Requests/Requested";
 import Download from "../pages/fileshare/Download";
+
 import ProjetctsFeed from "./Projects/ProjectFeed";
+
+import EmailSend from "../pages/fileshare/EmailSend";
+
+
 
 export default function AppRouter(props) {
   return (
@@ -60,7 +77,12 @@ export default function AppRouter(props) {
           <ProtectedRoute exact path="/requests" component={Requests} />
           <ProtectedRoute exact path="/requested" component={Requested} />
           <ProtectedRoute exact path="/download" component={Download} />
+
           <ProtectedRoute exact path="/projectsFeed" component={ProjetctsFeed} />
+
+          <ProtectedRoute exact path="/email" component={EmailSend} />
+
+
 
           <ProtectedRoute exact path="/project" component={Project} />
           <ProtectedRoute exact path="/co" component={co} />
@@ -69,10 +91,15 @@ export default function AppRouter(props) {
           <ProtectedRoute exact path="/academic" component={academic} />
           <ProtectedRoute exact path='/pro' component={Pro} />
           <ProtectedRoute exact path='/resource' component={Resource} />
+
+          <ProtectedRoute exact path='/pq' component={pq} />
+         
+
           <ProtectedRoute exact path="/upload" component={uploadfile} />
           <ProtectedRoute exact path="/addNote" component={AddNote} />
           <ProtectedRoute exact path="/notes" component={Note} />
           <ProtectedRoute exact path="/PersonalQuestion" component={PersonalQuestion} />
+
 
           <ProtectedRoute exact path="/settings" component={Sidebar} />
 

@@ -24,20 +24,25 @@ const Contact = () => {
 
 
 //axios put req to post project data
+
 const { currentUSer } = useAuth()
 const [loading,setLoading] = useState(false);
+
 const [projectname,setProjectname] = useState('')
 const [projectlink,setProjectlink] = useState('')
 const [ projectdescription,setProjectdescription] = useState('')
 const [ projectSubject,setProjectSubject] = useState('')
+
 const [Researchname,setResearchname] = useState('')
 const [Researchlink,setResearchlink] = useState('')
 const [Researchmail,setResearchmail] = useState('')
 const [ResearchAuthor,setResearchAuthor] = useState('')
 const [Researchdescription,setResearchdescription] = useState('')
+
 const handleSubmit = async () => {
   const body = {
     projectname: projectname,
+    projectSubject: projectSubject,
     projectlink: projectlink,
     projectdescription: projectdescription,
     Researchname: Researchname,
@@ -149,9 +154,10 @@ const handleSubmit = async () => {
            <FormLabel>Email</FormLabel>
             </FormControl>
 
-            <FormControl id='name' variant="floating" marginLeft='50px'>
+            <FormControl id='name' variant="floating" marginLeft='50px' >
               
               
+
             <Input marginBottom='8px' value={Researchdescription} onChange={(e) =>setResearchdescription(e.target.value)}
                 h='3.2rem' placeholder=' ' width='80%' height='20vh'  name='message' type='text' autoComplete='message' required />
            <FormLabel>Abstract</FormLabel>
@@ -166,9 +172,13 @@ const handleSubmit = async () => {
             <Button onClick={handleSubmit} name='btn' type='submit' colorScheme='green' size='md' marginBottom='18px' fontSize='md' marginLeft='50px'>
               Submit
             </Button>
+
         
-            {/* <Button name='btn' type='submit' colorScheme='green' size='lg' fontSize='md' marginLeft='50px'>
-              Submit
+            <Button onClick={handleSubmit} name='btn' type='submit' colorScheme='green' size='md' marginBottom='18px' fontSize='md' marginLeft='50px'>
+            {loading?'Adding Project Idea .....' : 'Submit'}
+            </Button>
+            {/* <Button disabled={loading} type='submit' onClick={handleSubmit} bg="#4A47A3" m={2} color='#EDF7FA' height='9vh' fontSize='large' _hover={{ bg: "#192965" }}>
+              {loading?'Adding Project Idea .....' : 'Post Question '}
             </Button> */}
           
 

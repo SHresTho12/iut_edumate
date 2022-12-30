@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema({
   studentid: { type: String, default: "" },
   requestedID: { type: Array, default: [] },
   request: { type: Array, default: [] },
+  points: { type: Number, default: 0 },
   user: Object,
 });
 

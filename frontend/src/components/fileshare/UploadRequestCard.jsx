@@ -9,7 +9,7 @@ function RequestCard({ request }) {
  <ChakraProvider theme={theme}>
       <VStack alignItems="right"  m="2" color="#00454A" shadow={'2xl'} margin='20px'>
         <Box fontSize="x-large" bgColor="#affac9" borderRadius='5px' height={'7vh'} >
-          <Link to={`/upload?id=${request?.uuid}` } >{request?.title}</Link>
+          <Link to={`/upload?id=${request?._id}` } >{request?.title}</Link>
         </Box>
         <HStack>
         

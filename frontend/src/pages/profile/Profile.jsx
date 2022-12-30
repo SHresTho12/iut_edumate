@@ -1,4 +1,4 @@
-import { Box,ChakraProvider } from '@chakra-ui/react'
+import { Box,ChakraProvider,Center } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { useEffect,useState } from 'react'
 import Banner from '../../components/profile/Banner'
@@ -46,10 +46,12 @@ console.log(personalQuestions);
     <Layout><Box >
          <Banner user={dbuser}></Banner>
           <SiteStaus personalQuestions={personalQuestions}></SiteStaus>
+
           <Projects></Projects>
          
+
     
-          <PersonalQuestions personalQuestions={personalQuestions}></PersonalQuestions>
+          {/* <PersonalQuestions personalQuestions={personalQuestions}></PersonalQuestions> */}
     </Box>
          
     </Layout>

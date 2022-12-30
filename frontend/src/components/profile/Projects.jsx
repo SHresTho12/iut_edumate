@@ -5,9 +5,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import NewsFeed from './NewsFeed'
 import ProjectCards from './ProjectCards'
+import { Layout } from '../../components/Layout'
 
 function Projects() {
   return (
+    <Layout>
    <Center  h="70vh" m={5} >
     <VStack>
 
@@ -42,6 +44,7 @@ function Projects() {
     </VStack>
 
    </Center>
+   </Layout>
 
   )
 }
