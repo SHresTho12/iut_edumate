@@ -1,18 +1,31 @@
 
 import { Grid,VStack,Box,GridItem, Center, Heading,Text, Stack,Image,useColorModeValue,HStack,Button } from '@chakra-ui/react'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import NewsFeed from './NewsFeed'
 import ProjectCards from './ProjectCards'
 import { Layout } from '../../components/Layout'
 import { useAuth } from '../../Context/AuthContext'
-
+import axios from 'axios'
 function Projects() {
+  const [personalProjects , setPersonalProjects] = React.useState([])
   const {currentUSer} = useAuth()
   const uid = currentUSer ? currentUSer.uid : "";
   console.log(uid);
 //get all projects
+useEffect(() => {
+  async function getProjects() {
+    await axios
+      .get(`/project/${uid}`)
+      .then((res) => {
+        setPersonalProjects(res.data);
+      })
+      .catch((err) => console.log("The error: " + err.message));
+  }
+  getProjects();
+}, []);
+console.log(personalProjects)
 
 
 
@@ -40,12 +53,10 @@ function Projects() {
         <GridItem h='auto'  colSpan={3}>
         <Heading p={2} m={5} >Projects Ideas</Heading>
            <Grid templateRows='repeat(2,1fr)' templateColumns='repeat(3, 1fr)' gap='6'>
-           <ProjectCards/>
-           <ProjectCards/>
-           <ProjectCards/>
-           <ProjectCards/>
-           <ProjectCards/>
-           <ProjectCards/>
+            {personalProjects.map((project) => (
+              <ProjectCards project={project} />
+            ))}
+            
            </Grid>
         </GridItem>
     </Grid>

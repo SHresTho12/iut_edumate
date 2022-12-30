@@ -22,7 +22,6 @@ router.post("/", async (req, res) => {
         status: true,
         data: doc,
       });
-
     })
     .catch((err) => {
       res.status(400).send({
@@ -180,7 +179,7 @@ router.get("/", async (req, res) => {
 //get individual project by param id
 router.get("/:id", async (req, res) => {
   try {
-    const project = await projectDB.findById({ fireuid: req.params.id });
+    const project = await projectDB.find({ fireuid: req.params.id });
     res.send(project);
   } catch (error) {
     res.status(500).send(error);
@@ -188,5 +187,3 @@ router.get("/:id", async (req, res) => {
 });
 
 module.exports = router;
-
-
