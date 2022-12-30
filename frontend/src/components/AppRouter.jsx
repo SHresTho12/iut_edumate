@@ -25,9 +25,9 @@ import Query from "../pages/QueryPage";
 import ResetPasswordPage from "../pages/ResetPasswordPage";
 import Registerpage from "../pages/Registerpage";
 import co from "../pages/coCurricular";
-import Resource from './profile/Resources'
+
 import pq from './profile/PersonalQuestions'
-import Pro from './profile/Projects'
+
 
 import lead from '../pages/Lead'
 

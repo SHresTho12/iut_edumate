@@ -8,7 +8,7 @@ module.exports = async ({ from, to, subject, text, html }) => {
     secure: false, // true for 465, false for other ports
     auth: {
       // user: user, // generated ethereal user
-      // pass: pass, // generated ethereal password
+      //pass: pass, // generated ethereal password
       //user: "talimul11bari@gmail.com",
       //pass: "CV4PnJLzDHKGTY6f",
       user: process.env.REACT_APP_MAIL_USER,
