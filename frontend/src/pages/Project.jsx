@@ -31,17 +31,7 @@ function Feature({ title, desc, img,...rest }) {
 export default function Project() {
   const { currentUSer } = useAuth()
 
-   const [projects , setProjects] = useState([]);
-    //get all the projects from the database
-    useEffect(() => {
-  async function getUser() {
-    await axios.get(`/project`).then((res) => {
-      setProjects(res.data);
-      console.log("hi",res.data.reverse());
-    });
-  }
-  getUser();
-},[])
+  
   return (
     <ChakraProvider theme={theme}>
     <Layout>
