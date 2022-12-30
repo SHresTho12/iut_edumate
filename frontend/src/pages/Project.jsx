@@ -43,6 +43,7 @@ export default function Project() {
 <Stack spacing={8} direction='row' >
    <HStack>
 <VStack>
+<Button fontSize={'20px'} bgColor='#B4CDE6' _hover={{bg:'#93bce6'}}> <Link to="/projectsFeed">Show All the projects</Link></Button>
 <Image
             src="/images/idea.gif"
             alt="s"
@@ -51,33 +52,15 @@ export default function Project() {
           />
    
 
-      <Box p={4}  shadow='lg' borderWidth='2px' borderColor='#9CC094'  Height='160%'>
-         <Heading fontSize='xl'>Uploaded Project Ideas</Heading>
-         <Text mt={4}>1. What’s your idea? Get in touch. Always available for
-            team project if the right project comes along.</Text>
-            <Text mt={4}>1. What’s your idea? Get in touch. Always available for
-            team project if the right project comes along.</Text>
-       </Box>
+   
       </VStack>
       <VStack>
       
-      <Image
-            src="/images/Documents.gif"
-            alt="s"
-            height='20%'
-            sx={{ filter: "blur(0px)" }}
-          />
-      <Box p={4}  shadow='lg' borderWidth='2px' borderColor='#9CC094'  Height='160%'>
-         <Heading fontSize='xl'>Uploaded Research Papers</Heading>
-         <Text mt={4}>1. What’s your idea? Get in touch. Always available for
-            team project if the right project comes along.</Text>
-            <Text mt={4}>1. What’s your idea? Get in touch. Always available for
-            team project if the right project comes along.</Text>
-       </Box>
+    
        
       </VStack>
        </HStack>
-       <Button> <Link to="/projectsFeed">See All the projects</Link></Button>
+       
         <Contact />
    
    

@@ -1,12 +1,13 @@
 import React from 'react'
 import { useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
-import { Heading,VStack,Tag,HStack,Box,Text,Button,Center } from '@chakra-ui/react'
+import { Heading,VStack,Tag,HStack,Box,Text,Button,Center, ChakraProvider ,Image} from '@chakra-ui/react'
 import { FaThumbtack, FaTbZoomQuestion,FaExpandAlt } from "react-icons/fa";
 import axios from 'axios';
 import { useAuth } from '../../Context/AuthContext'
 import ProjectCard from './ProjectCard';
 import {Layout} from '../Layout'
+import theme from '../../pages/theme'
 function ProjectFeed() {
     const { currentUSer } = useAuth();
     const [projects , setProjects] = useState([]);
@@ -48,8 +49,19 @@ const handleIupdate = async() => {
 
         
   return (
+    <ChakraProvider theme={theme}>
    <Layout>
    <Center> <Heading>Available Projects</Heading></Center>
+   <Center>
+   <Image
+            src="/images/proj.jpg"
+            alt="s"
+           
+            sx={{ filter: "blur(0px)" }}
+            width='60%'
+       
+            
+          /></Center>
         {projects.map((project) => (
 
         <VStack borderRadius={5} bgColor="#F3F1F5" p={3} alignItems="right"  m="2" color="#00454A" shadow={'2xl'} margin='20px'>
@@ -60,6 +72,7 @@ const handleIupdate = async() => {
 
         <Box>
           <HStack align="flex-start" marginLeft="1vw">
+         
            {/* <FaThumbtack />  */}
             <Box>
               <HStack>
@@ -87,13 +100,17 @@ const handleIupdate = async() => {
           >
             Interested <FaExpandAlt/>
           </Button>
+          
         
       </VStack>
+      
 
             )
         )}
+        
     
    </Layout>
+   </ChakraProvider>
     
   )
 }

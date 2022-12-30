@@ -64,12 +64,7 @@ function ProjectCards({project}) {
               <Text> {parse(`${project?.projectdescription}`)}</Text>
             </motion.p>
 
-            <Navlink
-              to="/project"
-              name="Team Up"
-              bgColor="green.200"
-              colorScheme="white"
-            />
+        
           </motion.div>
         )}
         </Box>

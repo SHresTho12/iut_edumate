@@ -61,6 +61,7 @@ export function Navbar() {
     >      <Image src="/images/iutlogo.png" alt="s" height='14' width='8' borderRadius="8"  sx={{ filter: 'blur(0px)' }}/>
         <Navlink to='/' name='IUT EDUMATE' bgColor='white' colorScheme='green' size='md'  />
         <Spacer />
+        {currentUSer && <Navlink to='/co' name='Co-Cur' bgColor='white' colorScheme='green' />}
         <Navlink to='/query' name='Queries' bgColor='white' colorScheme='green' />
         <Navlink to='/academic' name='Resources' bgColor='white' colorScheme='green' />
        {currentUSer &&  <Navlink
