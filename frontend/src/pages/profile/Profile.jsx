@@ -46,6 +46,7 @@ console.log(personalQuestions);
     <Layout><Box >
          <Banner user={dbuser}></Banner>
           <SiteStaus personalQuestions={personalQuestions}></SiteStaus>
+
          <Center><Navlink
           to="/pro"
           height='10vh'
@@ -58,8 +59,9 @@ console.log(personalQuestions);
         />
         </Center> 
           {/* <Projects></Projects> */}
+
     
-          <PersonalQuestions personalQuestions={personalQuestions}></PersonalQuestions>
+          {/* <PersonalQuestions personalQuestions={personalQuestions}></PersonalQuestions> */}
     </Box>
          
     </Layout>

@@ -1,6 +1,7 @@
 import { Grid, Box, HStack, Icon, Text, Center } from "@chakra-ui/react";
 import React from "react";
-
+import Navlink from "../../components/Navlink";
+import { Link } from "react-router-dom";
 import {
   FaGraduationCap,
   FaArrowUp,
@@ -34,8 +35,11 @@ function SiteStaus({personalQuestions}) {
         <Center borderRadius={5} p={2} bgColor="#4b4b4b">
           <HStack>
             <Icon color="green.200" w={20} h={12} as={FaQuestion}></Icon>
-            <Text fontSize="xl">{personalQuestions?.length} Questions</Text>
+           
+          <Link to={`PersonalQuestion` } fontSize="xl">{personalQuestions?.length} Questions</Link>
+           
           </HStack>
+         
         </Center>
         <Center borderRadius={5} p={2} bgColor="#4b4b4b">
           <HStack>

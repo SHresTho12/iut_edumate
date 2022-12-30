@@ -53,7 +53,7 @@ function Notes({ data }) {
             marginBottom={'40vh'}
         
           >
-            <Link to={`/notes?id=${data?._id}` }>Expand The Question     .</Link><FaExpandAlt/>
+            <Link to={`/notes?id=${data?._id}` }>Expand The Note     .</Link><FaExpandAlt/>
           </Button>
         
       </VStack>
