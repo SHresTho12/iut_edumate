@@ -6,25 +6,25 @@ import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 import Navlink from "../Navlink";
 import parse from "html-react-parser";
-function ProjectCards() {
+function ProjectCards({project}) {
 
-  const [project, setProject] = useState();
-  let search = window.location.search;
-  const params = new URLSearchParams(search);
-  const id = params.get("id");
+
+  // let search = window.location.search;
+  // const params = new URLSearchParams(search);
+  // const id = params.get("id");
   const [isOpen, setIsOpen] = useState(false);
-  useEffect(() => {
-    async function getFunctionDetails() {
-      await axios
-        .get(`/pro/${id}`)
-        .then((res) => {
-          console.log(res.data);
-          setProject(res.data[0]);
-        })
-        .catch((err) => console.log("The error: " + err.message));
-    }
-    getFunctionDetails();
-  }, [id]);
+  // useEffect(() => {
+  //   async function getFunctionDetails() {
+  //     await axios
+  //       .get(`/pro/${id}`)
+  //       .then((res) => {
+  //         console.log(res.data);
+  //         setProject(res.data[0]);
+  //       })
+  //       .catch((err) => console.log("The error: " + err.message));
+  //   }
+  //   getFunctionDetails();
+  // }, [id]);
   return (
     //farmer motion expandable card
     
