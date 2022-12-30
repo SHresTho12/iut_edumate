@@ -54,6 +54,7 @@ router.put("/interested/:id", async (req, res) => {
 });
 
 //get individual note by param id nad comments related to that note
+
 //   router.get("/", async (req, res) => {
 //     const error = {
 //       message: "Error in retrieving projects",
@@ -187,4 +188,5 @@ router.get("/:id", async (req, res) => {
 });
 
 module.exports = router;
+
 

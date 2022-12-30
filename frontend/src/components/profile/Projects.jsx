@@ -6,8 +6,16 @@ import { Link } from 'react-router-dom'
 import NewsFeed from './NewsFeed'
 import ProjectCards from './ProjectCards'
 import { Layout } from '../../components/Layout'
+import { useAuth } from '../../Context/AuthContext'
 
 function Projects() {
+  const {currentUSer} = useAuth()
+  const uid = currentUSer ? currentUSer.uid : "";
+  console.log(uid);
+//get all projects
+
+
+
   return (
 
    <Center  h="70vh" m={5} >
