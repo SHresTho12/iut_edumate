@@ -38,17 +38,18 @@ function App() {
         <Tabs isFitted variant="soft-rounded" colorScheme="green">
           <TabList marginBlockStart="2em">
             <Tab fontSize={"23px"}>Notes</Tab>
-            <Tab fontSize={"23px"}>Question Bank</Tab>
+            {/* <Tab fontSize={"23px"}>Question Bank</Tab>
             <Tab fontSize={"23px"}>Important Links</Tab>
-            <Tab fontSize={"23px"}>Lab Works</Tab>
+            <Tab fontSize={"23px"}>Lab Works</Tab> */}
           </TabList>
           <TabPanels>
             <TabPanel>
+               <Button height='8vh' bgColor={'green.200'} _hover={{bg:'green.300'}} width='20vw'><Link to='/addnote'>Post a Note</Link></Button>
               <HStack >
               {/* <Center width={'50%'} > <NoteNav ></NoteNav></Center> */}
               
               <VStack width='50%' >
-              <Button height='8vh' bgColor={'green.200'} _hover={{bg:'green.300'}} width='20vw'><Link to='/addnote'>Post a Note</Link></Button>
+             
               <Image
                   src="/images/note.gif"
                   alt="s"
@@ -66,6 +67,7 @@ function App() {
                 src="/images/bank.gif"
                 alt="s"
                 height="80vh"
+                weidth="30vh"
                 sx={{ filter: "blur(0px)" }}
               />
             </TabPanel>
