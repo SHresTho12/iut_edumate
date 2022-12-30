@@ -1,21 +1,76 @@
 import { Box, VStack, Heading, Center, Input, Button } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import EmailSend from "../../pages/fileshare/EmailSend";
+import { useAuth } from '../../Context/AuthContext';
 function Uploadbox({id}) {
+  const {currentUser} = useAuth();
   const [dragActive, setDragActive] = React.useState(false);
   const [file,setFile] = useState(null);
+  const [semester, setSemester] = useState("2-2");
+  const [fileId, setFileId] = useState("");
+  const [sendEmail, setSendEmail] = useState(false);
+  const userId = currentUser.uid;
+  function updateStatus(){
+    //axios put request to update the status of the request
+    axios.put(`/request/complete/${id}`)
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => console.log(err));
+
+  }
+  function updatePoint(){
+    //axios put request to update the status of the request
+    axios.put(`/points/update/${userId}`)
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => console.log(err));
+  }
+
+  function updateUUID(uuid){
+    //axios put request to update the status of the request
+    axios.put(`/request/uuid/${id}`,{uuid:uuid})
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => console.log(err));
+
+  }
 
   const uploadFile = (e) => {
     e.preventDefault();
-    const fileToBeUploaded = file.current.files[0];
-    const formData = new FormData();
-    formData.append("file", fileToBeUploaded);
-    console.log(formData);
-    const xyz = XMLHttpRequest();
-    xyz.onreadystatechange = () => {
-      console.log(xyz.readyState);
-    };
+   
+
+const formData = new FormData();
+formData.append("myfile", file);
+formData.append("semester", semester);
+
+ axios
+      .post(`/file/upload/${id}`, formData, {
+        // Set the content type to 'multipart/form-data'
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      .then(response => {
+        console.log(response.data)
+        updateStatus();
+        setFileId(response.data.uuid);
+        setSendEmail(true);
+        updatePoint();
+        updateUUID(response.data.uuid);
+      })
+
+
   };
+
+   const handleChange = event => {
+    setFile(event.target.files[0])
+  }
 
   //drop function for handling file upload
   const handleDrop = (e) => {
@@ -57,17 +112,19 @@ function Uploadbox({id}) {
             Drop files here to upload
           </Heading>
           <Center>
-            <Input m={4} type="file" className="drop-zone__input" />
+            <Input m={4} type="file" name="file" onChange={handleChange} />
           </Center>
          
           
             <Center>
               <Button m={4} onClick={uploadFile}>Upload</Button>
+              
             </Center>
          
 
         </VStack>
       </Box>
+      {sendEmail && <EmailSend uuid={fileId}></EmailSend>}
     </Box>
   );
 }

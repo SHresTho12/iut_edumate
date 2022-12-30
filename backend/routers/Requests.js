@@ -91,4 +91,23 @@ router.put("/uuid/:id", async (req, res) => {
     });
 });
 
+//write a request make the status field of the request to true
+router.put("/complete/:id", async (req, res) => {
+  const id = req.params.id;
+  await requestDB
+    .findByIdAndUpdate(id, { status: true })
+    .then((doc) => {
+      res.status(200).send({
+        status: true,
+        data: doc,
+      });
+    })
+    .catch((err) => {
+      res.status(400).send({
+        status: false,
+        message: "Request not found",
+      });
+    });
+});
+
 module.exports = router;

@@ -47,6 +47,7 @@ function SiteStaus({personalQuestions}) {
             <Text fontSize="xl">100 Points</Text>
           </HStack>
         </Center>
+      
       </Grid>
     </Center>
   );

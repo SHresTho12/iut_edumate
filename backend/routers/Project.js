@@ -22,6 +22,7 @@ router.post("/", async (req, res) => {
         status: true,
         data: doc,
       });
+
     })
     .catch((err) => {
       res.status(400).send({
@@ -186,3 +187,4 @@ router.get("/:id", async (req, res) => {
 });
 
 module.exports = router;
+
