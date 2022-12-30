@@ -5,14 +5,16 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import EmailSend from "../../pages/fileshare/EmailSend";
 import { useAuth } from '../../Context/AuthContext';
-function Uploadbox({id}) {
+function Uploadbox({id,uid}) {
   const {currentUser} = useAuth();
   const [dragActive, setDragActive] = React.useState(false);
   const [file,setFile] = useState(null);
   const [semester, setSemester] = useState("2-2");
   const [fileId, setFileId] = useState("");
   const [sendEmail, setSendEmail] = useState(false);
-  const userId = currentUser.uid;
+  // console.log(currentUser);
+  // const userId = currentUser.uid;
+  // console.log(userId);
   function updateStatus(){
     //axios put request to update the status of the request
     axios.put(`/request/complete/${id}`)
@@ -24,7 +26,7 @@ function Uploadbox({id}) {
   }
   function updatePoint(){
     //axios put request to update the status of the request
-    axios.put(`/points/update/${userId}`)
+    axios.put(`/points/update/${uid}`)
     .then(res => {
       console.log(res.data);
     })

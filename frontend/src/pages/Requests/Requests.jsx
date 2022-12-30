@@ -8,6 +8,7 @@ import UploadRequestCard from '../../components/fileshare/UploadRequestCard';
 function Requests() {
     const { currentUSer, setLoading, setAlert } = useAuth();
     const id = currentUSer.uid;
+    console.log(id);
     const [requests, setRequests] = useState([]);
     //get request with user id
     useEffect(() => {
