@@ -30,7 +30,8 @@ const FootballNews = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          'https://newsapi.org/v2/top-headlines?sources=four-four-two&apiKey=66e79f2589f34959b0f8eefbd79bcfa7'
+          'https://newsapi.org/v2/top-headlines?sources=four-four-two&apiKey=dummy'
+          //66e79f2589f34959b0f8eefbd79bcfa7
         )
         setNews(response.data.articles)
       } catch (error) {
