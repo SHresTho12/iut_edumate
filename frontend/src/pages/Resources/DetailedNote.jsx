@@ -179,7 +179,7 @@ function DetailedNote() {
               shadow={"2xl"}
             >
               <Box p={2}>
-                <Text size="sm" marginLeft="1vw" marginBlockStart={"1vh"}>
+                <Text fontSize={'20px'} fontWeight='extrabold' marginLeft="1vw" marginBlockStart={"1vh"}>
                   Information
                 </Text>
                 <VStack>

@@ -1,8 +1,9 @@
 import React from 'react'
 import { Layout } from '../../components/Layout'
-import { Button, Flex, Text } from '@chakra-ui/react'
+import { Button, Flex, Text,VStack,Image, ChakraProvider } from '@chakra-ui/react'
 import { useEffect,useState } from 'react';
 import axios from 'axios';
+import theme from '../theme'
 function Download() {
 
     let search = window.location.search;
@@ -52,13 +53,24 @@ console.log(file);
     }
 
   return (
+    <ChakraProvider theme={theme}>
    <Layout>
-     <Flex alignItems='center' justifyContent='center' height='100vh'>
+     <VStack alignItems='center' justifyContent='center' height='100vh'>
+     <Image
+            src="/images/down.jpg"
+            alt="s"
+           
+            sx={{ filter: "blur(0px)" }}
+            width='40vw'
+        
+            
+          />
       <Button onClick={handleDownload}>
         <Text fontSize='lg'>Download file</Text>
       </Button>
-    </Flex>
+    </VStack>
    </Layout>
+   </ChakraProvider>
   )
 }
 

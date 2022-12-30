@@ -31,9 +31,9 @@ function QueryHeader() {
       )}
     
       <Spacer />
-      <Heading as="h3" size="lg" color='#00454A'>
+      {/* <Heading as="h3" size="lg" color='#00454A'>
         Questions and Answers
-      </Heading>
+      </Heading> */}
 
       <Spacer />
 

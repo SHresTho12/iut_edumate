@@ -46,7 +46,11 @@ import uploadfile from "../pages/fileshare/Upload";
 import Requests from "../pages/Requests/Requests";
 import Requested from "../pages/Requests/Requested";
 import Download from "../pages/fileshare/Download";
+
+import ProjetctsFeed from "./Projects/ProjectFeed";
+
 import EmailSend from "../pages/fileshare/EmailSend";
+
 
 
 export default function AppRouter(props) {
@@ -73,7 +77,11 @@ export default function AppRouter(props) {
           <ProtectedRoute exact path="/requests" component={Requests} />
           <ProtectedRoute exact path="/requested" component={Requested} />
           <ProtectedRoute exact path="/download" component={Download} />
+
+          <ProtectedRoute exact path="/projectsFeed" component={ProjetctsFeed} />
+
           <ProtectedRoute exact path="/email" component={EmailSend} />
+
 
 
           <ProtectedRoute exact path="/project" component={Project} />
