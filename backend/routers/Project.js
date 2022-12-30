@@ -22,6 +22,7 @@ router.post("/", async (req, res) => {
         status: true,
         data: doc,
       });
+
     })
     .catch((err) => {
       res.status(400).send({
@@ -53,58 +54,139 @@ router.put("/interested/:id", async (req, res) => {
 });
 
 //get individual note by param id nad comments related to that note
+
+//   router.get("/", async (req, res) => {
+//     const error = {
+//       message: "Error in retrieving projects",
+//       error: "Bad request",
+//     };
+
+// projectDB
+// .aggregate([
+//   {
+//     $lookup: {
+//       from: "interested",
+//       let: { project_id: "$_id" },
+//       pipeline: [
+//         {
+//           $match: {
+//             $expr: {
+//               $eq: ["$project_id", "$$project_id"],
+//             },
+//           },
+//         },
+//         {
+//           $project: {
+//             _id: 1,
+//             // user_id: 1,
+
+//             created_at: 1,
+//             // question_id: 1,
+//           },
+//         },
+//       ],
+//       as: "interested",
+//     },
+//   },
+//   // {
+//   //   $unwind: {
+//   //     path: "$answerDetails",
+//   //     preserveNullAndEmptyArrays: true,
+//   //   },
+//   // },
+//   {
+//     $project: {
+//       __v: 0,
+//       // _id: "$_id",
+//       // answerDetails: { $first: "$answerDetails" },
+//     },
+//   },
+// ])
+// .exec()
+// .then((projectDetails) => {
+//   res.status(200).send(projectDetails);
+// })
+// .catch((e) => {
+//   console.log("Error: ", e);
+//   res.status(400).send(error);
+// });
+// });
+
+// //detailed note info
+// router.get("/:id", async (req, res) => {
+// try {
+//   projectDB
+//   .aggregate([
+//     {
+//       $match: { _id: mongoose.Types.ObjectId(req.params.id) },
+//     },
+//     {
+//       $lookup: {
+//         from: "interested",
+//         let: { project_id: "$_id" },
+//         pipeline: [
+//           {
+//             $match: {
+//               $expr: {
+//                 $eq: ["$project_id", "$$project_id"],
+//               },
+//             },
+//           },
+//           {
+//             $project: {
+//               _id: 1,
+//               user: 1,
+
+//               project_id: 1,
+//               created_at: 1,
+//             },
+//           },
+//         ],
+//         as: "interested",
+//       },
+//     },
+//     {
+//       $project: {
+//         __v: 0,
+//       },
+//     },
+//   ])
+//   .exec()
+//   .then((projectDetails) => {
+//     res.status(200).send(projectDetails);
+//   })
+//   .catch((e) => {
+//     console.log("Error: ", e);
+//     res.status(400).send(e);
+//   });
+// } catch (err) {
+// console.log(err);
+// res.status(400).send({
+//   message: "Note not found",
+// });
+// }
+// });
+
+//get all projects by get request
 router.get("/", async (req, res) => {
-  const error = {
-    message: "Error in retrieving projects",
-    error: "Bad request",
-  };
+  try {
+    const projects = await projectDB.find({});
+    res.send(projects);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
 
-  //   projectDB
-  //     .aggregate([
-
-  //       {
-  //         $project: {
-  //           __v: 0,
-
-  //         },
-  //       },
-  //     ])
-  //     .exec()
-  //     .then((projectDetails) => {
-  //       res.status(200).send(projectDetails);
-  //     })
-  //     .catch((e) => {
-  //       console.log("Error: ", e);
-  //       res.status(400).send(error);
-  //     });
-  // });
-
-  // //detailed note info
-  // router.get("/:id", async (req, res) => {
-  //   try {
-  //     projectDB
-  //       .aggregate([
-
-  //         {
-  //           $project: {
-  //             __v: 0,
-  //           },
-  //         },
-  //       ])
-  //       .exec()
-  //       .then((projectDetails) => {
-  //         res.status(200).send(projectDetails);
-  //       })
-  //       .catch((e) => {
-  //         console.log("Error: ", e);
-  //         res.status(400).send(e);
-  //       });
-  //   } catch (err) {
-  //     console.log(err);
-  //     res.status(400).send({
-  //       message: "Note not found",
-  //     });
-  //   }
+//get individual project by param id
+router.get("/:id", async (req, res) => {
+  try {
+    const project = await projectDB.findById({ fireuid: req.params.id });
+    res.send(project);
+  } catch (error) {
+    res.status(500).send(error);
+  }
 });
 
 module.exports = router;
+
+

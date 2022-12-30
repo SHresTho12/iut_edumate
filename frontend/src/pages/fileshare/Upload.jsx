@@ -1,8 +1,10 @@
-import { Center } from '@chakra-ui/react'
+import { Center,VStack,Image, ChakraProvider } from '@chakra-ui/react'
 import React from 'react'
 import Uploadbox from '../../components/fileshare/Uploadbox'
 import { Layout } from '../../components/Layout'
+
 import { useAuth } from '../../Context/AuthContext';
+
 function Upload() {
   //get the id from the parameters
   let search = window.location.search;
@@ -11,9 +13,24 @@ function Upload() {
    const { currentUSer } = useAuth();
    const userUid = currentUSer.uid;
   return (
- <Layout><Center>
+
+    <ChakraProvider theme={theme}>
+   <Layout>
+     <VStack alignItems='center' justifyContent='center' height='100vh'>
+     <Image
+            src="/images/upload.jpg"
+            alt="s"
+         
+            sx={{ filter: "blur(0px)" }}
+            width='20%'
+        
+            
+          />
         <Uploadbox id={id} uid={userUid}></Uploadbox>
-    </Center></Layout>
+        </VStack>
+   </Layout>
+   </ChakraProvider>
+
     
   )
 }

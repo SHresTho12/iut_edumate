@@ -13,7 +13,7 @@ function QueryFeed({questions}) {
     <Box border="" >
 
 
-       <Flex align="center" justify="center">
+       <Flex align="center" justify="center" >
         <Heading as='h2' size='lg'  color='#00454A' shadow={'2xl'}>Query Feed</Heading>
        </Flex>
        {questions?.map((_q) => (

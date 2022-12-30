@@ -13,10 +13,12 @@ import {
   Text,
   Grid,
   GridItem,
+  
   Button,
   Input,
   ChakraProvider,
 } from "@chakra-ui/react";
+import theme from "../../components/Query-Section/theme";
 function DetailedNote() {
   const { currentUSer } = useAuth();
   const [note, setNote] = useState();
@@ -147,6 +149,7 @@ function DetailedNote() {
 
 
   return (
+    <ChakraProvider theme={theme}>
     <Layout>
       <Box>
         <VStack alignItems="left">
@@ -176,7 +179,7 @@ function DetailedNote() {
               shadow={"2xl"}
             >
               <Box p={2}>
-                <Text size="sm" marginLeft="1vw" marginBlockStart={"1vh"}>
+                <Text fontSize={'20px'} fontWeight='extrabold' marginLeft="1vw" marginBlockStart={"1vh"}>
                   Information
                 </Text>
                 <VStack>
@@ -304,6 +307,7 @@ function DetailedNote() {
         
       </Box>
     </Layout>
+  </ChakraProvider>
   );
 }
 

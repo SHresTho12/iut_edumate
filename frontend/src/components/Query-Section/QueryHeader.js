@@ -31,18 +31,18 @@ function QueryHeader() {
       )}
     
       <Spacer />
-      <Heading as="h3" size="lg" color='#00454A'>
+      {/* <Heading as="h3" size="lg" color='#00454A'>
         Questions and Answers
-      </Heading>
+      </Heading> */}
 
       <Spacer />
 
-<HStack>
+{/* <HStack>
 <FaSearch/> <Input bgColor="#FFFFFF" htmlSize={35} width="auto" placeholder="Search  Any Query" border={'2px'} shadow='lg' borderColor='#5782BB'></Input> 
       <Button bgColor='#90E0EF' size="md" color='#0F3460' _hover={{bg:'#73B3BF'}}>
         Search
       </Button>
-      </HStack>
+      </HStack> */}
     </Flex>
   );
 }

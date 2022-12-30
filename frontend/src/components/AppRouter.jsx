@@ -20,7 +20,7 @@ import Loginpage from "../pages/Loginpage";
 import Pro from './profile/Projects';
 import Resource from './profile/Resources';
 import ForgotPasswordPage from "../pages/ForgotPasswordPage";
-import Profilepage from "../pages/Profilepage";
+import PersonalQuestion from "../pages/profile/Personal";
 import Query from "../pages/QueryPage";
 import ResetPasswordPage from "../pages/ResetPasswordPage";
 import Registerpage from "../pages/Registerpage";
@@ -46,7 +46,11 @@ import uploadfile from "../pages/fileshare/Upload";
 import Requests from "../pages/Requests/Requests";
 import Requested from "../pages/Requests/Requested";
 import Download from "../pages/fileshare/Download";
+
+import ProjetctsFeed from "./Projects/ProjectFeed";
+
 import EmailSend from "../pages/fileshare/EmailSend";
+
 
 
 export default function AppRouter(props) {
@@ -73,7 +77,11 @@ export default function AppRouter(props) {
           <ProtectedRoute exact path="/requests" component={Requests} />
           <ProtectedRoute exact path="/requested" component={Requested} />
           <ProtectedRoute exact path="/download" component={Download} />
+
+          <ProtectedRoute exact path="/projectsFeed" component={ProjetctsFeed} />
+
           <ProtectedRoute exact path="/email" component={EmailSend} />
+
 
 
           <ProtectedRoute exact path="/project" component={Project} />
@@ -90,6 +98,7 @@ export default function AppRouter(props) {
           <ProtectedRoute exact path="/upload" component={uploadfile} />
           <ProtectedRoute exact path="/addNote" component={AddNote} />
           <ProtectedRoute exact path="/notes" component={Note} />
+          <ProtectedRoute exact path="/PersonalQuestion" component={PersonalQuestion} />
 
 
           <ProtectedRoute exact path="/settings" component={Sidebar} />

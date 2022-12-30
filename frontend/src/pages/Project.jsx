@@ -6,10 +6,20 @@ import { chakra,Input,Text,Box,Stack,List,
 import React from 'react'
 import Contact from "../components/Contact";
 import { Layout } from '../components/Layout'
+import ProjectCard from '../components/Projects/ProjectCard';
+import ProjectFeed from '../components/Projects/ProjectFeed';
 import { useAuth } from '../Context/AuthContext'
+import { useState, useEffect} from 'react'
+import axios from 'axios';
 import theme from './theme'
+import { Link } from 'react-router-dom';
 
 function Feature({ title, desc, img,...rest }) {
+
+
+
+
+
      return (
        <Box p={4}  shadow='lg' borderWidth='2px' borderColor='#9CC094' {...rest} maxHeight='160%'>
          <Heading fontSize='xl'>{title}</Heading>
@@ -20,7 +30,8 @@ function Feature({ title, desc, img,...rest }) {
 
 export default function Project() {
   const { currentUSer } = useAuth()
-  console.log(currentUSer)
+
+  
   return (
     <ChakraProvider theme={theme}>
     <Layout>
@@ -30,6 +41,7 @@ export default function Project() {
 </Center>
 
 <Stack spacing={8} direction='row' >
+   <HStack>
 <VStack>
 <Image
             src="/images/idea.gif"
@@ -62,10 +74,18 @@ export default function Project() {
             <Text mt={4}>1. What’s your idea? Get in touch. Always available for
             team project if the right project comes along.</Text>
        </Box>
+       
       </VStack>
-
-      <Contact />
+       </HStack>
+       <Button> <Link to="/projectsFeed">See All the projects</Link></Button>
+        <Contact />
+   
+   
+    
+    
+     
     </Stack>
+  
    
  
     </Layout>

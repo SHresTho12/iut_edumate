@@ -24,19 +24,36 @@ const Contact = () => {
 
 
 //axios put req to post project data
-  const { currentUSer } = useAuth()
-  const [loading,setLoading] = useState(false);
+
+const { currentUSer } = useAuth()
+const [loading,setLoading] = useState(false);
+
 const [projectname,setProjectname] = useState('')
 const [projectlink,setProjectlink] = useState('')
 const [ projectdescription,setProjectdescription] = useState('')
 const [ projectSubject,setProjectSubject] = useState('')
+
+const [Researchname,setResearchname] = useState('')
+const [Researchlink,setResearchlink] = useState('')
+const [Researchmail,setResearchmail] = useState('')
+const [ResearchAuthor,setResearchAuthor] = useState('')
+const [Researchdescription,setResearchdescription] = useState('')
+
 const handleSubmit = async () => {
   const body = {
+    fireuid:currentUSer.uid,
     projectname: projectname,
     projectSubject: projectSubject,
     projectlink: projectlink,
     projectdescription: projectdescription,
-    user:currentUSer,
+    Researchname: Researchname,
+    Researchlink: Researchlink,
+    Researchmail: Researchmail,
+    ResearchAuthor: ResearchAuthor,
+    Researchdescription: Researchdescription,
+    user:currentUSer
+ 
+
   };
   const config = {
     headers: {
@@ -47,11 +64,14 @@ const handleSubmit = async () => {
   await axios
     .post("/project", body, config)
     .then(() => {
-      alert("Answer added successfully");
+      alert("Your description is added successfully");
     
     })
     .catch((err) => console.log(err));
 };
+
+
+
 
   return (
     <div className="c">
@@ -102,10 +122,6 @@ const handleSubmit = async () => {
             <Button onClick={handleSubmit} name='btn' type='submit' colorScheme='green' size='md' marginBottom='18px' fontSize='md' marginLeft='50px'>
               Submit
             </Button>
-          
-
-         
-         
           </form>
      
       <Heading marginLeft='50px' fontSize='2xl' >
@@ -113,11 +129,12 @@ const handleSubmit = async () => {
             <div className="c-bg2"></div>
           </Heading>
           
+          
           <form >
           <FormControl id='name' variant="floating" marginLeft='50px' >
               
               
-              <Input marginBottom='8px'
+              <Input marginBottom='8px' value={Researchname} onChange={(e) =>setResearchname(e.target.value)}
                 h='3.2rem' placeholder=' ' width='80%'   name='name' type='name' autoComplete='name' required />
            <FormLabel>Paper Title</FormLabel>
             </FormControl>
@@ -125,7 +142,7 @@ const handleSubmit = async () => {
             <FormControl id='name' variant="floating" marginLeft='50px'>
               
               
-              <Input marginBottom='8px'
+              <Input marginBottom='8px' value={ResearchAuthor} onChange={(e) =>setResearchAuthor(e.target.value)}
                 h='3.2rem' placeholder=' ' width='80%'   name='subject' type='text' autoComplete='subject' required />
            <FormLabel>Author</FormLabel>
             </FormControl>
@@ -133,7 +150,7 @@ const handleSubmit = async () => {
             <FormControl id='name' variant="floating" marginLeft='50px' >
               
               
-              <Input marginBottom='8px'
+              <Input marginBottom='8px' value={Researchmail} onChange={(e) =>setResearchmail(e.target.value)}
                 h='3.2rem' placeholder=' ' width='80%'  name='email' type='email' autoComplete='email' required />
            <FormLabel>Email</FormLabel>
             </FormControl>
@@ -141,10 +158,22 @@ const handleSubmit = async () => {
             <FormControl id='name' variant="floating" marginLeft='50px' >
               
               
-              <Input marginBottom='8px' value={projectlink}  onChange={(e) =>setProjectlink(e.target.value)}
+
+            <Input marginBottom='8px' value={Researchdescription} onChange={(e) =>setResearchdescription(e.target.value)}
+                h='3.2rem' placeholder=' ' width='80%' height='20vh'  name='message' type='text' autoComplete='message' required />
+           <FormLabel>Abstract</FormLabel>
+            </FormControl>
+            <FormControl id='name' variant="floating" marginLeft='50px' >
+              
+              
+              <Input marginBottom='8px' value={Researchlink} onChange={(e) =>setResearchlink(e.target.value)}
                 h='3.2rem' placeholder=' ' width='80%'  name='projectlink' type='text' autoComplete='email' required />
            <FormLabel>Paper Link</FormLabel>
             </FormControl>
+            <Button onClick={handleSubmit} name='btn' type='submit' colorScheme='green' size='md' marginBottom='18px' fontSize='md' marginLeft='50px'>
+              Submit
+            </Button>
+
         
             <Button onClick={handleSubmit} name='btn' type='submit' colorScheme='green' size='md' marginBottom='18px' fontSize='md' marginLeft='50px'>
             {loading?'Adding Project Idea .....' : 'Submit'}
