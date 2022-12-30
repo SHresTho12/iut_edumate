@@ -19,13 +19,21 @@ const [semester,setSemester] = useState("")
 const [course,setCourse] = useState("")
 const [loading,setLoading] = useState(false);
 const history = useHistory()
+const userId = currentUSer.uid;
 const handleQuill = (value) => {
   setBody(value);
   console.log(body);
 };
 
 
-
+  function updatePoint(){
+    //axios put request to update the status of the request
+    axios.put(`/points/update/${userId}`)
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => console.log(err));
+  }
 
 
 const handleSubmit = async (e) => {
@@ -47,6 +55,7 @@ const handleSubmit = async (e) => {
         // console.log(res.data);
         alert("Note added successfully");
         setLoading(false);
+        updatePoint();
         history.push("/academic");
       })
       .catch((err) => {
