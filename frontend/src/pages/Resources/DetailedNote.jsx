@@ -88,6 +88,64 @@ function DetailedNote() {
 
   console.log(note);
 
+
+//handle interested request
+  const handleInterested = async () => {
+    const bodyJSON = {
+      user: currentUSer,
+    };
+    
+    await axios
+
+      .put(`/notes/interested/${id}`, bodyJSON)
+      .then((res) => {
+        getUpdatedAnswer();
+        handlerequest();
+        
+      })
+      .catch((err) => alert(" Already interested"));
+      
+  };
+
+  const handlerequest = async () => {
+     const body = {
+      owner: note?.user.uid,
+      requester: currentUSer.uid,
+      semester: note?.semester,
+      course: note?.course,
+      title: note?.title,
+      department: note?.department,
+      resourceID: note?._id,
+
+    };
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+   //post request to the backend
+    await axios
+      .post("/request", body , config)
+      .then((res) => {
+        //alert
+        alert("Request sent");
+
+      }
+      )
+      .catch((err) =>{
+        console.log(err);
+        
+      });
+
+
+
+  };
+
+
+
+
+
+
   return (
     <Layout>
       <Box>
@@ -143,6 +201,15 @@ function DetailedNote() {
                       Down vote
                     </Button>
                   </HStack>
+                    <Button
+                      onClick={handleInterested}
+                      m={2}
+                      bgColor="#9c99ff"
+                      color={"white"}
+                      _hover={{ bg: "#8e8bfc" }}
+                    >
+                     Request The Resource
+                    </Button>
                 </VStack>
               </Box>
             </GridItem>
@@ -230,9 +297,11 @@ function DetailedNote() {
                     ))}
                 </GridItem>
               </Grid>
+              
             </Box>
           </Box>
         </Box>
+        
       </Box>
     </Layout>
   );

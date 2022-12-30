@@ -89,4 +89,22 @@ router.put("/update/:id", async (req, res) => {
   });
 });
 
+//increament points
+
+// if (interested.includes(user)) {
+//   res.status(400).send({
+//     status: false,
+//     message: "You have already added this note to your interested list",
+//   });
+// } else {
+//   interested.push(user);
+//   await notesDB.findByIdAndUpdate(id, {
+//     interested: interested,
+//   });
+//   res.status(200).send({
+//     status: true,
+//     message: "Note added to your interested list",
+//   });
+// }
+
 module.exports = router;
