@@ -1,10 +1,30 @@
+import axios from "axios";
 import React from "react";
 import { motion } from "framer-motion";
 import { Box, Button, Heading, Text } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom'
 import Navlink from "../Navlink";
+import parse from "html-react-parser";
 function ProjectCards() {
+
+  const [project, setProject] = useState();
+  let search = window.location.search;
+  const params = new URLSearchParams(search);
+  const id = params.get("id");
   const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    async function getFunctionDetails() {
+      await axios
+        .get(`/pro/${id}`)
+        .then((res) => {
+          console.log(res.data);
+          setProject(res.data[0]);
+        })
+        .catch((err) => console.log("The error: " + err.message));
+    }
+    getFunctionDetails();
+  }, [id]);
   return (
     //farmer motion expandable card
     
@@ -28,16 +48,9 @@ function ProjectCards() {
      
     >
         <motion.h2 transition={{ layout: { duration: 1 } }} layout="position">
-          <Heading
-            _hover={{
-              color: "black",
-            }}
-            size="lg"
-            color="green.200"
-          >
-            {" "}
-            Project 💡
-          </Heading>
+        <Box fontSize="x-large" bgColor="#affac9" borderRadius='5px' height={'7vh'} >
+          <Link to={`/pro?id=${project?._id}`} >{project?.projectname}</Link>
+        </Box>
         </motion.h2>
         {isOpen && (
           <motion.div 
@@ -48,9 +61,7 @@ function ProjectCards() {
           >
             <motion.p>
               {" "}
-              <Text color="black" p={2}>
-                Some description about the project
-              </Text>
+              <Text> {parse(`${project?.projectdescription}`)}</Text>
             </motion.p>
 
             <Navlink

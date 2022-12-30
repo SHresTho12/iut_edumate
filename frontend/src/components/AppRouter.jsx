@@ -1,4 +1,12 @@
 
+
+
+
+
+
+
+
+
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
@@ -17,6 +25,10 @@ import Query from "../pages/QueryPage";
 import ResetPasswordPage from "../pages/ResetPasswordPage";
 import Registerpage from "../pages/Registerpage";
 import co from "../pages/coCurricular";
+import Resource from './profile/Resources'
+import pq from './profile/PersonalQuestions'
+import Pro from './profile/Projects'
+
 import lead from '../pages/Lead'
 
 import AskQuestion from "./Query-Section/AskQuestion";
@@ -71,9 +83,14 @@ export default function AppRouter(props) {
           <ProtectedRoute exact path="/academic" component={academic} />
           <ProtectedRoute exact path='/pro' component={Pro} />
           <ProtectedRoute exact path='/resource' component={Resource} />
+
+          <ProtectedRoute exact path='/pq' component={pq} />
+         
+
           <ProtectedRoute exact path="/upload" component={uploadfile} />
           <ProtectedRoute exact path="/addNote" component={AddNote} />
           <ProtectedRoute exact path="/notes" component={Note} />
+
 
           <ProtectedRoute exact path="/settings" component={Sidebar} />
 
