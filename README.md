@@ -21,12 +21,19 @@
 <ul>
   <li>Co-curricular section: Students can create polls, predict matches, and organize intra-department matches.</li>
 </ul>
-<h2>Setup</h2>
+<h2>Setup Frontend</h2>
 <ol>
   <li>Clone the repository and navigate to the root directory.</li>
   <li>Install dependencies by running <code>npm install</code> in the terminal.</li>
   <li>Run <code>npm start</code> to start the development server.</li>
   <li>Navigate to <code>http://localhost:3000</code> in your browser to view the app.</li>
+</ol>
+<h2>Setup Backend</h2>
+<ol>
+  <li>cd backend command to go into the backend foldeer.</li>
+  <li>Install dependencies by running <code>npm install</code> in the terminal.</li>
+  <li>Run <code>node server.js</code> to start the development server.</li>
+  <li>Ther server will run at <code>http://localhost:80</code> in your system.</li>
 </ol>
 <h2>Contributing</h2>
 <p>Contributions are always welcome. If you'd like to contribute, please fork the repository and create a pull request. Please make sure to follow the code style of the project.</p>
